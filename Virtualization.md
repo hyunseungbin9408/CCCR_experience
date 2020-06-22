@@ -1,7 +1,8 @@
 ### 가상화 기본적인 개념학습 및 실습과정
 #### 1. ovirt (Hypervisor Managerment)
 + IP = 192.168.122.10
-+ Hostname
++ Hostname ovirt.abc.local
+
 ##### (1) ovirt 설치하기
 + yum update 로 설치되어있는 패키지 최신버전업데이트
 + yum install http://resources.ovrit.org/pub/yum-repo/ovirt-release43.rpm
@@ -12,6 +13,8 @@
 + engine-setup
 + engine-setup --generate-answers=FILE
 + engine-setup --config-append=FILE
+
+
 
 
 #### 2. KVM 1 (Hypervisor)
@@ -33,6 +36,16 @@
 + KVM (Kernel-based Virtual Machine) https://en.wikipedia.org/wiki/Kernel-based_Virtual_Machine * para virtualization
 
 ***
+
+### ovirt 구성요소
+
++ Java Web Application
+
++ Web Server (Apache, nginx)
+
++ Web Application (WAS)
+  + opensource = Jboss -> Wildfly
+  + Enterprise = JBoss ES
 
 ### native or bare-metal virtualization
 [Google](

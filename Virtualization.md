@@ -1,4 +1,4 @@
-### 실습한 가상화서버
+### 가상화 개념학습 및 실습과정
 #### 1. ovirt (Hypervisor Managerment)
 + IP = 192.168.122.10
 + Hostname

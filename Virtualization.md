@@ -1,14 +1,15 @@
 ## 가상화 기본적인 개념학습 및 실습과정
 #### 1. ovirt (Hypervisor Managerment)
-+ IP = 192.168.122.10
-+ Hostname ovirt.abc.local
-  ##### (1) ovirt 설치하기
+  ##### (1) 기본 네트워크
+  + IP = 192.168.122.10
+  + Hostname ovirt.abc.local
+  ##### (2) ovirt 설치하기
   + yum update 로 설치되어있는 패키지 최신버전업데이트
   + yum install http://resources.ovrit.org/pub/yum-repo/ovirt-release43.rpm
   + 커널업데이트 후에 reboot로 최신커널버전으로 실행되는지 확인
   + yum install ovirt-engine
 
-  ##### (2) engine-setup 명령어로 Manager구성
+  ##### (3) engine-setup 명령어로 Manager구성
   + engine-setup (대화식설치)
    + 기본값으로 설치함
   + engine-setup --generate-answers=FILE

@@ -10,8 +10,7 @@
   + yum install ovirt-engine
 
   ##### (3) engine-setup 명령어로 Manager구성
-  + engine-setup (대화식설치)
-   + 기본값으로 설치함
+  + engine-setup (대화식설치) <- 파일생성하지않고 기본값으로 설치진행함
   + engine-setup --generate-answers=FILE
   + engine-setup --config-append=FILE
 
@@ -64,6 +63,7 @@
   + 하나의 운영체제안에서는 프로세스간의 통신을 하기위해서는 IPC(inter process communication) https://en.wikipedia.org/wiki/Inter-process_communication 가 필요하다.
   + QEMU(Quarterdeck expanded memory manager) https://en.wikipedia.org/wiki/QEMU * full virtualization
   + KVM (Kernel-based Virtual Machine) https://en.wikipedia.org/wiki/Kernel-based_Virtual_Machine * para virtualization
+  + TCP/IP 가이드 http://www.tcpipguide.com/
 
 ***
 

@@ -9,14 +9,14 @@
   + 커널업데이트 후에 reboot로 최신커널버전으로 실행되는지 확인
   + yum install ovirt-engine
   ##### (3) engine-setup 명령어로 Manager구성
-  + engine-setup (대화식설치) <- 파일생성하지않고 기본값으로 설치진행함
+  + **engine-setup (대화식설치) <- 파일생성하지않고 기본값으로 설치진행함
   + engine-setup --generate-answers=FILE
   + engine-setup --config-append=FILE
   ##### (4) 설치완료
   + 유저아이디 ' admin@internal '
   + /etc/hosts 에 ip와 로컬주소 입력
   + web에 ip주소로 들어가서 로그인해주면 관리자페이지로 접속완료
-  + *관리자 주소는 절대로 밖으로 노출되어서는 안된다.*
+  + **관리자 주소는 절대로 밖으로 노출되어서는 안된다.**
 
 
 

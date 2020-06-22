@@ -54,12 +54,17 @@
 ### ovirt 구성요소
 
 + **ovirt의 두가지 엔진**
-  + **Standalone Manager (Thin Hypervisor Host)**
-    + Base-metal(Native)형 하이퍼바이저
-    + 관리측면에서 Thick버전보다 많이 사용함
-  + **Self-Hostd Engine (Thick Hypervisor Host)**
-    + Hosted 형 하이퍼바이저
-    + 개발,테스트,시연 등으로 사용하기에 적당
+  + **Standalone Mnager**
+    + 별도의 물리적 시스템 또는 가상화 환경에서 호스트되는 가상 시스템에서 실행
+    + 물리적인 시스템으로 주로 배포
+    + 배포와 관리가 상대적으로 쉽다.
+    + 추가적인 제품을 통해서 외부관리 가능
+    
+  + **Self-Hostd Engine**
+    + 엔진이 관리하는 ovirt 환경에 가상시스템으로 설치
+    + 실제서버가 하나가 더 적음
+    + 고가용성
+    + POC 용도로 사용하거나 작은환경에서 적합
 + Java Web Application
 
 + Web Server (Apache, nginx)

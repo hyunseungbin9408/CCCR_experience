@@ -35,19 +35,19 @@
 
 #### 2. KVM 1 (Hypervisor)
 ```
-+ IP = 192.168.122.21
-+ hostname = hyper1.abc.local
-+ yum update
-+ reboot 커널업데이트
-+ yum install http://resources.ovirt.org/pub/yum-repo/ovirt-release43.rpm
-+ yum install qemu-kvm libvirt virt-install bridge-utils vdsm vdsm-client
+IP = 192.168.122.21
+hostname = hyper1.abc.local
+yum update
+reboot 커널업데이트
+yum install http://resources.ovirt.org/pub/yum-repo/ovirt-release43.rpm
+yum install qemu-kvm libvirt virt-install bridge-utils vdsm vdsm-client
 ```
 
 #### 3. KVM 2 (Hypervisor)
 ```
-+ IP = 192.168.122.22
-+ hostname = hyper2.abc.local
-+ 나머지설치법은 KVM1과 같음
+IP = 192.168.122.22
+hostname = hyper2.abc.local
+나머지설치법은 KVM1과 같음
 ```
 ***
 

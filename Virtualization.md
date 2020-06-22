@@ -24,18 +24,6 @@
 #### 3. KVM 2 (Hypervisor)
 + IP = 192.168.122.22
 
-
-
-### 가상화 개념
-  + 커널(kernel) https://en.wikipedia.org/wiki/Kernel_(operating_system)
-  + 보호링(protect ring) https://en.wikipedia.org/wiki/Protection_ring
-  + *하이퍼바이저(hyperviser)* https://en.wikipedia.org/wiki/Hypervisor
-  + 가상랜(VLAN) https://en.wikipedia.org/wiki/Virtual_LAN
-  + 가상화의 핵심은 isolation
-  + 하나의 운영체제안에서는 프로세스간의 통신을 하기위해서는 IPC(inter process communication) https://en.wikipedia.org/wiki/Inter-process_communication 가 필요하다.
-  + QEMU(Quarterdeck expanded memory manager) https://en.wikipedia.org/wiki/QEMU * full virtualization
-  + KVM (Kernel-based Virtual Machine) https://en.wikipedia.org/wiki/Kernel-based_Virtual_Machine * para virtualization
-
 ***
 
 ### ovirt 구성요소
@@ -63,6 +51,21 @@
 + PSTN (전화망 Circuitket-Switching)
 + VoIP (Voice over IP)
 + VoLTE (Voice over LTE)
+
+***
+
+### 가상화 개념
+  + 커널(kernel) https://en.wikipedia.org/wiki/Kernel_(operating_system)
+  + 보호링(protect ring) https://en.wikipedia.org/wiki/Protection_ring
+  + *하이퍼바이저(hyperviser)* https://en.wikipedia.org/wiki/Hypervisor
+  + 가상랜(VLAN) https://en.wikipedia.org/wiki/Virtual_LAN
+  + 가상화의 핵심은 isolation
+  + 하나의 운영체제안에서는 프로세스간의 통신을 하기위해서는 IPC(inter process communication) https://en.wikipedia.org/wiki/Inter-process_communication 가 필요하다.
+  + QEMU(Quarterdeck expanded memory manager) https://en.wikipedia.org/wiki/QEMU * full virtualization
+  + KVM (Kernel-based Virtual Machine) https://en.wikipedia.org/wiki/Kernel-based_Virtual_Machine * para virtualization
+
+***
+
 ### native or bare-metal virtualization
   <img src="https://drive.google.com/drive/my-drive"></img>
 

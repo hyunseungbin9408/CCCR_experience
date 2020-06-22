@@ -117,26 +117,26 @@ hostname = hyper2.abc.local
   + TCP/IP 가이드 http://www.tcpipguide.com/
 
 ***
-
-### native or bare-metal virtualization
-  + Application -> **Kernel -> Hypervisor** -> Hardware
-### host virtualization
-  + Application -> **Hypervisor -> Kernel** -> Hardware
-
-### Full virtualization (전체)
+***
+## 가상화 종류
+ ### Full virtualization (전체)
   ###### VMware가 대표주자
   + 
-### Para virtualization (반)
+ ### Para virtualization (반)
   ###### Xen -> KVM 으로 이동
   +
 
-***
-
-#### 가상화머신에 의한 대락적인 성능차이
-  + 기본 bare-metal system을 기준으로 1이라고 한다면
-  + bare-metal virtualizion은 0.8
-  + host virtualizion 0.6
-  app과 하드웨어간에 거치는 경로가 많아진다면 속도가 느려짐
+#### 하이퍼바이저 종류
+  ##### native or bare-metal virtualization
+   + Application -> **Kernel -> Hypervisor** -> Hardware
+   + 물리적인 머신에 하이퍼바이저 소프트웨어를 설치
+   + 별도의 운영체제가 필요 없음
+   + **하이퍼바이저를 관리할 시스템이 필요**
+  
+  ##### host virtualization
+   + Application -> **Hypervisor -> Kernel** -> Hardware
+   + 운영체제가 설치된 머신에서 하이퍼바이저 소프트웨어를 설치
+   + **하이퍼바이저를 관리할 시스템이 필요하지않음**
 
 ***
 
@@ -166,3 +166,12 @@ hostname = hyper2.abc.local
   ###### 일반적으로 개발용으로 사용
   + VMware Workstation/Fusion (유료)
   + Oracale VirtualBox (무료이면서 모든 운영체제에서 이용가능) //내부적으로 KVM소스로 만들어짐
+
+
+***
+
+#### 가상화머신에 의한 대락적인 성능차이
+  + 기본 bare-metal system을 기준으로 1이라고 한다면
+  + bare-metal virtualizion은 0.8
+  + host virtualizion 0.6
+  app과 하드웨어간에 거치는 경로가 많아진다면 속도가 느려짐

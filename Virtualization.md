@@ -1,15 +1,17 @@
 ## 가상화 기본적인 개념학습 및 실습과정
+#### 기본적으로 실습한 환경은 Centos 7.8 버전
 #### 1. ovirt (Hypervisor Managerment)
   ##### (1) 기본 네트워크
   + IP = 192.168.122.10
   + Hostname ovirt.abc.local
   ##### (2) ovirt 설치하기
+  + **Redhat 계열이기때문에 Debian 계열인 Ubuntu에서는 설치 할 수 없음!**
   + yum update 로 설치되어있는 패키지 최신버전업데이트
   + yum install http://resources.ovrit.org/pub/yum-repo/ovirt-release43.rpm
   + 커널업데이트 후에 reboot로 최신커널버전으로 실행되는지 확인
   + yum install ovirt-engine
   ##### (3) engine-setup 명령어로 Manager구성
-  + **engine-setup (대화식설치) <- 파일생성하지않고 기본값으로 설치진행함
+  + **engine-setup (대화식설치) <- 파일생성하지않고 기본값으로 설치진행함**
   + engine-setup --generate-answers=FILE
   + engine-setup --config-append=FILE
   ##### (4) 설치완료
@@ -24,14 +26,23 @@
 
 #### 2. KVM 1 (Hypervisor)
 + IP = 192.168.122.21
++ hostname = hyper1.abc.local
 
 #### 3. KVM 2 (Hypervisor)
 + IP = 192.168.122.22
++ hostname = hyper2.abc.local
 
 ***
 
 ### ovirt 구성요소
 
++ **ovirt의 두가지 엔진**
+  + **Standalone Manager (Thin Hypervisor Host)**
+    + Base-metal(Native)형 하이퍼바이저
+    + 관리측면에서 Thick버전보다 많이 사용함
+  + **Self-Hostd Engine (Thick Hypervisor Host)**
+    + Hosted 형 하이퍼바이저
+    + 개발,테스트,시연 등으로 사용하기에 적당
 + Java Web Application
 
 + Web Server (Apache, nginx)

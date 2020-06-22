@@ -105,9 +105,9 @@ hostname = hyper2.abc.local
 ***
 
 ### native or bare-metal virtualization
-  <img src="https://drive.google.com/drive/my-drive"></img>
-
+  + Application -> **Kernel -> Hypervisor** -> Hardware
 ### host virtualization
+  + Application -> **Hypervisor -> Kernel** -> Hardware
 
 ### Full virtualization (전체)
   ###### VMware가 대표주자

@@ -65,43 +65,6 @@ hostname = hyper2.abc.local
 ```
 ***
 
-### ovirt 구성요소
-
-+ **ovirt의 두가지 엔진**
-  + **Standalone Mnager**
-    + 별도의 물리적 시스템 또는 가상화 환경에서 호스트되는 가상 시스템에서 실행
-    + 물리적인 시스템으로 주로 배포
-    + 배포와 관리가 상대적으로 쉽다.
-    + 추가적인 제품을 통해서 외부관리 가능
-    
-  + **Self-Hostd Engine**
-    + 엔진이 관리하는 ovirt 환경에 가상시스템으로 설치
-    + 실제서버가 하나가 더 적음
-    + 고가용성
-    + POC 용도로 사용하거나 작은환경에서 적합
-+ Java Web Application
-
-+ Web Server (Apache, nginx)
-
-+ Web Application (WAS)
-  + opensource = Jboss -> Wildfly
-  + Enterprise = JBoss ES
-
-+ SAN (Storage Area Network)
-
-+ FC-SAN : Fiber Channel
-  + HBA (Host Bus Adapter) : FC
-  + FC Protocol
-  + SAN Switch
-  
-+ IP-SAN (iSCSI, FCoE(FC over Ethernet) ...)
-  + Ethernet NIC
-  + TCP/IP Protocol
-  + Ethernet Switch
-  
-+ PSTN (전화망 Circuitket-Switching)
-+ VoIP (Voice over IP)
-+ VoLTE (Voice over LTE)
 
 ***
 
@@ -121,12 +84,33 @@ hostname = hyper2.abc.local
 ## 가상화 종류
  ### Full virtualization (전체)
   ###### VMware가 대표주자
-  + 
+  + **장점**
+   + 가상머신이 제공받은 하드웨워 모두가 가상 하드웨어
+   + 제공받은 가상머신 하드웨어들은 자신이 가상인지 알지 못함
+   + 물리적인 하드웨어에 접근할때 하이퍼바이저에 의해 제어
+   + 대부분의 운영체제를 쉽게 설치가능
+  **단점**
+   + 전 가상화는 트랩과 에뮬레이터 작업을 거치기때문에 성능이 저하
+   + 또한 Sensitive instruction이 발생하면 하이퍼바이저에 문제가 발생
+    + 하드웨어 지원으로 해당문제 해결가능
+ 
  ### Para virtualization (반)
   ###### Xen -> KVM 으로 이동
-  +
-
-#### 하이퍼바이저 종류
+  + 운영체제의 커널 소스를 수정한 가상화
+  + 하이퍼바이저가 가상머신에게 특수한 인터페이스 제공
+   + 벤더마다 반가상화의 인터페이스가 다름
+   + KVM에서는 hypervisor-aware 드라이브라고 함
+  + **반가상화는 전가상화보다 오버헤드가 적음**
+  + 운영체제의 커널 소스를 수정해야하기 때문에 오픈소스 운영체제 한정
+  
+  ***
+  
+### 하이퍼바이저란?
+  + 하드웨어를 소프트웨어적으로 파티셔닝하며 가상머신에게 제공
+  + 주요기능은 시스템 자원관리, 모니터링, 독립성 유지, 주변장치 제공
+  + **가상화에서는 독립성유지가 매우중요**
+   + 서로 다른 가상머신에서 실행한 프로세스들은 하나의 물리적인 메모리에서 
+ #### 하이퍼바이저 종류
   ##### native or bare-metal virtualization
    + Application -> **Kernel -> Hypervisor** -> Hardware
    + 물리적인 머신에 하이퍼바이저 소프트웨어를 설치
@@ -175,3 +159,43 @@ hostname = hyper2.abc.local
   + bare-metal virtualizion은 0.8
   + host virtualizion 0.6
   app과 하드웨어간에 거치는 경로가 많아진다면 속도가 느려짐
+  
+***
+### ovirt 구성요소
+
++ **ovirt의 두가지 엔진**
+  + **Standalone Mnager**
+    + 별도의 물리적 시스템 또는 가상화 환경에서 호스트되는 가상 시스템에서 실행
+    + 물리적인 시스템으로 주로 배포
+    + 배포와 관리가 상대적으로 쉽다.
+    + 추가적인 제품을 통해서 외부관리 가능
+    
+  + **Self-Hostd Engine**
+    + 엔진이 관리하는 ovirt 환경에 가상시스템으로 설치
+    + 실제서버가 하나가 더 적음
+    + 고가용성
+    + POC 용도로 사용하거나 작은환경에서 적합
++ Java Web Application
+
++ Web Server (Apache, nginx)
+
++ Web Application (WAS)
+  + opensource = Jboss -> Wildfly
+  + Enterprise = JBoss ES
+
++ SAN (Storage Area Network)
+
++ FC-SAN : Fiber Channel
+  + HBA (Host Bus Adapter) : FC
+  + FC Protocol
+  + SAN Switch
+  
++ IP-SAN (iSCSI, FCoE(FC over Ethernet) ...)
+  + Ethernet NIC
+  + TCP/IP Protocol
+  + Ethernet Switch
+  
++ PSTN (전화망 Circuitket-Switching)
++ VoIP (Voice over IP)
++ VoLTE (Voice over LTE)
+

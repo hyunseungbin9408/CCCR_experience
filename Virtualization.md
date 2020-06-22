@@ -2,17 +2,17 @@
 #### 1. ovirt (Hypervisor Managerment)
 + IP = 192.168.122.10
 + Hostname ovirt.abc.local
+  ##### (1) ovirt 설치하기
+  + yum update 로 설치되어있는 패키지 최신버전업데이트
+  + yum install http://resources.ovrit.org/pub/yum-repo/ovirt-release43.rpm
+  + 커널업데이트 후에 최신커널 확인
+  + yum install ovirt-engine
 
-##### (1) ovirt 설치하기
-+ yum update 로 설치되어있는 패키지 최신버전업데이트
-+ yum install http://resources.ovrit.org/pub/yum-repo/ovirt-release43.rpm
-+ 커널업데이트 후에 최신커널 확인
-+ yum install ovirt-engine
+  ##### (2) engine-setup 명령어로 Manager구성
+  + engine-setup
+  + engine-setup --generate-answers=FILE
+  + engine-setup --config-append=FILE
 
-##### (2) engine-setup 명령어로 Manager구성
-+ engine-setup
-+ engine-setup --generate-answers=FILE
-+ engine-setup --config-append=FILE
 
 
 

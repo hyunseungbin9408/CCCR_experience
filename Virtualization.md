@@ -5,11 +5,12 @@
   ##### (1) ovirt 설치하기
   + yum update 로 설치되어있는 패키지 최신버전업데이트
   + yum install http://resources.ovrit.org/pub/yum-repo/ovirt-release43.rpm
-  + 커널업데이트 후에 최신커널 확인
+  + 커널업데이트 후에 reboot로 최신커널버전으로 실행되는지 확인
   + yum install ovirt-engine
 
   ##### (2) engine-setup 명령어로 Manager구성
-  + engine-setup
+  + engine-setup (대화식설치)
+   + 기본값으로 설치함
   + engine-setup --generate-answers=FILE
   + engine-setup --config-append=FILE
 
@@ -47,8 +48,14 @@
   + opensource = Jboss -> Wildfly
   + Enterprise = JBoss ES
 
++ SAN (Storage Area Network)
+
++ FC-SAN : Fiber Channel
+  + HBA (Host Bus Adapter) : FC
+  + FC Protocol
+  + SAN Switch
 ### native or bare-metal virtualization
-  [Google](
+  <img src="https://drive.google.com/drive/my-drive"></img>
 
 ### host virtualization
 
@@ -69,7 +76,7 @@
 
 ***
 
-#### 가상화 프로그램 역사와 종류
+#### 가상화 프로그램 종류
   ##### Type 1 (Bare-metal / Native)
   ###### Hypervisor
 

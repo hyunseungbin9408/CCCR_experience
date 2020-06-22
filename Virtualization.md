@@ -1,4 +1,4 @@
-### 가상화 기본적인 개념학습 및 실습과정
+## 가상화 기본적인 개념학습 및 실습과정
 #### 1. ovirt (Hypervisor Managerment)
 + IP = 192.168.122.10
 + Hostname ovirt.abc.local
@@ -54,7 +54,7 @@
 
 ***
 
-### 가상화 개념
+### 가상화 용어 기본개념
   + 커널(kernel) https://en.wikipedia.org/wiki/Kernel_(operating_system)
   + 보호링(protect ring) https://en.wikipedia.org/wiki/Protection_ring
   + *하이퍼바이저(hyperviser)* https://en.wikipedia.org/wiki/Hypervisor

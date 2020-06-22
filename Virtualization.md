@@ -54,15 +54,24 @@
   + HBA (Host Bus Adapter) : FC
   + FC Protocol
   + SAN Switch
+  
++ IP-SAN (iSCSI, FCoE(FC over Ethernet) ...)
+  + Ethernet NIC
+  + TCP/IP Protocol
+  + Ethernet Switch
+  
++ PSTN (전화망 Circuitket-Switching)
++ VoIP (Voice over IP)
++ VoLTE (Voice over LTE)
 ### native or bare-metal virtualization
   <img src="https://drive.google.com/drive/my-drive"></img>
 
 ### host virtualization
 
-### Full virtualization(전체)
+### Full virtualization (전체)
   ###### VMware가 대표주자
   + 
-### Para virtualization(반)
+### Para virtualization (반)
   ###### Xen -> KVM 으로 이동
   +
 

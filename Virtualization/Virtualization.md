@@ -319,20 +319,4 @@ ovirt서버에서 호스트 추가하는 과정에서 오류가 발생한다면
   + host virtualizion 0.6
   app과 하드웨어간에 거치는 경로가 많아진다면 속도가 느려짐
   
-***
 
-### Cluster
- ##### 클러스터란?
-  + **여러 대의 시스템을 하나의 시스템처럼 논리적으로 묶어서 사용하는 것**
-   
-  
-  ##### Cluster의 종류는 두가지
- + HPC (High Performence Computer)
- + 고성능 컴퓨터라는 뜻이고 비용이 많이 들기때문에 일반적으로 사용하기 버겁다.
- 
- + **HA (High ability)**
- + 시스템의 가용성을 높이기 위한 방법중 하나이다. 하나의 호스트에 장애가 생겼을 때 연결된 다른 호스트의 컴퓨터가 서비스를 이어받아계속해서 서비스되도록 한다.
- + 모든 호스트에 데이터가 스토리지 서버로 들어가면서 호스트서버에 문제가 생기더라도 데이터를 보존 할 수 있다.
- + 스토리지 서버도 백업 할 수 있는 서버를 만들어서 데이터 백업이 반드시 될 수 있도록 해야 한다.
-  <img src="https://github.com/hyunseungbin9408/CCCR_experience/blob/master/Virtualization/Cluset_model.png">
-  

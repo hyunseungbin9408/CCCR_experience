@@ -130,6 +130,55 @@ hostname = hyper2.abc.local
  + 가상화는 특정 응용프로그램에 사용할 리소스가 한정적일 경우에 적합
 
 ***
+### ovirt 란?
+ + Host와 Guset시스템을 중앙에서 관리하는 가상화 플랫폼
+ + ovirt에서 제공하는 기능
+  + hardware node관리
+  + 스토리지 및 네트워크 자원 관리
+  + 가상머신 배포 및 관리기능
+  + 마이그레이션 및 고가용성
+  + 시스템 스케줄링 및 파워관리
+  + 각 노드 및 전체적인 플랫폼 모니터링 기능
+  
+ #### ovirt 구성요소
+
+  + **ovirt의 두가지 엔진**
+   + **Standalone Mnager**
+     + 별도의 물리적 시스템 또는 가상화 환경에서 호스트되는 가상 시스템에서 실행
+    + 물리적인 시스템으로 주로 배포
+    + 배포와 관리가 상대적으로 쉽다.
+    + 추가적인 제품을 통해서 외부관리 가능
+    
+  + **Self-Hostd Engine**
+    + 엔진이 관리하는 ovirt 환경에 가상시스템으로 설치
+    + 실제서버가 하나가 더 적음
+    + 고가용성
+    + POC 용도로 사용하거나 작은환경에서 적합
++ Java Web Application
+
++ Web Server (Apache, nginx)
+
++ Web Application (WAS)
+  + opensource = Jboss -> Wildfly
+  + Enterprise = JBoss ES
+
++ SAN (Storage Area Network)
+
++ FC-SAN : Fiber Channel
+  + HBA (Host Bus Adapter) : FC
+  + FC Protocol
+  + SAN Switch
+  
++ IP-SAN (iSCSI, FCoE(FC over Ethernet) ...)
+  + Ethernet NIC
+  + TCP/IP Protocol
+  + Ethernet Switch
+  
++ PSTN (전화망 Circuitket-Switching)
++ VoIP (Voice over IP)
++ VoLTE (Voice over LTE)
+
+***
 
 #### 가상화 프로그램 종류
   ##### Type 1 (Bare-metal / Native)
@@ -168,41 +217,4 @@ hostname = hyper2.abc.local
   app과 하드웨어간에 거치는 경로가 많아진다면 속도가 느려짐
   
 ***
-### ovirt 구성요소
-
-+ **ovirt의 두가지 엔진**
-  + **Standalone Mnager**
-    + 별도의 물리적 시스템 또는 가상화 환경에서 호스트되는 가상 시스템에서 실행
-    + 물리적인 시스템으로 주로 배포
-    + 배포와 관리가 상대적으로 쉽다.
-    + 추가적인 제품을 통해서 외부관리 가능
-    
-  + **Self-Hostd Engine**
-    + 엔진이 관리하는 ovirt 환경에 가상시스템으로 설치
-    + 실제서버가 하나가 더 적음
-    + 고가용성
-    + POC 용도로 사용하거나 작은환경에서 적합
-+ Java Web Application
-
-+ Web Server (Apache, nginx)
-
-+ Web Application (WAS)
-  + opensource = Jboss -> Wildfly
-  + Enterprise = JBoss ES
-
-+ SAN (Storage Area Network)
-
-+ FC-SAN : Fiber Channel
-  + HBA (Host Bus Adapter) : FC
-  + FC Protocol
-  + SAN Switch
-  
-+ IP-SAN (iSCSI, FCoE(FC over Ethernet) ...)
-  + Ethernet NIC
-  + TCP/IP Protocol
-  + Ethernet Switch
-  
-+ PSTN (전화망 Circuitket-Switching)
-+ VoIP (Voice over IP)
-+ VoLTE (Voice over LTE)
 

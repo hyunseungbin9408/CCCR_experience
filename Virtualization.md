@@ -192,6 +192,9 @@ ovirt서버에서 호스트 추가하는 과정에서 오류가 발생한다면
    + **하이퍼바이저를 관리할 시스템이 필요**
   
   ##### host virtualization
+  
+  <img src="https://github.com/hyunseungbin9408/CCCR_experience/blob/master/host%20virtualization_model.png">
+  
    + Application -> **Hypervisor -> Kernel** -> Hardware
    + 운영체제가 설치된 머신에서 하이퍼바이저 소프트웨어를 설치
    + **하이퍼바이저를 관리할 시스템이 필요하지않음**

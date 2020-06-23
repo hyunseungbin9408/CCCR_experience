@@ -149,7 +149,7 @@ hostname = hyper2.abc.local
    + Enterprise Linux 위에 설치
    
    + **ovirt의 두가지 엔진**
-     + **Standalone Mnger**
+    + **Standalone Manager**
       + 별도의 물리적 시스템 또는 가상화 환경에서 호스트되는 가상 시스템에서 실행
      + 물리적인 시스템으로 주로 배포
      + 배포와 관리가 상대적으로 쉽다.

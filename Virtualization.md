@@ -49,6 +49,8 @@
 
 #### 2. KVM 1 (Hypervisor)
 ```
+trick
+
 IP = 192.168.122.21
 hostname = hyper1.abc.local
 yum update
@@ -59,9 +61,17 @@ yum install qemu-kvm libvirt virt-install bridge-utils vdsm vdsm-client
 
 #### 3. KVM 2 (Hypervisor)
 ```
+thin
+
 IP = 192.168.122.22
 hostname = hyper2.abc.local
-나머지설치법은 KVM1과 같음
+yum update
+reboot
+연결
+
+ovirt서버에서 호스트 추가하는 과정에서 오류가 발생한다면
+호스트가 되는 VM에 cpu를 지금 사용하는 컴퓨터와 cpu를 같은것을 사용하도록 복사해준다.
+
 ```
 
 
@@ -166,7 +176,18 @@ hostname = hyper2.abc.local
    + Host 시스템에서 Guest OS가 동일하면 메모리의 페이지를 공유
    + 메모리 페이지 공유 -> 메모리 오버커밋
    + 오버헤드 또는 페이지 폴트 발생원인
- 
+ #### 장치모델
+  + Guest가 실제로 Hardware에 접근하는 것은 불가능
+  + 실제 Hardware와 같은 역할을 할 가상의 Hardware가 필요
+  + Guest에 에뮬레이트된 가상의 Hardware를 제공
+  + Qemu를 통한 Hardware 에뮬레이트
+  
+ #### Virtlo
+  + 에뮬레이터된 가상의 Hardware는 실제 Hardware보다 성능이 안좋음
+  + 반가상화 I/O 장치를 Guest에게 부여
+  + 이를 위해서 Guest 시스템에서 추가 드라이버를 설치해야 함
+  + 벤더마다 이 반가상화된 장치에 대한 인터페이스가 다름
+  
 ***
 + Java Web Application
 

@@ -47,20 +47,35 @@
  ```
  
    우분투 터미널에서 sudo -i 로 root 접속후에
+   
    cd /var/lib/libvirt/image/  // 가상머신 폴더에 접근
+   
    qemu-img create nfs-iso.raw 50G // 50G raw 파일생성
+   
    qemu-img convert -O qcow2 nfs-iso.raw nfs-iso.qcow2 // raw 파일을 가상머신에서 사용할수있는 qcow2파일로 변환
+   
    rm nfs-iso.raw
-   qemu-img info nfs-iso.qcow2 // 
+   
+   qemu-img info nfs-iso.qcow2
+   
    호스트서버에서 사용 할 수 있도록 nfs패키지를 다운받는다.
+   
    fdisk /dev/장치명 파티션을 나눠주고
+   
    mkfs.파일시스템 /dev/장치명
+   
    mkdir -p /export/iso
+   
    vi /etc/fstab에 장치/파일시스템 등록 후
+   
    mount -a -> df -h 마운트 확인
+   
    vi /etc/exports 에 /export/iso 공유받을ip(rw,sync,no_root_squash)
+   
    exportfs -arv 로 등록확인 // /export/iso ip(권한정보)
+   
    웹페이지 ovirt서버접속 스토리지 -> 도메인 ->새로운도메인 -> 도메인기능 (data,iso) 고르고
+   
    밑에 내보내기 경로에 ovirt서버 호스트경로와 디렉토리경로를 써준다면 완료!
    
    

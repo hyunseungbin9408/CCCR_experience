@@ -63,7 +63,6 @@ IP = 192.168.122.22
 hostname = hyper2.abc.local
 나머지설치법은 KVM1과 같음
 ```
-***
 
 
 ***
@@ -79,7 +78,6 @@ hostname = hyper2.abc.local
   + KVM (Kernel-based Virtual Machine) https://en.wikipedia.org/wiki/Kernel-based_Virtual_Machine * para virtualization
   + TCP/IP 가이드 http://www.tcpipguide.com/
 
-***
 ***
 ## 가상화 종류
  ### Full virtualization (전체)
@@ -122,7 +120,9 @@ hostname = hyper2.abc.local
    + 운영체제가 설치된 머신에서 하이퍼바이저 소프트웨어를 설치
    + **하이퍼바이저를 관리할 시스템이 필요하지않음**
    
- #### 클라우드 컴퓨팅
+***
+
+ ### 클라우드 컴퓨팅
  + 가상화는 클라우드 컴퓨팅의 기본 토대
  + 가상화와 클라우드 컴퓨팅은 서로 별개
  + 환경 및 요구사항은 적합한 방식 구성

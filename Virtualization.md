@@ -18,28 +18,37 @@
   ##### (1) 기본 네트워크
   ```
   IP = 192.168.122.10
+  
   Hostname ovirt.abc.local
   ```
   ##### (2) ovirt 설치하기
   + **Redhat 계열이기때문에 Debian 계열인 Ubuntu에서는 설치 할 수 없음!**
   ```
    yum update // 로 설치되어있는 패키지 최신버전업데이트
+   
    yum install http://resources.ovirt.org/pub/yum-repo/ovirt-release43.rpm
+   
    커널업데이트 후에 reboot로 최신커널버전으로 실행되는지 확인
+   
    yum install ovirt-engine
   ```
   
   ##### (3) engine-setup 명령어로 Manager구성
   ```
   **engine-setup (대화식설치) <- 파일생성하지않고 기본값으로 설치진행함**
+  
   engine-setup --generate-answers=FILE
+  
   engine-setup --config-append=FILE
   ```
   ##### (4) 설치완료
   ```
   유저아이디 ' admin@internal '
+  
   /etc/hosts 에 ip와 로컬주소 입력
+  
   web에 ip주소로 들어가서 로그인해주면 관리자페이지로 접속완료
+  
   ```
   + **관리자 주소는 절대로 밖으로 노출되어서는 안된다.**
 
@@ -87,10 +96,15 @@
 trick
 
 IP = 192.168.122.21
+
 hostname = hyper1.abc.local
+
 yum update
+
 reboot 커널업데이트
+
 yum install http://resources.ovirt.org/pub/yum-repo/ovirt-release43.rpm
+
 yum install qemu-kvm libvirt virt-install bridge-utils vdsm vdsm-client
 
 ```
@@ -100,12 +114,17 @@ yum install qemu-kvm libvirt virt-install bridge-utils vdsm vdsm-client
 thin
 
 IP = 192.168.122.22
+
 hostname = hyper2.abc.local
+
 yum update
+
 reboot
+
 연결
 
 ovirt서버에서 호스트 추가하는 과정에서 오류가 발생한다면
+
 호스트가 되는 VM에 cpu를 지금 사용하는 컴퓨터와 cpu를 같은것을 사용하도록 복사해준다.
 
 ```

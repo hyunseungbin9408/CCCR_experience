@@ -141,19 +141,32 @@ hostname = hyper2.abc.local
   + 각 노드 및 전체적인 플랫폼 모니터링 기능
   
  #### ovirt 구성요소
-
-  + **ovirt의 두가지 엔진**
-   + **Standalone Mnager**
-     + 별도의 물리적 시스템 또는 가상화 환경에서 호스트되는 가상 시스템에서 실행
-    + 물리적인 시스템으로 주로 배포
-    + 배포와 관리가 상대적으로 쉽다.
-    + 추가적인 제품을 통해서 외부관리 가능
+  + **Engine이란**
+   + 물리적 자원과 가상의 자원을 중앙에서 관리하기 위한 플랫폼
+   + ovirt의 코어 구성 요소
+   + 웹 서비스로 실행되는 JBoss 기반 Java 응용 프로그램 (Wildfly)
+   + 데이터는 데이터베이스에 저장 (PostgreSQL)
+   + Enterprise Linux 위에 설치
+   
+   + **ovirt의 두가지 엔진**
+     + **Standalone Mnger**
+      + 별도의 물리적 시스템 또는 가상화 환경에서 호스트되는 가상 시스템에서 실행
+     + 물리적인 시스템으로 주로 배포
+     + 배포와 관리가 상대적으로 쉽다.
+     + 추가적인 제품을 통해서 외부관리 가능
     
-  + **Self-Hostd Engine**
-    + 엔진이 관리하는 ovirt 환경에 가상시스템으로 설치
-    + 실제서버가 하나가 더 적음
-    + 고가용성
-    + POC 용도로 사용하거나 작은환경에서 적합
+   + **Self-Hostd Engine**
+     + 엔진이 관리하는 ovirt 환경에 가상시스템으로 설치
+     + 실제서버가 하나가 더 적음
+     + 고가용성
+     + POC 용도로 사용하거나 작은환경에서 적합
+    
+  + **KSM 기법**
+   + KVM의 메모리관리 기법
+   + Host 시스템에서 Guest OS가 동일하면 메모리의 페이지를 공유
+   + 메모리 페이지 공유 -> 메모리 오버커밋
+   + 오버헤드 또는 페이지 폴트 발생원인
+  
 + Java Web Application
 
 + Web Server (Apache, nginx)
@@ -174,7 +187,6 @@ hostname = hyper2.abc.local
   + TCP/IP Protocol
   + Ethernet Switch
   
-+ PSTN (전화망 Circuitket-Switching)
 + VoIP (Voice over IP)
 + VoLTE (Voice over LTE)
 

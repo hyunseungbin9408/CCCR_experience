@@ -324,6 +324,9 @@ ovirt서버에서 호스트 추가하는 과정에서 오류가 발생한다면
 ### Cluster
  ##### 클러스터란?
   + **여러 대의 시스템을 하나의 시스템처럼 논리적으로 묶어서 사용하는 것**
+  
+   <img src="https://github.com/hyunseungbin9408/CCCR_experience/blob/master/Virtualization/Cluset_model.png">
+  
   ##### Cluster의 종류는 두가지
  + HPC
  + **HA (High ability)**

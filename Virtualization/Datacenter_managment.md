@@ -30,3 +30,5 @@
  + 스토리지 서버도 백업 할 수 있는 서버를 만들어서 데이터 백업이 반드시 될 수 있도록 해야 한다.
   <img src="https://github.com/hyunseungbin9408/CCCR_experience/blob/master/Virtualization/Cluset_model.png">
   
+ ## 가상머신 생성
+ <img src="https://github.com/hyunseungbin9408/CCCR_experience/blob/master/png/VM_create.png">

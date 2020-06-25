@@ -184,7 +184,7 @@ ovirt서버에서 호스트 추가하는 과정에서 오류가 발생한다면
  #### 하이퍼바이저 종류
   ##### native or bare-metal virtualization
   
-   <img src="https://github.com/hyunseungbin9408/CCCR_experience/blob/master/png/native%20or%20bare-metal%20virtualization_model.png">
+   <img src="https://github.com/hyunseungbin9408/CCCR_experience/blob/master/png/native%20or%20bare-metal%20virtualization_model.png" alt="drawing" width="450"/>
    
    + Application -> **Kernel -> Hypervisor** -> Hardware
    + 물리적인 머신에 하이퍼바이저 소프트웨어를 설치
@@ -193,7 +193,7 @@ ovirt서버에서 호스트 추가하는 과정에서 오류가 발생한다면
   
   ##### host virtualization
   
-  <img src="https://github.com/hyunseungbin9408/CCCR_experience/blob/master/png/host%20virtualization_model.png">
+  <img src="https://github.com/hyunseungbin9408/CCCR_experience/blob/master/png/host%20virtualization_model.png" alt="drawing" width="450"/>
   
    + Application -> **Hypervisor -> Kernel** -> Hardware
    + 운영체제가 설치된 머신에서 하이퍼바이저 소프트웨어를 설치

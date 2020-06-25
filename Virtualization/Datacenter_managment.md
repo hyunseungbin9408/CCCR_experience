@@ -28,11 +28,11 @@
  + 시스템의 가용성을 높이기 위한 방법중 하나이다. 하나의 호스트에 장애가 생겼을 때 연결된 다른 호스트의 컴퓨터가 서비스를 이어받아계속해서 서비스되도록 한다.
  + 모든 호스트에 데이터가 스토리지 서버로 들어가면서 호스트서버에 문제가 생기더라도 데이터를 보존 할 수 있다.
  + 스토리지 서버도 백업 할 수 있는 서버를 만들어서 데이터 백업이 반드시 될 수 있도록 해야 한다.
-  <img src="https://github.com/hyunseungbin9408/CCCR_experience/blob/master/png/Cluset_model.png">
+  <img src="https://github.com/hyunseungbin9408/CCCR_experience/blob/master/png/Cluset_model.png" alt ="drawing" width="500"/>
   
  ## 가상머신 생성
  
- <img src="https://github.com/hyunseungbin9408/CCCR_experience/blob/master/png/VM_create.png">
+ <img src="https://github.com/hyunseungbin9408/CCCR_experience/blob/master/png/VM_create.png" alt="drawing" width="500"/> 
  
   + 템플릿이란 복제해서 사용할 수 있도록 도와주는 시스템 
   

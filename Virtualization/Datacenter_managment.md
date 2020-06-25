@@ -170,3 +170,7 @@
      참고로 스크립트 명령어는 --permanent를 사용 할 수 없다.
      스크립트 명령어에는 명령어가 끝날때마다 콤마(,)를 찍어줘야한다.
    ```    
+   ### Cloud-config 스크립트 명령어
+   + 예시와 활용방법 https://cloudinit.readthedocs.io/en/latest/topics/examples.html
+ ### 템플릿으로 만든 가상머신에 ssh로 접속하기
+  

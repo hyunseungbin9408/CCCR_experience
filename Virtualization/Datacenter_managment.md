@@ -23,10 +23,23 @@
    +
  
   ### 클러스터 생성
+  
+  <img src="https://github.com/hyunseungbin9408/CCCR_experience/blob/master/png/new_cluster.png" alt="drawing" width="450"/>
+  
    + **클러스터를 생성할때 관리 네트워크 필수**
    + 스위치유형은 Linux Bridge 와 OVS (open v switch : 가상의 스위치를 만들어줌)
-   + 좌측 메뉴 최적화에 메모리최적화를 서버용 로드로 바꿔줌
    
+  <img src="https://github.com/hyunseungbin9408/CCCR_experience/blob/master/png/new_cluster2.png" alt="drawing" width="450"/>
+  
+   + 좌측 메뉴 최적화에 메모리최적화를 서버용 로드로 바꿔줌
+   + 메모리 Ballon 최적화 사용
+    + 메모리 Ballon이란 같은 호스트(제한된 메모리크기)에 여러 대의 가상머신이 있을때 메모리가 더욱 필요한 곳으로 최적화 시켜주는 방법
+   + KSM 활성화 사용
+    + KVM의 메모리관리 기법
+    + Host 시스템에서 Guest OS가 동일하면 메모리의 페이지를 공유
+    + 메모리 페이지 공유 -> 메모리 오버커밋
+    + 오버헤드 또는 페이지 폴트 발생원인
+
   ### 스토리지 컨테이너
    + 스토리지 도메인에 대한 연결 정보
    + 스토리지 유형 및 스토리지 도메인 정보가 저장
@@ -60,7 +73,9 @@
    + 혼합 사용시 공통기능만큼만 다운그레이드
   + 특정 데이터 센터에 속하는 호스트그룹
   + 가상 시스템의 마이그레이션 도메인
-  +
+  
+***
+  
  ## 가상머신 생성
  
  <img src="https://github.com/hyunseungbin9408/CCCR_experience/blob/master/png/VM_create.png" alt="drawing" width="450"/>

@@ -3,6 +3,12 @@
  + 모든 물리적 및 논리적 자원을 포함한 최상위 조직 객체
  + 단일 데이터 센터는 독립적인 가상화 환경
  
+ ## ovirt관리모드에서 데이터 센터생성
+  ### 클러스터 생성
+   + **클러스터를 생성할때 관리 네트워크 필수**
+   + 스위치유형은 Linux Bridge 와 OVS (open v switch : 가상의 스위치를 만들어줌)
+   + 좌측 메뉴 최적화에 메모리최적화를 서버용 로드로 바꿔줌
+   
   ### 스토리지 컨테이너
    + 스토리지 도메인에 대한 연결 정보
    + 스토리지 유형 및 스토리지 도메인 정보가 저장
@@ -17,7 +23,8 @@
 ***
 
  ## 클러스터란?
-  + **여러 대의 시스템을 하나의 시스템처럼 논리적으로 묶어서 사용하는 것**
+  + 여러 대의 시스템을 하나의 시스템처럼 논리적으로 묶어서 사용하는 것
+  + **클러스터의 핵심은 마이그레이션**
    
   
   ##### Cluster의 종류는 두가지
@@ -28,11 +35,17 @@
  + 시스템의 가용성을 높이기 위한 방법중 하나이다. 하나의 호스트에 장애가 생겼을 때 연결된 다른 호스트의 컴퓨터가 서비스를 이어받아계속해서 서비스되도록 한다.
  + 모든 호스트에 데이터가 스토리지 서버로 들어가면서 호스트서버에 문제가 생기더라도 데이터를 보존 할 수 있다.
  + 스토리지 서버도 백업 할 수 있는 서버를 만들어서 데이터 백업이 반드시 될 수 있도록 해야 한다.
-  <img src="https://github.com/hyunseungbin9408/CCCR_experience/blob/master/png/Cluset_model.png" alt ="drawing" width="500"/>
+  <img src="https://github.com/hyunseungbin9408/CCCR_experience/blob/master/png/Cluset_model.png" alt="drawing" width="450"/>
   
+ ### 데이터센터에서 클러스터
+  + 동일한 아키텍처 및 cpu 모델을 공유
+   + 혼합 사용시 공통기능만큼만 다운그레이드
+  + 특정 데이터 센터에 속하는 호스트그룹
+  + 가상 시스템의 마이그레이션 도메인
+  +
  ## 가상머신 생성
  
- <img src="https://github.com/hyunseungbin9408/CCCR_experience/blob/master/png/VM_create.png" alt="drawing" width="500"/> 
+ <img src="https://github.com/hyunseungbin9408/CCCR_experience/blob/master/png/VM_create.png" alt="drawing" width="450"/>
  
   + 템플릿이란 복제해서 사용할 수 있도록 도와주는 시스템 
   
@@ -62,3 +75,39 @@
   + **마이그레이션에 핵심은 CPU**
   + 마이그레이션을 하기위해서는 cpu 모델 특징이 같아야한다.
   + 각 하이퍼바이저위에 가상머신을 다른 하이퍼바이저로 마이그레이션을 할때 서로 다른 cpu를 사용한다면 더 좋은 cpu를 하향평준화 시켜서 마이그레이션을 한다. (1cpu 0.8cpu가 있으면 0.8로 기능을 통일시킴)
+
+
+ ## 네트워크 설정
+  + 네트워크 전송단위는 패킷이 아니라 프레임이다.
+  + 프레임 구성 헤더 와 H3주소 H4주소가 들어가는 바이트를 제외한 공간만 사용가능
+  + 프레임이 기본적으로 실질적으로 1400바이트이고 최대 9000바이트(앞으로 더욱 커질예정)로 들릴수있다. (MTU)
+  + 9000바이트 단위에 프레임을 점보프레임이라고 한다.
+  
+ ## 디스크
+  + Pre-Allocation (Thick)
+  
+  + Thin Provisioning을 지원하는 파일형식
+    + qemu/kvm: qcow2
+    + virtualbox: vdi
+    + hyper-v: vhd, vhdx
+    + vmware: vmdk
+    
+  + raw파일 qemu-img convert -O vmdk a.raw a.vmdk 처럼 변환가능
+  
+  ## 템플릿 관리
+  
+  ### 템플릿을 왜 사용하는가?
+   + 미리구성된 가상 시스템의 복사본
+   + 유사한 가상 시스템 배포에 유리
+   + Clonezilla 또는 Ghost등과 유사
+   + 템플릿 기반 컴퓨터 사용시 메모리 사용량 감소
+   + 이미지 씰링 작업이 필요 (MAC주소, 인증서 등의 고유정보 제거)
+    + virt-sysprep 을 이용한 이미지 씰링가능
+    
+  ### 템플릿 생성
+  
+  <img src="https://github.com/hyunseungbin9408/CCCR_experience/blob/master/png/new_vm_template.png" alt="drawing" width="450"/>
+  
+   + 이번에 실습한 환경에서는 virt-sysprep을 사용하지않았다.
+   + 일일이 호스트네임과 ip설정을 하였다.
+   + **템플릿을 생성할 때 꼭 봉인체크를 해주어야한다(실링)**

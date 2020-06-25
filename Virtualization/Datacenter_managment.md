@@ -108,6 +108,18 @@
   
   <img src="https://github.com/hyunseungbin9408/CCCR_experience/blob/master/png/new_vm_template.png" alt="drawing" width="450"/>
   
+   + 새 템플릿을 생성하기 위한 모델인 가상머신을 설치한다.
+   + 기본 정보들을 다 삭제 이미지 실링을 한다
    + 이번에 실습한 환경에서는 virt-sysprep을 사용하지않았다.
-   + 일일이 호스트네임과 ip설정을 하였다.
    + **템플릿을 생성할 때 꼭 봉인체크를 해주어야한다(실링)**
+   + **템플릿에는 고정아이피가 정해지면 안되고 DHCP를 이용해서 자동할당해야한다.**
+   
+  <img src="https://github.com/hyunseungbin9408/CCCR_experience/blob/master/png/new_vm_template_setting.png" alt="drawing" width="450"/>
+  
+   + 템플릿에는 기본 사용자설정이 중요하다
+   + 템플릿으로 가상머신을 만들때 호스트네임을 설정 할 수 있다.
+   + **템플릿에 기본적으로 암호가 설정되어있다면 누구나 서버설정을 변경 할 수 있기 때문에 절대로 하면안된다.**
+   
+  <img src="https://github.com/hyunseungbin9408/CCCR_experience/blob/master/png/new_vm_template_setting_userscript.png" alt="drawing" width="450"/>
+  
+   + 템플릿에서 가장 중요한 사용자 지정 스크립트를 지정 할 수 있다.

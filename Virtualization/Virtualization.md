@@ -184,7 +184,7 @@ ovirt서버에서 호스트 추가하는 과정에서 오류가 발생한다면
  #### 하이퍼바이저 종류
   ##### native or bare-metal virtualization
   
-   <img src="https://github.com/hyunseungbin9408/CCCR_experience/blob/master/png/native%20or%20bare-metal%20virtualization_model.png" alt="drawing" width="450"/>
+   <img src="https://github.com/hyunseungbin9408/CCCR_experience/blob/master/png/native%20or%20bare-metal%20virtualization_model.png" alt="drawing" width="250"/>
    
    + Application -> **Kernel -> Hypervisor** -> Hardware
    + 물리적인 머신에 하이퍼바이저 소프트웨어를 설치
@@ -193,7 +193,7 @@ ovirt서버에서 호스트 추가하는 과정에서 오류가 발생한다면
   
   ##### host virtualization
   
-  <img src="https://github.com/hyunseungbin9408/CCCR_experience/blob/master/png/host%20virtualization_model.png" alt="drawing" width="450"/>
+  <img src="https://github.com/hyunseungbin9408/CCCR_experience/blob/master/png/host%20virtualization_model.png" alt="drawing" width="250"/>
   
    + Application -> **Hypervisor -> Kernel** -> Hardware
    + 운영체제가 설치된 머신에서 하이퍼바이저 소프트웨어를 설치
@@ -284,7 +284,13 @@ ovirt서버에서 호스트 추가하는 과정에서 오류가 발생한다면
 ***
 
 #### 가상화 프로그램 종류
+
+  #### Type의 종류 
   ##### Type 1 (Bare-metal / Native)
+   + type.1 은 물리적인 시스템위에 하이퍼바이저가 다른 운영체제를 실행하는 형태를 가진것
+   
+   <img src="https://github.com/hyunseungbin9408/CCCR_experience/blob/master/png/Hyper_Type1.png" alt="drawing" width="250"/>
+   
   ###### Hypervisor
 
   + VMware ESXi(ESX) = 운영체제에 프로그램을 더하는방식으로 설치가능
@@ -307,6 +313,10 @@ ovirt서버에서 호스트 추가하는 과정에서 오류가 발생한다면
 
 ##### Type 2 (Hosted)
   ###### 일반적으로 개발용으로 사용
+  + Type2는 운영체제위에 하이퍼바이저를 실행하고 거기서 운영체제를 관리하는 것
+  
+  <img src="https://github.com/hyunseungbin9408/CCCR_experience/blob/master/png/Hyper_type2.png" alt="drawing" width="250"/>
+  
   + VMware Workstation/Fusion (유료)
   + Oracale VirtualBox (무료이면서 모든 운영체제에서 이용가능) //내부적으로 KVM소스로 만들어짐
 

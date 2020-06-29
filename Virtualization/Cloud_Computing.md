@@ -30,13 +30,15 @@
   #### 2) 호스트 방식의 하이퍼바이저
    <img src="https://github.com/hyunseungbin9408/CCCR_experience/blob/master/png/Host_Virtualization_model.png" alt="drawing" width="250"/>
    
+   
    + 사용자가 이미사용하고 있는 운영체제위에 하이퍼바이저를 설치하는 방식
    + 간편하게 설치 할 수 있는 장점
+   + **하이퍼바이저의 부담이 가중되어서 성능이 Native방식 보다 좋지 못함**
    + 대표적인 제품으로는 Oracle의 VirtualBox 와 리눅스의 KVM이 있다.
    
    
 ***
-   
+
 ## 컨테이너
  ### 컨테이너란?
   + 단일 컨트롤 호스트상에서 여러개의 고립된 리눅스 시스템들을 실행하기 위한 운영 시스템 레벨 가상화 방법
@@ -52,6 +54,10 @@
   + 컨테이너는 애플리케이션에 필요한 소프트웨어 종속 항목도 포함할 수 있다. 개발자의 관점에서 이 모든 요소는 애플리케이션이 배포되는 최종 위치에 관계없이 항상 일관성이 있다
   + 개발자와 IT 운영팀이 버그를 잡고 환경 차이를 진단하던 시간을 줄이고 사용자에게 신규 기능을 제공하는 데 집중할 수 있음
   + 컨테이너는 폭넓은 구동환경(Linux, Windows, Mac, 가상 머신, 베어메탈, 개발자의 컴퓨터, 데이터 센터, 온프레미스 환경, 퍼블릭 클라우드)을 가지기 때문에 개발 및 배포가 쉬워진다. 
+ 
+ ### 가상화와 컨테이너 비교
+ 
+ <img src="https://github.com/hyunseungbin9408/CCCR_experience/blob/master/png/Virtualization_VS_Container.png" alt="drawing" width="350"/>
  
  ### 도커 (DocKer)
    #### 도커(DocKer)란?

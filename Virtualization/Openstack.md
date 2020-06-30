@@ -9,6 +9,7 @@
 ***
 
 ## 오픈스택 버전
+
  ### 1) compute (프로젝트: Nova)
   + 주요 모듈은 파이썬으로 구현
   + 인스턴스(가상머신, 서버)의 생성, 중지, 스케쥴링 등 인스턴스의 라이프사이클을 관리
@@ -93,3 +94,69 @@
    + MDS: 3대
     
  프로젝트 = Component(구성요소) = 서비스
+ 
+###
+ #### 컨트롤러 노드
+  + 노드들 중에서 가장 중요한 노드이다.
+  + 설치되어있는 오픈스택노드들에 상태를 확인 할 수 있다.
+  
+ #### 컴퓨트 노드
+  + 인스턴스(가상머신) 
+  + 호스트의 특징을 가지고있다
+  + 타입2형태의 하이퍼바이저
+ 
+ #### 네트워크 노드
+  + 네트워크 통신을 할때 반드시 네트워크 노드를 거쳐야 함
+  + 외부브릿지를 통해서 밖으로 통신가능하고 ip a s br -ex 확인 할 수 있다.
+  + ip a s br -ex 는 반드시 네트워크 노드에만 있어야 한다.
+ 
+ #### 스토리지 노드
+  + swift보다 좋은 기능이 많아져서 사용을 안함
+  + 오픈스택에서 가장 적합한 스토리지는 ceph이다. 그 이유는 많은 기능을 가지고 있기 때문이다.
+  + Cinder는 중개자 역할이고 오픈스택 스토리지 역할은 하지않음
+  + cinder -> Backend storage (Lvm은 복구시스템이 없어서 안정성이 떨어짐 / ceph와 glusterfs는 복구 시스템이 있음 cinder는 ceph와 gluster를 노드와 연결하는 중개자)
+*** 
+
+## 오픈스택 실습
+
+### 1 ) Controller 서버
+
+- Cpu 2코어
+- Memory 8192
+- **구성 노드**
+- Controller
+- Network
+- Storage
+
+### 2 ) compute 서버
+
+- cpu 2
+- Memory 4096
+- **구성 노드**
+- Compute
+
+1) 오픈스택 노드 상태 확인패키지 설치
+```
+yum -y install openstack-utils
+
+→ 설치하면 openstack-status
+
+ 오픈스택 노드 상태 확인 커맨트 활성화
+```
+2) 오픈스택 관리웹페이지 접속
+```
+ openstack-utils 를 설치하면 루트 디렉토리에
+ answers.txt  keystonerc_admin 에 오픈스택관리자 계정정보가 들어가있다.
+ 
+ 
+ 우리는 프로젝트와 identity를 사용할 것이다.
+ 회사에서 각각 프로젝트를 할당 할 수 있다.
+
+```
+
+### 오픈스택 이미지 다운로드 경로
+ + https://docs.openstack.org/image-guide/obtain-images.html
+ + 위 경로에서 Centos 7 버전으로 다운을 받았다.
+ 
+ <img src="https://github.com/hyunseungbin9408/CCCR_experience/blob/master/png/Openstack_image_download.png" alt="drawing" width="350"/>
+  

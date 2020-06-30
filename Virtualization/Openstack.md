@@ -144,6 +144,7 @@ yum -y install openstack-utils
  오픈스택 노드 상태 확인 커맨트 활성화
 ```
 2) 오픈스택 관리웹페이지 접속
+
 ```
  openstack-utils 를 설치하면 루트 디렉토리에
  answers.txt  keystonerc_admin 에 오픈스택관리자 계정정보가 들어가있다.
@@ -153,6 +154,15 @@ yum -y install openstack-utils
  회사에서 각각 프로젝트를 할당 할 수 있다.
 
 ```
+3) 오픈스택 관리자 웹페이지 사용자 관리
+
+<img src="https://github.com/hyunseungbin9408/CCCR_experience/blob/master/png/openstack_usercreate.png" alt="drawing" width="350"/>
+
+```
+ 인증탭에서 사용자를 클릭하고 생성 할 수 있다.
+ 이름과 암호를 입력해주고 원하는 프로젝트에 속하고 역할도 부여해 줄 수 있다. // 어느 한 프로젝트에 admin역할이 된다면 모든 프로젝트를 관리 할 수 있다.
+ 사용자에게 역할을 하나하나 부여할 필요없이 그룹묶어서 한꺼번에 역할을 부여해 줄 수 있다. 
+ ```
 
 ### 오픈스택 이미지 다운로드 경로
  + https://docs.openstack.org/image-guide/obtain-images.html

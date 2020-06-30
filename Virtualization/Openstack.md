@@ -218,6 +218,8 @@ yum -y install openstack-utils
 5) 오픈스택 관리자 네트워크 생성 및 관리
 
 <img src="https://github.com/hyunseungbin9408/CCCR_experience/blob/master/png/openstack_network_create1.png" alt="drawing" width="400"/>
+
+
 ### 오픈스택 이미지 다운로드 경로
  + https://docs.openstack.org/image-guide/obtain-images.html
  
@@ -225,3 +227,4 @@ yum -y install openstack-utils
  
  <img src="https://github.com/hyunseungbin9408/CCCR_experience/blob/master/png/Openstack_image_download.png" alt="drawing" width="350"/>
   
+ **오픈스택에서의 스냅샷은 템플릿에 의미처럼 새로운 인스턴스를 만들때 쓰인다.**

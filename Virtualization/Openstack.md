@@ -46,6 +46,10 @@
   + Firewall, Load Balancer, VPN, IDS/IPS NFV 기능 제공
   + 다양한 네트워크 벤더나 기술들에 적용가능한 플러그인 아키텍처를 제공
   
+ ### 9) Dashboard (프로젝트: horizon)
+  + 오픈스택 환경을 운영 및 관리 할 수 있는 웹 기반의 셀프 서비스 포탈 인터페이스를 제공
+  + 오픈스택 API 또는 Amazon Web Server API지원
+  
   ***
  
  ## 오픈스택 노드 종류

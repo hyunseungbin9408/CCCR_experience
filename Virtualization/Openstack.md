@@ -180,6 +180,8 @@
 - **구성 노드**
 - Compute
 
+### Controller 서버 (admin관리자)
+
 1) 오픈스택 노드 상태 확인패키지 설치
 ```
 yum -y install openstack-utils
@@ -215,7 +217,29 @@ yum -y install openstack-utils
 ```
  왼쪽상단 관리탭에서 시스템정보를 확인 할 수 있다. Endpoint로 주소를 확인 할 수 있는데 노드마다 주소가 각각 다르다.
 ```
-5) 오픈스택 관리자 네트워크 생성 및 관리
+5) 오픈스택 관리자 flavor 생성
+
+<img src="https://github.com/hyunseungbin9408/CCCR_experience/blob/master/png/openstack_flavor_create.png" alt="drawing" width="400"/>
+
+```
+flavor를 통해서 우리는 인스턴스 배포시에 RAM, 디스크, CPU 코어 수, 기타 리소스의 크기를 규정해 둘 수 있다.
+우리가 생성하고 싶은 centos7 파일에는 기본적으로 8~9GB에 공간이 필요한데 
+오픈스택에서 기본적으로 생성되어있는 flavor에는 딱 맞는것이 없어서 생성해야한다.
+위에 보는것처럼 조금은 여유있게 만들었다. 타이트하게 만들면 생성시에 거부당 할 수 있기 때문이다.
+```
+
+6) 오픈스택 관리자 이미지파일 공유파일로 등록
+
+<img src="https://github.com/hyunseungbin9408/CCCR_experience/blob/master/png/openstack_image_create.png" alt="drawing" width="400"/>
+
+```
+이미지 파일을 공용으로 등록해서 필요할 때마다 사용 할 수 있도록 생성하려고 한다.
+관리자 계정으로 접속하고 이미지파일을 생성해야 공용으로 만들 수 있고 사용자계정으로 들어간다면 private(선택불가)으로 생성된다.
+오픈스택 전용 iso파일을 다운받고 업로드 후에 포멧은 QCOW2파일형식으로 설정해준다.
+이 iso파일은 기본적으로 최소 디스크8GB가 필요하니 스토리지는 8기가이상만 사용할 수 있도록 제한을 두어야 한다.
+```
+
+7) 오픈스택 관리자 네트워크 생성 및 관리
 
 <img src="https://github.com/hyunseungbin9408/CCCR_experience/blob/master/png/openstack_network_create1.png" alt="drawing" width="400"/>
 
@@ -227,6 +251,7 @@ yum -y install openstack-utils
 ```
 
 <img src="https://github.com/hyunseungbin9408/CCCR_experience/blob/master/png/openstack_network_create2.png" alt="drawing" width="400"/>
+
 ```
  내부망을 설치하는 방법은 프로젝트메뉴에서 네트워크 -> 네트워크생성하면 네트워크 이름 후에 서브넷으로 넘어가서 원하는 주소로
  고정 ip를 지정해주면 된다.

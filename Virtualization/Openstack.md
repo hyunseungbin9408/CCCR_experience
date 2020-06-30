@@ -250,6 +250,13 @@ flavor를 통해서 우리는 인스턴스 배포시에 RAM, 디스크, CPU 코�
  메뉴에 관리탭에서 네트워크를 들어가서 방금 만든 네트워크에 편집을 들어가서 외부네트워크으로 편집을 해주면 된다.
 ```
 
+***
+
+### 사용자 계정
+
+1) 프로젝트 내부망 네트워크 생성
+
+
 <img src="https://github.com/hyunseungbin9408/CCCR_experience/blob/master/png/openstack_network_create2.png" alt="drawing" width="400"/>
 
 ```
@@ -270,6 +277,7 @@ DNS서버를 정해주는 것이 좋다. // 8.8.8.8로 주소를 주었다.
  오른쪽 위에 라우트생성에 들어가서 이름을 넣고 라우트 생성후에 인터페이스를 연결해주면 라우트를 통해서 외부망과 내부망을
  연결한 네트워크가 완성되었다.
 ```
+
 
 ### 오픈스택 이미지 다운로드 경로
  + https://docs.openstack.org/image-guide/obtain-images.html

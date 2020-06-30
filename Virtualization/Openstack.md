@@ -219,6 +219,32 @@ yum -y install openstack-utils
 
 <img src="https://github.com/hyunseungbin9408/CCCR_experience/blob/master/png/openstack_network_create1.png" alt="drawing" width="400"/>
 
+```
+ 오픈스택 외부망을 생성하는 방법은 먼저 메뉴탭에 프로젝트 -> 네트워크 -> 네트워크생성 
+ 먼저 외부망설치를 하면 오류가 떠서 생성이 안된다.// 예외일 수 있다.
+ 그래서 찾은 방법이 그냥 먼저 고정아이피를 지정하지않은 네트워크를 생성하고
+ 메뉴에 관리탭에서 네트워크를 들어가서 방금 만든 네트워크에 편집을 들어가서 외부네트워크으로 편집을 해주면 된다.
+```
+
+<img src="https://github.com/hyunseungbin9408/CCCR_experience/blob/master/png/openstack_network_create2.png" alt="drawing" width="400"/>
+```
+ 내부망을 설치하는 방법은 프로젝트메뉴에서 네트워크 -> 네트워크생성하면 네트워크 이름 후에 서브넷으로 넘어가서 원하는 주소로
+ 고정 ip를 지정해주면 된다.
+```
+
+<img src="https://github.com/hyunseungbin9408/CCCR_experience/blob/master/png/openstack_network_create3.png" alt="drawing" width="400"/>
+
+```
+서브넷 세부정보에서 지정할 수 있는 메뉴들이다. DHCP는 중첩사용하면 오류가 생길 수 있기때문에 체크해제해준다. // 라우터를 설치할 것이기 때문에
+밑에 pools할당은 우리가 할당받는 ip주소의 범위를 정 할 수가 있다. " , " 로 범위를 정할 수 있다.
+DNS서버를 정해주는 것이 좋다. // 8.8.8.8로 주소를 주었다.
+```
+ <img src="https://github.com/hyunseungbin9408/CCCR_experience/blob/master/png/openstack_network_create_topology.png" alt="drawing" width="400"/>
+ 
+```
+ 오른쪽 위에 라우트생성에 들어가서 이름을 넣고 라우트 생성후에 인터페이스를 연결해주면 라우트를 통해서 외부망과 내부망을
+ 연결한 네트워크가 완성되었다.
+```
 
 ### 오픈스택 이미지 다운로드 경로
  + https://docs.openstack.org/image-guide/obtain-images.html

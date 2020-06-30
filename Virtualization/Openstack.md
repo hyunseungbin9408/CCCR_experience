@@ -201,7 +201,7 @@ yum -y install openstack-utils
 ```
 3) 오픈스택 관리자 웹페이지 사용자 관리
 
-<img src="https://github.com/hyunseungbin9408/CCCR_experience/blob/master/png/openstack_usercreate.png" alt="drawing" width="350"/>
+<img src="https://github.com/hyunseungbin9408/CCCR_experience/blob/master/png/openstack_usercreate.png" alt="drawing" width="400"/>
 
 ```
  인증탭에서 사용자를 클릭하고 생성 할 수 있다.
@@ -210,11 +210,14 @@ yum -y install openstack-utils
  ```
 4) 오픈스택 관리자 시스템정보확인
 
-<img src="https://github.com/hyunseungbin9408/CCCR_experience/blob/master/png/openstack_systeminfo.png" alt="drawing" width="350"/>
+<img src="https://github.com/hyunseungbin9408/CCCR_experience/blob/master/png/openstack_systeminfo.png" alt="drawing" width="400"/>
 
 ```
  왼쪽상단 관리탭에서 시스템정보를 확인 할 수 있다. Endpoint로 주소를 확인 할 수 있는데 노드마다 주소가 각각 다르다.
 ```
+5) 오픈스택 관리자 네트워크 생성 및 관리
+
+<img src="https://github.com/hyunseungbin9408/CCCR_experience/blob/master/png/openstack_network_create1.png" alt="drawing" width="400"/>
 ### 오픈스택 이미지 다운로드 경로
  + https://docs.openstack.org/image-guide/obtain-images.html
  

@@ -275,13 +275,63 @@ flavor를 통해서 우리는 인스턴스 배포시에 RAM, 디스크, CPU 코�
 
 DNS서버를 정해주는 것이 좋다. // 8.8.8.8로 주소를 주었다.
 ```
+
+2) 프로젝트 라우터 생성
+
  <img src="https://github.com/hyunseungbin9408/CCCR_experience/blob/master/png/openstack_network_create_topology.png" alt="drawing" width="40
  0">
+ 
 ```
  오른쪽 위에 라우트생성에 들어가서 이름을 넣고 라우트 생성후에 인터페이스를 연결해주면 라우트를 통해서 외부망과 내부망을
  연결한 네트워크가 완성되었다.
 ```
 
+3) 프로젝트 보안그룹 생성
+
+<img src="https://github.com/hyunseungbin9408/CCCR_experience/blob/master/png/openstack_securityGroup_create.png" alt="drawing" width="400"/>
+
+<img src="https://github.com/hyunseungbin9408/CCCR_experience/blob/master/png/openstack_securityGroup_create2.png" alt="drawing" width="400"/>
+
+```
+ 프로젝트 메뉴탭에서 보안그룹으로 가면 기본적으로 생성되어있는 default라는 그룹이 있는데 이 그룹은
+ 모든 사용자에게 적용시킬 수 있다. 그래서 가상머신을 생성할때 기본적으로 들어가야하는 포트와 서비스를 입력해준다.
+ 인스턴스로 생성된 가상머신은 원격으로 접속해서 컨트롤하기 때문에 ssh가 필수이다. ssh를 뜻하는 22번 포트와
+ 네트워크가 제대로 적용되었는지 확인 할 수 있는 ICMP(ping)를 열어주면 된다.
+```
+
+<img src="https://github.com/hyunseungbin9408/CCCR_experience/blob/master/png/openstack_securityGroup_create3.png" alt="drawing" width="400"/>
+
+<img src="https://github.com/hyunseungbin9408/CCCR_experience/blob/master/png/openstack_securityGroup_create4.png" alt="drawing" width="400"/>
+
+
+```
+ 우리는 워드프레스와 로드밸런스를 구성할 것이기때문에 웹을 구성하는 보안그룹을 만들어준다.
+ 웹을 구성할때 열어주어야하는 필수 포트 HTTP(80)과 HTTPS(443)을 열어주어야한다.
+ 이름을 구성하고 보안그룹을 생성하고 전에 했던것처럼 포트를 추가해준다.
+```
+
+4) 프로젝트 Floating 
+
+<img src="https://github.com/hyunseungbin9408/CCCR_experience/blob/master/png/openstack_network_Floating.png" alt="drawing" width="400"/>
+
+ ```
+ 외부망으로 통신 할 수 있도록 유동ip를 설정 할 수 있게 Floating 설정해준다.
+ ```
+ 
+5) 프로젝트 컴퓨트 키페어 생성
+
+<img src="https://github.com/hyunseungbin9408/CCCR_experience/blob/master/png/openstack_keypair_create.png" alt="drawing" width="400"/>
+
+<img src="https://github.com/hyunseungbin9408/CCCR_experience/blob/master/png/openstack_keypair_create_key.png" alt="drawing" width="400"/>
+
+```
+ 컴퓨트 메뉴에서 키페어를 들어가 키페어를 생성할때 이름만 넣어주면되고 생성을 완료하면
+ 다운로드창이 등장하는데 그것은 개인키를 다운받는것이다. 
+ 우리는 키페어로 인스턴스를 생성 및 원격실행 할 것이기때문에 컨트롤러 노드에 .ssh폴더에 넣어준다.
+ 개인키이기때문에 권한을 600 사용자에게만 읽고 쓸수있는 권한을 준다.
+```
+
+6) 
 
 ### 오픈스택 이미지 다운로드 경로
  + https://docs.openstack.org/image-guide/obtain-images.html

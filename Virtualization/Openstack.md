@@ -182,7 +182,7 @@
 
 ### Controller 서버 (admin관리자)
 
-1) 오픈스택 노드 상태 확인패키지 설치
+#### 1) 오픈스택 노드 상태 확인패키지 설치
 ```
 yum -y install openstack-utils
 
@@ -190,7 +190,7 @@ yum -y install openstack-utils
 
  오픈스택 노드 상태 확인 커맨트 활성화
 ```
-2) 오픈스택 관리웹페이지 접속
+#### 2) 오픈스택 관리웹페이지 접속
 
 ```
  openstack-utils 를 설치하면 루트 디렉토리에
@@ -201,7 +201,7 @@ yum -y install openstack-utils
  회사에서 각각 프로젝트를 할당 할 수 있다.
 
 ```
-3) 오픈스택 관리자 웹페이지 사용자 관리
+#### 3) 오픈스택 관리자 웹페이지 사용자 관리
 
 <img src="https://github.com/hyunseungbin9408/CCCR_experience/blob/master/png/openstack_usercreate.png" alt="drawing" width="400"/>
 
@@ -210,14 +210,14 @@ yum -y install openstack-utils
  이름과 암호를 입력해주고 원하는 프로젝트에 속하고 역할도 부여해 줄 수 있다. // 어느 한 프로젝트에 admin역할이 된다면 모든 프로젝트를 관리 할 수 있다.
  사용자에게 역할을 하나하나 부여할 필요없이 그룹묶어서 한꺼번에 역할을 부여해 줄 수 있다. 
  ```
-4) 오픈스택 관리자 시스템정보확인
+#### 4) 오픈스택 관리자 시스템정보확인
 
 <img src="https://github.com/hyunseungbin9408/CCCR_experience/blob/master/png/openstack_systeminfo.png" alt="drawing" width="400"/>
 
 ```
  왼쪽상단 관리탭에서 시스템정보를 확인 할 수 있다. Endpoint로 주소를 확인 할 수 있는데 노드마다 주소가 각각 다르다.
 ```
-5) 오픈스택 관리자 flavor 생성
+#### 5) 오픈스택 관리자 flavor 생성
 
 <img src="https://github.com/hyunseungbin9408/CCCR_experience/blob/master/png/openstack_flavor_create.png" alt="drawing" width="400"/>
 
@@ -228,7 +228,7 @@ flavor를 통해서 우리는 인스턴스 배포시에 RAM, 디스크, CPU 코�
 위에 보는것처럼 조금은 여유있게 만들었다. 타이트하게 만들면 생성시에 거부당 할 수 있기 때문이다.
 ```
 
-6) 오픈스택 관리자 이미지파일 공유파일로 등록
+#### 6) 오픈스택 관리자 이미지파일 공유파일로 등록
 
 <img src="https://github.com/hyunseungbin9408/CCCR_experience/blob/master/png/openstack_image_create.png" alt="drawing" width="400"/>
 
@@ -239,7 +239,7 @@ flavor를 통해서 우리는 인스턴스 배포시에 RAM, 디스크, CPU 코�
 이 iso파일은 기본적으로 최소 디스크8GB가 필요하니 스토리지는 8기가이상만 사용할 수 있도록 제한을 두어야 한다.
 ```
 
-7) 오픈스택 관리자 네트워크 생성 및 관리
+#### 7) 오픈스택 관리자 네트워크 생성 및 관리
 
 <img src="https://github.com/hyunseungbin9408/CCCR_experience/blob/master/png/openstack_public_network.png" alt="drawing" width="400"/>
 
@@ -259,7 +259,7 @@ flavor를 통해서 우리는 인스턴스 배포시에 RAM, 디스크, CPU 코�
 
 ### 사용자 계정
 
-1) 프로젝트 내부망 네트워크 생성
+#### 1) 프로젝트 내부망 네트워크 생성
 
 
 <img src="https://github.com/hyunseungbin9408/CCCR_experience/blob/master/png/openstack_network_create2.png" alt="drawing" width="400"/>
@@ -276,7 +276,7 @@ flavor를 통해서 우리는 인스턴스 배포시에 RAM, 디스크, CPU 코�
 DNS서버를 정해주는 것이 좋다. // 8.8.8.8로 주소를 주었다.
 ```
 
-2) 프로젝트 라우터 생성
+#### 2) 프로젝트 라우터 생성
 
  <img src="https://github.com/hyunseungbin9408/CCCR_experience/blob/master/png/openstack_network_create_topology.png" alt="drawing" width="40
  0">
@@ -286,7 +286,7 @@ DNS서버를 정해주는 것이 좋다. // 8.8.8.8로 주소를 주었다.
  연결한 네트워크가 완성되었다.
 ```
 
-3) 프로젝트 보안그룹 생성
+#### 3) 프로젝트 보안그룹 생성
 
 <img src="https://github.com/hyunseungbin9408/CCCR_experience/blob/master/png/openstack_securityGroup_create.png" alt="drawing" width="400"/>
 
@@ -310,7 +310,7 @@ DNS서버를 정해주는 것이 좋다. // 8.8.8.8로 주소를 주었다.
  이름을 구성하고 보안그룹을 생성하고 전에 했던것처럼 포트를 추가해준다.
 ```
 
-4) 프로젝트 Floating 
+#### 4) 프로젝트 Floating 
 
 <img src="https://github.com/hyunseungbin9408/CCCR_experience/blob/master/png/openstack_network_Floating.png" alt="drawing" width="400"/>
 
@@ -318,7 +318,7 @@ DNS서버를 정해주는 것이 좋다. // 8.8.8.8로 주소를 주었다.
  외부망으로 통신 할 수 있도록 유동ip를 설정 할 수 있게 Floating 설정해준다.
  ```
  
-5) 프로젝트 컴퓨트 키페어 생성
+#### 5) 프로젝트 컴퓨트 키페어 생성
 
 <img src="https://github.com/hyunseungbin9408/CCCR_experience/blob/master/png/openstack_keypair_create.png" alt="drawing" width="400"/>
 
@@ -331,7 +331,7 @@ DNS서버를 정해주는 것이 좋다. // 8.8.8.8로 주소를 주었다.
  개인키이기때문에 권한을 600 사용자에게만 읽고 쓸수있는 권한을 준다.
 ```
 
-6) 프로젝트 인스턴스 생성
+#### 6) 프로젝트 인스턴스 생성
 
 <img src="https://github.com/hyunseungbin9408/CCCR_experience/blob/master/png/openstack_instance_create.png" alt="drawing" width="400"/>
 
@@ -370,7 +370,7 @@ DNS서버를 정해주는 것이 좋다. // 8.8.8.8로 주소를 주었다.
 이로써 인스턴스를 생성 할 수 있게 되었다.
 ```
 
-7) 프로젝트 로드밸런스
+#### 7) 프로젝트 로드밸런스
 
 <img src="https://github.com/hyunseungbin9408/CCCR_experience/blob/master/png/openstack_loadbalancer.png" alt="drawing" width="400"/>
 

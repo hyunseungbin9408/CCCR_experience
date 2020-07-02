@@ -363,7 +363,7 @@ DNS서버를 정해주는 것이 좋다. // 8.8.8.8로 주소를 주었다.
  인스턴스에 보안그룹을 등록하여 방화벽을 관리하는 단계이다. default값은 기본적으로 들어가있고 추가로 설정한 보안그룹을 올려주면 끝이다.
 ```
 
-<https://github.com/hyunseungbin9408/CCCR_experience/blob/master/png/openstack_instance_create_configuration.png" alt="drawing" width="400"/>
+<img src="https://github.com/hyunseungbin9408/CCCR_experience/blob/master/png/openstack_instance_create_configuration.png" alt="drawing" width="400"/>
 
 ```
 설정에서 나는 cloud init 스크립트로 워드프레스를 자동화로 다운 실행 할 수 있게 설정하였다.

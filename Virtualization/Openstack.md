@@ -367,9 +367,45 @@ DNS서버를 정해주는 것이 좋다. // 8.8.8.8로 주소를 주었다.
 
 ```
 설정에서 나는 cloud init 스크립트로 워드프레스를 자동화로 다운 실행 할 수 있게 설정하였다.
-이로써 더이상 인스턴스에 설정 할 것이 없다.
+이로써 인스턴스를 생성 할 수 있게 되었다.
 ```
 
+7) 프로젝트 로드밸런스
+
+<img src="https://github.com/hyunseungbin9408/CCCR_experience/blob/master/png/openstack_loadbalancer.png" alt="drawing" width="400"/>
+
+```
+ 로드밸런스를 생성할때 로드밸런스를 시켜줄 대역에 서브넷을 정해준다.
+```
+
+<img src="https://github.com/hyunseungbin9408/CCCR_experience/blob/master/png/openstack_loadbalancer2.png" alt="drawing" width="400"/>
+
+```
+로드밸런스로 접속할 포트를 정해준다.
+```
+
+<img src="https://github.com/hyunseungbin9408/CCCR_experience/blob/master/png/openstack_loadbalancer3.png" alt="drawing" width="400"/>
+
+```
+ 로드밸런스를 진행할 방식을 정한다.
+ Round Robin은 분산은 순차적으로 실행한다. 제일 기본적인 방법
+Least_connection은 초반에는 Round Robin처럼 순차적으로 진행하다가 트래픽이 제일 적은쪽으로 분산을 시켜주는 방법이다.
+```
+
+<img src="https://github.com/hyunseungbin9408/CCCR_experience/blob/master/png/openstack_loadbalancer4.png" alt="drawing" width="400"/>
+
+```
+로드밸런싱을 진행할 대역폭에 속해있는 서버들을 골라서 넣을수있다.
+포함시킨 서버들만 로드밸런싱이 들어간다.
+```
+
+<img src="https://github.com/hyunseungbin9408/CCCR_experience/blob/master/png/openstack_loadbalancer5.png" alt="drawing" width="400"/>
+
+```
+모니터링을 어떤방식으로 진행 할지 정하는 단계이다. 모니터링 tcp를 http로 시키고 3번이상 5초동안 넘게 반응이 오지않는다면
+해당서버에 로드밸런싱을 중지한다.
+기본값으로 진행시켰다.
+```
 ### 오픈스택 이미지 다운로드 경로
  + https://docs.openstack.org/image-guide/obtain-images.html
  

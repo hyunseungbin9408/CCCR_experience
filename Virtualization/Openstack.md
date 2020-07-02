@@ -331,7 +331,44 @@ DNS서버를 정해주는 것이 좋다. // 8.8.8.8로 주소를 주었다.
  개인키이기때문에 권한을 600 사용자에게만 읽고 쓸수있는 권한을 준다.
 ```
 
-6) 
+6) 프로젝트 인스턴스 생성
+
+<img src="https://github.com/hyunseungbin9408/CCCR_experience/blob/master/png/openstack_instance_create.png" alt="drawing" width="400"/>
+
+```
+ 인스턴스 생성을 처음 들어가면 이름을 설정해주고 소스로 넘어가면 된다.
+```
+
+<img src="https://github.com/hyunseungbin9408/CCCR_experience/blob/master/png/openstack_instance_create_image.png" alt="drawing" width="400"/>
+
+<img src="https://github.com/hyunseungbin9408/CCCR_experience/blob/master/png/openstack_instance_create_volume.png" alt="drawing" width="400"/>
+
+
+```
+ 소스탭에서는 이미지파일을 등록하는것과 부트볼륨을 등록하는 것 두가지 방법이 있다.
+ 이미지 파일로 부트를 실행한다면 인스턴스를 만들때마다 새롭게 설정해야하고
+ 부트볼륨으로 소스를 등록하고 볼륨을 삭제하는것을 체크해제하면 볼륨안에 설정들을 그대로 가지고 갈 수 있다.
+ ```
+ 
+ <img src="https://github.com/hyunseungbin9408/CCCR_experience/blob/master/png/openstack_instance_create_flavor.png" alt="drawing" width="400"/>
+ 
+
+```
+ admin계정에서 생성했던 flavor을 등록하는 단계이다.
+```
+
+<img src="https://github.com/hyunseungbin9408/CCCR_experience/blob/master/png/openstack_instance_security.png" alt="drawing" width="400"/>
+
+```
+ 인스턴스에 보안그룹을 등록하여 방화벽을 관리하는 단계이다. default값은 기본적으로 들어가있고 추가로 설정한 보안그룹을 올려주면 끝이다.
+```
+
+<https://github.com/hyunseungbin9408/CCCR_experience/blob/master/png/openstack_instance_create_configuration.png" alt="drawing" width="400"/>
+
+```
+설정에서 나는 cloud init 스크립트로 워드프레스를 자동화로 다운 실행 할 수 있게 설정하였다.
+이로써 더이상 인스턴스에 설정 할 것이 없다.
+```
 
 ### 오픈스택 이미지 다운로드 경로
  + https://docs.openstack.org/image-guide/obtain-images.html

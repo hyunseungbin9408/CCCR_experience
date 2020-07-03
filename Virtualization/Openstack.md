@@ -162,7 +162,42 @@
   + cinder -> Backend storage (Lvm은 복구시스템이 없어서 안정성이 떨어짐 / ceph와 glusterfs는 복구 시스템이 있음 cinder는 ceph와 gluster를 노드와 연결하는 중개자)
 *** 
 
+### Orchestation
+ + Heat => Orchestration
+ + Stack => 템플릿파일이 필요함 (image)
 
+ #### openstack resource
+  + Yaml 
+    + key : value (value => root:toor)
+    
+  + list 형태
+    + key:
+     + - value1
+     + - value2
+     + - value3
+  
+  + 
+  
+  
+ #### HOT 파일 구조
+  + heat_template_version: 2016-04-08
+  + parameters : 
+  + resource : 스택에 생성할 자원들 // 제일 중요함
+    + jk:
+    + type: OS::NOVA::SERVER
+    +  properties: 
+    +   flavor: {get_param: flavor(변수)} // falvor1 처럼 정적으로 넣을 수도있다/
+    +   image: {get_param: image(변수)}
+    +   keyname
+    +   networks:
+    +     - network: {get_param: network} // 네트워크 한개면 이렇게
+    +       fixed_up: VALUE
+    +     - netwrok: {get_param: network2} // 두개를 넣으려면 이렇게 두개
+    +   security_groups: [default, web] 
+    +
+    + 
+    + outputs : 스택에서 필요한 정보들을 찾을 수있게 출력하는 서비스
+  
 ### 오픈스택 이미지 다운로드 경로
  + https://docs.openstack.org/image-guide/obtain-images.html
  

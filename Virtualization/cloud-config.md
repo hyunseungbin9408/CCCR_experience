@@ -1,4 +1,3 @@
-
 #cloud-config
 yum_repos:
   MariaDB:
@@ -17,6 +16,7 @@ runcmd:
  - [ yum, -y, install, "https://rpms.remirepo.net/enterprise/remi-release-7.rpm" ]
  - [ yum, -y, install, yum-utils ]
  - [ yum-config-manager, --enable, remi-php74 ]
+ - [ yum, -y, update ]
  - [ yum, install, -y, php, php-mysqlnd ]
  - [ systemctl, restart, httpd ]
  - [ yum, install, -y, MariaDB ]
@@ -26,4 +26,4 @@ runcmd:
  - [ mysql, -u, root, -e, "GRANT ALL ON wordpress.* TO 'student'@'localhost' IDENTIFIED BY 'dkagh1.';" ]
  - [ yum, -y, install, wget ]
  - [ wget, "http://wordpress.org/latest.tar.gz", -P, /root ]
- - [ tar, -xvzf, /root/latest.tar.gz, -C, /var/www/html ]
+ - [ tar -xvzf, /root/latest.tar.gz, -C, /var/www/html ]

@@ -17,7 +17,6 @@ runcmd:
  - [ yum, -y, install, "https://rpms.remirepo.net/enterprise/remi-release-7.rpm" ]
  - [ yum, -y, install, yum-utils ]
  - [ yum-config-manager, --enable, remi-php74 ]
- - [ yum, -y, update ]
  - [ yum, install, -y, php, php-mysqlnd ]
  - [ systemctl, restart, httpd ]
  - [ yum, install, -y, MariaDB ]
@@ -28,5 +27,3 @@ runcmd:
  - [ yum, -y, install, wget ]
  - [ wget, "http://wordpress.org/latest.tar.gz", -P, /root ]
  - [ tar, -xvzf, /root/latest.tar.gz, -C, /var/www/html ]
- - [ chown, -R, apache:, /var/www/html/wordpress ]
- - [ setsebool, -P, httpd_can_network_connect_db=on ]

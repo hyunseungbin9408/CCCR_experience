@@ -11,3 +11,10 @@
  
 ## 오픈스택 구성
 
+### web 서버 인스턴스
+
+<img src="https://github.com/hyunseungbin9408/CCCR_experience/blob/master/png/openstack_training_web.png" alt="drawing" width="500"/>
+
+ + 웹서버에 실행파일은 부트볼륨으로 하지않고 왜냐하면 총 사용할 수 있는 공간이 20GB밖에 없어서 효율적 공간사용하려고 이미지파일로 직접 구동했다.
+ + 보안그룹은 mysql(3306), http(80), https(443)이렇게 세개로 기본값에 더해서 추가 해주었다.
+ + 

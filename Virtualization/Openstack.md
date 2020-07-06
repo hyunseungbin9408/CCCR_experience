@@ -178,15 +178,16 @@
   
   + 
   
-  검색 : Openstack heat template guide
-  
+ #### 검색 : Openstack heat template guide
+  + Openstack사이트: https://docs.openstack.org/heat/pike/template_guide/hot_guide.html#template-input-parameters
+  + 가이드에서 확인 할때 앞에 list 형태면 공백 두칸
  #### HOT 파일 구조
   + description : 파일에 대한 설명 
   + heat_template_version: 2016-04-08
   + parameters : 변수를 저장하는 공간
-  + resource : 스택에 생성할 자원들 // 제일 중요함
-    + :
-    + type: OS::NOVA::SERVER
+  + resources : 스택에 생성할 자원들 // 제일 중요함
+    + vm(내가마음대로정하는 이름):
+    +  type: OS::NOVA::SERVER
     +  properties: 
     +   flavor: {get_param: flavor(변수)} // falvor1 처럼 정적으로 넣을 수도있다/
     +   image: {get_param: image(변수)}

@@ -178,12 +178,14 @@
   
   + 
   
+  검색 : Openstack heat template guide
   
  #### HOT 파일 구조
+  + description : 파일에 대한 설명 
   + heat_template_version: 2016-04-08
-  + parameters : 
+  + parameters : 변수를 저장하는 공간
   + resource : 스택에 생성할 자원들 // 제일 중요함
-    + jk:
+    + :
     + type: OS::NOVA::SERVER
     +  properties: 
     +   flavor: {get_param: flavor(변수)} // falvor1 처럼 정적으로 넣을 수도있다/
@@ -196,7 +198,7 @@
     +   security_groups: [default, web] 
     +
     + 
-    + outputs : 스택에서 필요한 정보들을 찾을 수있게 출력하는 서비스
+  + outputs : 스택에서 필요한 정보들을 찾을 수있게 출력하는 서비스
   
 ### 오픈스택 이미지 다운로드 경로
  + https://docs.openstack.org/image-guide/obtain-images.html

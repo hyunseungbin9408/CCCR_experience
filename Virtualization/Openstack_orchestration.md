@@ -127,4 +127,4 @@
 ```
 #### 템플릿으로 로드밸런서 추가해서 구성해보기
 
-Virtualization/template_LoadBalancer.yaml.txt
+https://github.com/hyunseungbin9408/CCCR_experience/blob/master/Virtualization/template_LoadBalancer.yaml.txt

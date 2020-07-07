@@ -1,0 +1,145 @@
+﻿heat_template_version: 2015-04-30
+resources: 
+  Net_1: 
+    type: OS::Neutron::Net
+    properties: 
+      admin_state_up: true
+  Subnet_1: 
+    type: OS::Neutron::Subnet
+    properties: 
+      network: { get_resource: Net_1 }
+      ip_version: 4
+      cidr: 172.16.12.0/24
+      enable_dhcp: true
+      dns_nameservers:
+        - 8.8.8.8
+  Port_1: 
+    type: OS::Neutron::Port
+    properties: 
+      admin_state_up: true
+      fixed_ips: 
+        - subnet: { get_resource: Subnet_1 }
+      security_groups: 
+        - 6013cf12-48e7-4a4d-84d5-d59073efd619
+        - e11dd8c4-c192-4a1c-8028-5d5701864687
+      network: { get_resource: Net_1 }
+  Server_1: 
+    type: OS::Nova::Server
+    properties: 
+      networks: 
+        - subnet: { get_resource: Subnet_1 }
+      flavor: flavor1
+      image: f378a668-4848-44cc-91fb-4161cea18816
+      key_name: key1
+      user_data: |
+        #!/bin/bash
+        setenforce 0
+        echo "[MariaDB]" > /etc/yum.repos.d/MariaDB.repo
+        echo "baseurl = http://yum.mariadb.org/10.4/rhel7-amd64" >> /etc/yum.repos.d/MariaDB.repo
+        echo "enabled = true" >> /etc/yum.repos.d/MariaDB.repo
+        echo "gpgcheck: true" >> /etc/yum.repos.d/MariaDB.repo
+        echo "gpgkey: https://yum.mariadb.org/RPM-GPG-KEY-MariaDB" >> /etc/yum.repos.d/MariaDB.repo
+        echo "name: MariaDB" >> /etc/yum.repos.d/MariaDB.repo
+        yum install -y httpd
+        systemctl start httpd
+        systemctl enable httpd
+        yum -y install "https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm"
+        yum -y install "https://rpms.remirepo.net/enterprise/remi-release-7.rpm"
+        yum -y install yum-utils
+        yum-config-manager --enable remi-php74
+        yum install -y php php-mysqlnd
+        systemctl restart httpd
+        yum install -y MariaDB
+        systemctl start mariadb
+        systemctl enable mariadb
+        mysql -u root -e "CREATE DATABASE wordpress;"
+        mysql -u root -e "GRANT ALL ON wordpress.* TO 'student'@'%' IDENTIFIED BY 'dkagh1.';"
+        yum -y install wget
+        wget "http://wordpress.org/latest.tar.gz" -P /root
+        tar -xvzf /root/latest.tar.gz -C /var/www/html
+        chown -R apache: /var/www/html/wordpress
+  Server_2: 
+    type: OS::Nova::Server
+    properties: 
+      networks: 
+        - subnet: { get_resource: Subnet_1 }
+      flavor: flavor1
+      image: f378a668-4848-44cc-91fb-4161cea18816
+      key_name: key1
+      user_data: |
+        #!/bin/bash
+        setenforce 0
+        echo "[MariaDB]" > /etc/yum.repos.d/MariaDB.repo
+        echo "baseurl = http://yum.mariadb.org/10.4/rhel7-amd64" >> /etc/yum.repos.d/MariaDB.repo
+        echo "enabled = true" >> /etc/yum.repos.d/MariaDB.repo
+        echo "gpgcheck: true" >> /etc/yum.repos.d/MariaDB.repo
+        echo "gpgkey: https://yum.mariadb.org/RPM-GPG-KEY-MariaDB" >> /etc/yum.repos.d/MariaDB.repo
+        echo "name: MariaDB" >> /etc/yum.repos.d/MariaDB.repo
+        yum install -y httpd
+        systemctl start httpd
+        systemctl enable httpd
+        yum -y install "https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm"
+        yum -y install "https://rpms.remirepo.net/enterprise/remi-release-7.rpm"
+        yum -y install yum-utils
+        yum-config-manager --enable remi-php74
+        yum install -y php php-mysqlnd
+        systemctl restart httpd
+        yum install -y MariaDB
+        systemctl start mariadb
+        systemctl enable mariadb
+        mysql -u root -e "CREATE DATABASE wordpress;"
+        mysql -u root -e "GRANT ALL ON wordpress.* TO 'student'@'%' IDENTIFIED BY 'dkagh1.';"
+        yum -y install wget
+        wget "http://wordpress.org/latest.tar.gz" -P /root
+        tar -xvzf /root/latest.tar.gz -C /var/www/html
+        chown -R apache: /var/www/html/wordpress
+  FloatingIP_1: 
+    type: OS::Neutron::FloatingIP
+    properties: 
+      floating_network: f9744d2c-a4d5-4d30-bd78-737ea2f07cea
+      port_id: { get_attr: [ LoadBalancer, vip_port_id ] }
+  RouterInterface_1: 
+    type: OS::Neutron::RouterInterface
+    properties: 
+      subnet: { get_resource: Subnet_1 }
+      router: 6b5bc92a-f7a7-445d-9c75-8533a5f80667
+  HealthMonitor_1:
+    properties:
+      delay: 7
+      max_retries: 3
+      pool: {get_resource: Pool_1}
+      timeout: 5
+      type: PING
+    type: OS::Neutron::LBaaS::HealthMonitor
+  LoadBalancer:
+    type: OS::Neutron::LBaaS::LoadBalancer
+    properties:
+      vip_subnet: { get_resource: Subnet_1 }
+  Listener:
+    type: OS::Neutron::LBaaS::Listener
+    properties:
+      protocol: HTTP
+      protocol_port: 80
+      loadbalancer: { get_resource: LoadBalancer }
+  Pool_1:
+    properties:
+      admin_state_up: true
+      lb_algorithm: ROUND_ROBIN
+      loadbalancer: {get_resource: LoadBalancer}
+      listener: { get_resource: Listener }
+      protocol: HTTP
+    type: OS::Neutron::LBaaS::Pool
+  PoolMember_1:
+    type: OS::Neutron::LBaaS::PoolMember
+    properties:
+      address: { get_attr: [ Server_1, first_address ] }
+      pool: { get_resource: Pool_1 }
+      protocol_port: 80
+      subnet: { get_resource: Subnet_1 }
+  PoolMember_2:
+    type: OS::Neutron::LBaaS::PoolMember
+    properties:
+      address: { get_attr: [ Server_2, first_address ] }
+      pool: { get_resource: Pool_1 }
+      protocol_port: 80
+      subnet: { get_resource: Subnet_1 }

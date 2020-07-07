@@ -125,6 +125,17 @@
  웹서버 두개가 구성되었으니 이제 로드밸런서를 만들려고한다.
  
 ```
+
+#### 템플릿으로 할때 오류체크
+
+```
+ Healthmonitor
+ 1. pool에 LoadBalancer와 Listner가 둘다 있지않으면 index range out에러가 뜬다.
+ 
+ Floating IP
+ 1. Floating ip가 문제가 생기면 포트가 없거나 server network에 subnet이 안들어가있으면 생긴다.
+```
+
 #### 템플릿으로 로드밸런서 추가해서 구성해보기
 
 https://github.com/hyunseungbin9408/CCCR_experience/blob/master/Virtualization/template_LoadBalancer.yaml.txt

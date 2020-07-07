@@ -73,3 +73,24 @@ sudo apt  install python3-openstackclient
  대괄호제외하고는 필수로 적어줘야한다.
  
  ```
+
+
+### 오픈스택 커맨드 시작
+
+<img src="https://github.com/hyunseungbin9408/CCCR_experience/blob/master/png/openstack_envirment_credential.png"  alt="drawing" width="700"/>
+
+```
+ 제일먼저 해야하는것이
+ 
+ 
+```
+### Catalog list (identity)
+<img src="https://github.com/hyunseungbin9408/CCCR_experience/blob/master/png/openstack_catalog_list.png" alt="drawing" width="700"/>
+
+ + endpoint = API주소 (통신하는것)
+ + endpoint의 목록 = catalog
+ + public = 외부망과 통신하기위해서
+ + internal = 서비스와 서비스간에 통신할때 사용함
+ + admin
+ 
+ 

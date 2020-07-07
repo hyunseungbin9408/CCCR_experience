@@ -125,3 +125,79 @@
  웹서버 두개가 구성되었으니 이제 로드밸런서를 만들려고한다.
  
 ```
+#### 템플릿으로 로드밸런서 추가해서 구성해보기
+
+heat_template_version: '2015-04-30'
+resources:
+  FloatingIP_1:
+    properties:
+      floating_network: f9744d2c-a4d5-4d30-bd78-737ea2f07cea
+      port_id:
+        get_attr: [LoadBalancer_1, vip_port_id]
+    type: OS::Neutron::FloatingIP
+  HealthMonitor_1:
+    properties:
+      delay: 3
+      max_retries: 3
+      pool: {get_resource: Pool_1}
+      timeout: 5
+      type: PING
+    type: OS::Neutron::LBaaS::HealthMonitor
+  Listener_1:
+    properties:
+      default_pool: {get_resource: Pool_1}
+      loadbalancer: {get_resource: LoadBalancer_1}
+      protocol: HTTP
+      protocol_port: 80
+    type: OS::Neutron::LBaaS::Listener
+  LoadBalancer_1:
+    properties:
+      vip_subnet: {get_resource: Subnet_1}
+    type: OS::Neutron::LBaaS::LoadBalancer
+  Net_1:
+    properties: {admin_state_up: true}
+    type: OS::Neutron::Net
+  PoolMember_1:
+    properties:
+      address:
+        get_attr: [Server_1, first_address]
+      pool: {get_resource: Pool_1}
+      protocol_port: 80
+      subnet: {get_resource: Subnet_1}
+    type: OS::Neutron::LBaaS::PoolMember
+  Pool_1:
+    properties:
+      lb_algorithm: ROUND_ROBIN
+      loadbalancer: {get_resource: LoadBalancer_1}
+      protocol: HTTP
+    type: OS::Neutron::LBaaS::Pool
+  RouterInterface_1:
+    properties:
+      router: 6b5bc92a-f7a7-445d-9c75-8533a5f80667
+      subnet: {get_resource: Subnet_1}
+    type: OS::Neutron::RouterInterface
+  Server_1:
+    properties:
+      flavor: flavor1
+      image: f378a668-4848-44cc-91fb-4161cea18816
+      key_name: key1
+      name: web2
+      networks:
+      - network: {get_resource: Net_1}
+    type: OS::Nova::Server
+  Server_2:
+    properties:
+      flavor: flavor1
+      image: f378a668-4848-44cc-91fb-4161cea18816
+      key_name: key1
+      name: web2
+      networks:
+      - network: {get_resource: Net_1}
+    type: OS::Nova::Server
+  Subnet_1:
+    properties:
+      cidr: 172.16.20.0/24
+      enable_dhcp: true
+      ip_version: 4
+      network: {get_resource: Net_1}
+    type: OS::Neutron::Subnet

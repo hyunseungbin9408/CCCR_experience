@@ -1,6 +1,6 @@
 # orchestration(heat) stack구성
 
-## Generator로 stack만들기
+## Generator로 web서버 stack만들기
 
 <img src="https://github.com/hyunseungbin9408/CCCR_experience/blob/master/png/openstack_heat_generator.png" alt="drawing" width="700"/>
 
@@ -52,6 +52,7 @@
 <img src="https://github.com/hyunseungbin9408/CCCR_experience/blob/master/png/openstack_heat_generator_port2.png" alt="drawing" width="550"/>
 
 ```
+
   포트를 설치하는데 서브넷과 네트워크에 연결해주어야한다.
   
   보안그룹은 포트에서 설정해준다. 하지만 서버에도 보안그룹을 설정하면 스택설치가 불가능하니 참고하자.
@@ -64,6 +65,7 @@
 <img src="https://github.com/hyunseungbin9408/CCCR_experience/blob/master/png/openstack_heat_generator_floatingIP.png" alt="drawing" width="550"/>
 
 ```
+
   외부망과 연결할 수 있도록 유동아이피를 설정하는데
   
   외부망은 미리 만들어두었고 Public으로 이름지었다.
@@ -75,6 +77,7 @@
 <img src="https://github.com/hyunseungbin9408/CCCR_experience/blob/master/png/openstack_heat_generator_routerinterface.png" alt="drawing" width="550"/>
 
 ```
+
   외부망과 내부망이 통신하려면 라우터가 필수적으로 필요하기때문에
   
   외부망을 설치할때 만들었던 라우터와 연결하기 위해서 인터페이스를 설정해줘야한다.
@@ -83,5 +86,42 @@
   
 ```
   
+<img src="https://github.com/hyunseungbin9408/CCCR_experience/blob/master/png/openstack_heat_generator_templeate.png" alt="drawing" width="550"/>
+
+```
  
-  
+ 기본적인 웹과 소통할 수 있는 서버구성이 완료되었고 스택을 만들기위해서 진행하기전에 처음이라면 오류많이 발생하기때문에 저장을 하고 진행 하는 것이 좋다.
+ 
+ 이런식으로 템플릿이 나온다. 우리가 리소스들을 그래픽으로 끌어와서 구성했지만
+ 
+ 이러한 형식으로도 구성할 수 있다.
+ 
+ 파일형식으로 다운받을 수 있고 바로 진행 할 수 있다.
+ 
+ 나는 바로 진행하였다.
+ 
+```
+
+<img src="https://github.com/hyunseungbin9408/CCCR_experience/blob/master/png/openstack_heat_generator_templeate2.png" alt="drawing" width="550"/>
+
+```
+
+ 진행하면 이러한 형식을 볼 수 있는데 하나라도 문제가 생기면 진행되지않기때문에
+ 
+ 어떠한 오류가 생기면 오류로그를 잘 보고 해결해야한다.
+
+ 파일형식으로도 만들수 있다.
+ 
+```
+
+<img src="https://github.com/hyunseungbin9408/CCCR_experience/blob/master/png/openstack_heat_generator_stack.png" alt="drawing" width="550"/>
+
+<img src="https://github.com/hyunseungbin9408/CCCR_experience/blob/master/png/openstack_heat_generator_instances.png" alt="drawing" width="550"/>
+
+```
+
+ 스택을 구성하는데 문제가 없다면 이렇게 스택과 인스턴스가 같이 설치가 된다.
+ 
+ 웹서버 두개가 구성되었으니 이제 로드밸런서를 만들려고한다.
+ 
+```

@@ -95,4 +95,11 @@ sudo apt  install python3-openstackclient
  + **중요서비스 Identity(Keystone), message queue(AMQP)**
    + 서비스간에 서비스를 요청할때에는 서비스에 API로 요청하고 그 주소는 Identity가 관리
    + 그 요청을 전달하는 서비스가 AMQP/RabbitMQ이다.
+   
+***
+
+## 커맨드로 오픈스택 구성하기
+
+ ### 프로젝트 만들기
  
+ <

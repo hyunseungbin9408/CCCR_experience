@@ -1,108 +1,74 @@
-﻿heat_template_version: 2018-03-02
-description: version 2017-09-01 created by HOT Generator at Mon, 06 Jul 2020 09:04:24 GMT.
-
-parameters:
-  image_id:
-    type: string
-    label: f378a668-4848-44cc-91fb-4161cea18816
-    description: Centos7
-
-resources: 
-  Server_1: 
-    type: OS::Nova::Server
-    properties: 
-      networks: 
-        - port: { get_resource: Port_1 }
-      flavor: flavor1
-      name: web2
-      image: { get_param: image_id }
-      key_name: key1
-  Port_1: 
-    type: OS::Neutron::Port
-    properties: 
-      admin_state_up: true
-      security_groups: 
-        - 6013cf12-48e7-4a4d-84d5-d59073efd619
-        - e11dd8c4-c192-4a1c-8028-5d5701864687
-      network: { get_resource: Net_1 }
-      name: port
-  Net_1: 
+heat_template_version: '2015-04-30'
+resources:
+  FloatingIP_1:
+    properties:
+      floating_network: f9744d2c-a4d5-4d30-bd78-737ea2f07cea
+      port_id:
+        get_attr: [LoadBalancer_1, vip_port_id]
+    type: OS::Neutron::FloatingIP
+  HealthMonitor_1:
+    properties:
+      delay: 3
+      max_retries: 3
+      pool: {get_resource: Pool_1}
+      timeout: 5
+      type: PING
+    type: OS::Neutron::LBaaS::HealthMonitor
+  Listener_1:
+    properties:
+      default_pool: {get_resource: Pool_1}
+      loadbalancer: {get_resource: LoadBalancer_1}
+      protocol: HTTP
+      protocol_port: 80
+    type: OS::Neutron::LBaaS::Listener
+  LoadBalancer_1:
+    properties:
+      vip_subnet: {get_resource: Subnet_1}
+    type: OS::Neutron::LBaaS::LoadBalancer
+  Net_1:
+    properties: {admin_state_up: true}
     type: OS::Neutron::Net
-    properties: 
-      admin_state_up: true
-      name: network3
-  Subnet_1: 
-    type: OS::Neutron::Subnet
-    properties: 
-      network: { get_resource: Net_1 }
-      name: net-sub
-      ip_version: 4
+  PoolMember_1:
+    properties:
+      address:
+        get_attr: [Server_1, first_address]
+      pool: {get_resource: Pool_1}
+      protocol_port: 80
+      subnet: {get_resource: Subnet_1}
+    type: OS::Neutron::LBaaS::PoolMember
+  Pool_1:
+    properties:
+      lb_algorithm: ROUND_ROBIN
+      loadbalancer: {get_resource: LoadBalancer_1}
+      protocol: HTTP
+    type: OS::Neutron::LBaaS::Pool
+  RouterInterface_1:
+    properties:
+      router: 6b5bc92a-f7a7-445d-9c75-8533a5f80667
+      subnet: {get_resource: Subnet_1}
+    type: OS::Neutron::RouterInterface
+  Server_1:
+    properties:
+      flavor: flavor1
+      image: f378a668-4848-44cc-91fb-4161cea18816
+      key_name: key1
+      name: web2
+      networks:
+      - network: {get_resource: Net_1}
+    type: OS::Nova::Server
+  Server_2:
+    properties:
+      flavor: flavor1
+      image: f378a668-4848-44cc-91fb-4161cea18816
+      key_name: key1
+      name: web2
+      networks:
+      - network: {get_resource: Net_1}
+    type: OS::Nova::Server
+  Subnet_1:
+    properties:
       cidr: 172.16.20.0/24
       enable_dhcp: true
-  RouterInterface_1: 
-    type: OS::Neutron::RouterInterface
-    properties: 
-      subnet: { get_resource: Subnet_1 }
-      router: 6b5bc92a-f7a7-445d-9c75-8533a5f80667
-  FloatingIP_1: 
-    type: OS::Neutron::FloatingIP
-    properties: 
-      floating_network: f9744d2c-a4d5-4d30-bd78-737ea2f07cea
-      port_id: { get_resource: Port_1 }
-  LoadBalancer_1:
-    type: OS::Neuron::LBaaS::LoadBalancer
-    properties:
-      admin_state_up: Boolean
-      description: String
-      name: String
-      provider: String
-      tenant_id: String
-      vip_address: String
-      vip_subnet: String
-  Listener:
-    type: OS::Neutron::LBaaS::Listener
-    properties:
-      admin_state_up: Boolean
-      connection_limit: Integer
-      default_pool: String
-      default_tls_container_ref: String
-      description: String
-      loadbalancer: String
-      name: String
-      protocol: String
-      protocol_port: Integer
-      sni_container_refs: [Value, Value, ...]
-      tenant_id: String
-  HealthMonitor:
-    type: OS::Neutron::LBaaS::HealthMonitor
-    properties:
-      admin_state_up: Boolean
-      delay: Integer
-      expected_codes: String
-      http_method: String
-      max_retries: Integer
-      pool: String
-      tenant_id: String
-      timeout: Integer
-      type: String
-      url_path: String
-  Pool:
-    type: OS::Neutron::LBaaS::Pool
-    properties:
-      admin_state_up: Boolean
-      description: String
-      lb_algorithm: String
-      listener: String
-      loadbalancer: String
-      name: String
-      protocol: String
-      session_persistence: {"cookie_name": String, "type": String}
-  PoolMember:
-    type: OS::Neutron::LBaaS::PoolMember
-    properties:
-      address: String
-      admin_state_up: Boolean
-      pool: String
-      protocol_port: Integer
-      subnet: String
-      weight: Integer
+      ip_version: 4
+      network: {get_resource: Net_1}
+    type: OS::Neutron::Subnet

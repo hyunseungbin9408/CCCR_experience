@@ -102,4 +102,44 @@ sudo apt  install python3-openstackclient
 
  ### 프로젝트 만들기
  
- <
+ <img src="https://github.com/hyunseungbin9408/CCCR_experience/blob/master/png/openstack_command_project.png" alt="drawing" width="700"/>
+ 
+ ```
+ openstack project create project3
+ 
+ 으로 커맨드로 입력하면 프로젝트를 만들 수 있다.
+ 
+ ```
+ 
+ ### 유저 만들기
+ 
+ <img src="https://github.com/hyunseungbin9408/CCCR_experience/blob/master/png/openstack_command_useradd.png" alt="drawing" width="700"/>
+ 
+ ```
+ 
+ openstack user create --project project1 --password 'dkagh1.' user2
+  
+ 유저를 만드는 커맨드이고 암호에 메타문자가 들어가면 작은따옴표로 묶어준다.
+ 
+ 커맨드로 입력 할 때에는 우선분위부터 입력하면 이해하기가 편한 것 같다.
+ 
+ ```
+
+ ### 프로젝트에 유저 권한(role)부여하기
+ 
+ <img src="https://github.com/hyunseungbin9408/CCCR_experience/blob/master/png/openstack_command_project_add_user.png" alt="drawing" width="700"/>
+ 
+ ```
+ 
+ openstack role add --project project2 --user user3 _member_
+ 
+ 이렇게 입력하면 project2 에 user3가 member라는 권한을 받는데 정확히 확인해보아야한다.
+ 
+ openstack role assignment list --project project2 --user user3
+ 
+ 으로 해당 프로젝트에 해당유저의 권한을 알아 볼 수 있다.
+ 
+ openstack role list로 user3은 project2에서 _member_에 권한인것을 알 수 있다.
+ 
+ ```
+  

@@ -91,6 +91,8 @@ sudo apt  install python3-openstackclient
  + endpoint의 목록 = catalog
  + public = 외부망과 통신하기위해서
  + internal = 서비스와 서비스간에 통신할때 사용함
- + admin
- 
+ + admin = 관리자가 관리하기 위해서 사용함
+ + **중요서비스 Identity(Keystone), message queue(AMQP)**
+   + 서비스간에 서비스를 요청할때에는 서비스에 API로 요청하고 그 주소는 Identity가 관리
+   + 그 요청을 전달하는 서비스가 AMQP/RabbitMQ이다.
  

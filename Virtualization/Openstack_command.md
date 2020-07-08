@@ -181,3 +181,26 @@ sudo apt  install python3-openstackclient
  인스턴스에 Floating ip를 커맨드로 추가 가능하다.
  
  ```
+
+### image파일 등록 및 삭제
+
+<img src="https://github.com/hyunseungbin9408/CCCR_experience/blob/master/png/Openstack_command_image_create.png" alt="drawing" width="700"/>
+
+```
+
+ openstack image create --disk-format qcow2 --file ~/Downloads/CentOS-7-x86_64-GenericCloud.qcow2 centos
+ 
+ 먼저 디스크파일형식을 입력해주고 어떤파일을 등록할지 그리고 어떤이름으로 등록할지 정해주면 등록가능!
+ 
+ ```
+ <img src="https://github.com/hyunseungbin9408/CCCR_experience/blob/master/png/Openstack_command_image_delete.png" alt="drawing" width="500"/>
+ 
+ ```
+ 
+ openstack image delete centos
+ 
+ 위에 명령어로 프로젝트에 등록된 Image파일을 삭제 할 수 있다.
+ 
+ ```
+
+ ### 

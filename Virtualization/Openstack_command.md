@@ -77,7 +77,7 @@ sudo apt  install python3-openstackclient
 
 ### 오픈스택 커맨드 시작
 
-<img src="https://github.com/hyunseungbin9408/CCCR_experience/blob/master/png/openstack_envirment_credential_create.png" alt="drawing" width="700"/>
+<img src="https://github.com/hyunseungbin9408/CCCR_experience/blob/master/png/openstack_envirment_credential_create.png" alt="drawing" width="500"/>
 
 <img src="https://github.com/hyunseungbin9408/CCCR_experience/blob/master/png/openstack_envirment_credential.png"  alt="drawing" width="700"/>
 

@@ -160,4 +160,24 @@ sudo apt  install python3-openstackclient
  openstack role list로 user3은 project2에서 _member_에 권한인것을 알 수 있다.
  
  ```
-  
+
+### Floating IP를 확인하고 인스턴스에 설정하기
+
+<img src="https://github.com/hyunseungbin9408/CCCR_experience/blob/master/png/Openstack_command_Floatingip.png" alt="drawing" width="700"/>
+
+``` 
+ openstack floating ip list -c 'Floating IP Address' -f value | head -1
+ 
+ 위에 커맨드로 지금 프로젝트에 Floating ip 리스트를 확인하는데 'Floating IP Address'를 같이 묶어주지않으면
+ 
+ 인식을 못하기 때문에 작은따옴표로 묶어줘야하고 head는 여러가지의 ip중에서 첫번째만 확인하는것인데
+ 
+ 이 커맨드 자체를 실행명령어로 만들수 있다.
+ 
+ openstack sever add floating ip instance $(openstack floating ip list -c 'Floating IP Address' -f value | head -1)
+ 
+ 위에 명령어를 괄호로 묶어주고 앞에 $을 입력해주면 앞에 server add에 실행명령어로 사용가능해서
+ 
+ 인스턴스에 Floating ip를 커맨드로 추가 가능하다.
+ 
+ ```

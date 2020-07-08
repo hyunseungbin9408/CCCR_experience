@@ -77,11 +77,29 @@ sudo apt  install python3-openstackclient
 
 ### 오픈스택 커맨드 시작
 
+<img src="https://github.com/hyunseungbin9408/CCCR_experience/blob/master/png/openstack_envirment_credential_create.png" alt="drawing" width="700"/>
+
 <img src="https://github.com/hyunseungbin9408/CCCR_experience/blob/master/png/openstack_envirment_credential.png"  alt="drawing" width="700"/>
 
+<img src="https://github.com/hyunseungbin9408/CCCR_experience/blob/master/png/openstack_envirment_credential_info.png" alt="drawing" width="700"/>
+
 ```
- 제일먼저 해야하는것이
+ 오픈스택을 커맨드로 작동하기전에 제일먼저 해야하는것이 오픈스택 사용자와 프로젝트의 환경변수를 적용시키는것
  
+ 그러기 위해선 오픈스택 우측위 사용자탭에서 OpenStack RC File v3을 다운받아준다.
+ 
+ 기본값에서 
+ echo "Please enter your OpenStack Password for project $OS_PROJECT_NAME as user $OS_USERNAME: "
+ 
+ read -sr OS_PASSWORD_INPUT
+
+ 이 두줄을 삭제하고 
+ 
+ export OS_PASSWORD=$OS_PASSWORD_INPUT
+ 
+ 오른쪽에 password_input 에 사용자 비밀번호를 입력하면
+ 
+ 실행하고 따로 입력없이 접속이 가능하다.
  
 ```
 ### Catalog list (identity)

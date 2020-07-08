@@ -224,7 +224,9 @@ sudo apt  install python3-openstackclient
   + instance 가 동적으로 할당이 되어지지않으면 확인해야하는서비스
     + neutron-dhcp-agent.service
     
-    
+ #### external network delete
+  + 
+ 
   <img src="https://github.com/hyunseungbin9408/CCCR_experience/blob/master/png/Openstack_command_Network_help.png" alt="drawing" width="700"/>
   
   <img src="https://github.com/hyunseungbin9408/CCCR_experience/blob/master/png/Openstack_command_Network_subnet_help.png" alt="drawing" width="700"/>
@@ -234,5 +236,104 @@ sudo apt  install python3-openstackclient
   새로운 네트워크/서브넷을 만들때 볼 수 있는 도움말들이다.
   
  ```
+ <img src="https://github.com/hyunseungbin9408/CCCR_experience/blob/master/png/Openstack_command_Network_create.png" alt="drawing" width="500"/>
  
+ ```
+ 
+ 기본적인 외부망 네트워크를 생성할때에는 admin계정으로 전환하고 외부망인지, 
+ 네트워크 제공 타입과 물리적인시스템방식 을 넣어주고 어떠한 프로젝트에 속하게 할것인지 정하면 완료된다.
+ 
+ ```
+ 
+ <img src="https://github.com/hyunseungbin9408/CCCR_experience/blob/master/png/Openstack_command_public_subnet_create.png" alt="drawing" width="700"/>
+ 
+ ```
+  
+  외부망에 서브넷을 만들어 대역폭과 DHCP를 설정하지않도록 설정하고 프로젝트를 설정하면 서브넷은 설정완료된다.
+  
+  ```
+  
+ <img src="https://github.com/hyunseungbin9408/CCCR_experience/blob/master/png/Openstack_command_Network_sub_create.png" alt="drawing" width="700"/>
+ 
+ ```
+  개인 네트워크를 생성하는 명령이고 개인 네트워크는 퍼블릭보다 할것이 없다.
+  
+  ```
+
+<img src="https://github.com/hyunseungbin9408/CCCR_experience/blob/master/png/Openstack_command_Network_project2.png" alt="drawing" width="700"/>
+
+```
+ 
+ openstack network list
+ 
+ 외부망과 내부망을 한꺼번에 확인 할 수 있는 명령어이다.
+ 
+```
+
+ ### 키페어 만들기
+ 
+ <img src="https://github.com/hyunseungbin9408/CCCR_experience/blob/master/png/Openstack_command_keypair_create.png" alt="drawing" width="700"/>
+ 
+ ```
+  오픈스택에서 키페어 만드는 커맨드이고 개인 키를 설정해야하는것은 무조건 키값은 나오는데
+  
+  개인키를 파일로 저장하겠다는 뜻이다.
+  
+ ```
+ 
+### 보안그룹 설정하기
+
+<img src="https://github.com/hyunseungbin9408/CCCR_experience/blob/master/png/Openstack_command_securitygroup_ruleadd.png" alt="drawing" width="700"/>
+
+```
+ openstack security group rule create --dst-port 22 default
+ 
+ openstack security group rule create --protocol icmp default
+ 
+ 디폴트값에 원격접속 할 수 있도록 22번 포트와 icmp를 넣어준다.
+ 
+```
+
+<img src="https://github.com/hyunseungbin9408/CCCR_experience/blob/master/png/Openstack_command_securitygroup_list.png" alt="drawing" width="700"/>
+
+```
+ openstack security group rule list default
+ 
+ 명령어로 디폴트값에 보안설정이 추가 되었다는 것을 알게되었다.
+ 
+```
+
+<img src="https://github.com/hyunseungbin9408/CCCR_experience/blob/master/png/Openstack_command_securitygroupadd_web.png" alt="drawing" width="700"/>
+
+```
+ openstack security group create web
+ 
+ 명령어로 web이라는 보안그룹을 추가 할 수 있다.
+ 
+ ```
+ 
+<img src="https://github.com/hyunseungbin9408/CCCR_experience/blob/master/png/Openstack_command_securitygroup_web_rueladd.png" alt="drawing" width="700"/>
+
+```
+
+ openstack security group rule create --protocol tcp --dst-port 80/443/3306 web
+
+ 명령어로 웹에 필요한 http/https/mysql를 다 넣어줄 수 있다.
+ 
+```
+
+***
+
+### 이미지파일 오버디스크 경험
+
+<img src="https://github.com/hyunseungbin9408/CCCR_experience/blob/master/png/Openstack_command_server_create_overdisk.png" alt="drawing" width="700"/>
+
+<img src="https://github.com/hyunseungbin9408/CCCR_experience/blob/master/png/Openstack_command_server_diskerror.png" alt="drawing" width="700"/>
+
+```
+
+이미지파일을 만들려고 설정할때에 기본적인 디스크 여유공간을 미리정해주지않으면 실행은 되어지지만 
+부팅과정에서 디스크공간이 부족하다는것을 알게되고 커맨드 환경에서는 openstack server list에서 확인할 수 있다.
+
+```
  

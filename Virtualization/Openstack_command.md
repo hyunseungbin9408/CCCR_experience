@@ -202,5 +202,37 @@ sudo apt  install python3-openstackclient
  위에 명령어로 프로젝트에 등록된 Image파일을 삭제 할 수 있다.
  
  ```
+ 
+***
 
- ### 
+ ### Network 설정하기
+ 
+ #### Software Defined Network
+   + network Device(control <--> OpenFlow <--> data)
+   + ovirt -> Software Defined dataCenter
+   + openstack -> Software Defined DataCenter
+   
+ #### SDN and NFV(Network Function Virtualization)
+   + FW <-> Router <-> Switch <-> LB <-> Server
+   + VNF1(Virtual Network Function)
+   + VNF2(Virtual Network Function)
+   + LB -> LBaaSv2
+   + LB Service[Project] -> Octaiva
+ 
+ #### Instance 
+  + user -> nova-api -> neutron-server -> neutron-dhcp-agent -> dnsmasq
+  + instance 가 동적으로 할당이 되어지지않으면 확인해야하는서비스
+    + neutron-dhcp-agent.service
+    
+    
+  <img src="https://github.com/hyunseungbin9408/CCCR_experience/blob/master/png/Openstack_command_Network_help.png" alt="drawing" width="700"/>
+  
+  <img src="https://github.com/hyunseungbin9408/CCCR_experience/blob/master/png/Openstack_command_Network_subnet_help.png" alt="drawing" width="700"/>
+  
+ ```
+ 
+  새로운 네트워크/서브넷을 만들때 볼 수 있는 도움말들이다.
+  
+ ```
+ 
+ 

@@ -73,6 +73,12 @@
   
   + (LVM, NFS, Glusterfs, Ceph) 장치만에 장점을 이용해서 각각 백엔드 스토리지에 추가 할 수 있음
   
+  + 볼륨을 생성하면 compute에 생성되어짐
+  
+  + flavor는 인스터스에 종속되고 인스턴스가 삭제될때 같이 데이터가 삭제되기 때문에 volume에 백업 할 수 있음
+  
+  + 볼륨 스냅샷 : 특성 시간대에 디스크 상태를 저장하는 단계
+  
   + **LVM, Red Hat Ceph, Red Hat GlusterFS, EMC, NetApp, IBM GPFS, HP storeVirtual, Nexnta 등 스토리지 지원**
  
  ### 8) Networking (프로젝트: Neutron)

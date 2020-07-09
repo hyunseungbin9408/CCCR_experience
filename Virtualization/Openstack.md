@@ -79,6 +79,12 @@
   
   + 볼륨 스냅샷 : 특성 시간대에 디스크 상태를 저장하는 단계
   
+  + backup은 object storage에 저장
+  
+  <img src="https://github.com/hyunseungbin9408/CCCR_experience/blob/master/png/openstack_backup_snapshot_storage.png" alt="drawing" width="600"/>
+  
+  + 스냅샷은 같은 스토리지에 저장되는것이라 백업이랑은 다른 형식
+  
   + **LVM, Red Hat Ceph, Red Hat GlusterFS, EMC, NetApp, IBM GPFS, HP storeVirtual, Nexnta 등 스토리지 지원**
  
  ### 8) Networking (프로젝트: Neutron)

@@ -62,7 +62,7 @@ resources:
         sed -i "23s/.*/define( 'DB_NAME', 'wordpress' );/g" /var/www/html/wordpress/wp-config.php
         sed -i "26s/.*/define( 'DB_USER', 'student' );/g" /var/www/html/wordpress/wp-config.php
         sed -i "29s/.*/define( 'DB_PASSWORD', 'dkagh1.' );/g" /var/www/html/wordpress/wp-config.php
-        sed -i "32s/.*/define( 'DB_HOST', '192.168.122.4' );/g" /var/www/html/wordpress/wp-config.php
+        sed -i "32s/.*/define( 'DB_HOST', 'Floating IP' );/g" /var/www/html/wordpress/wp-config.php
   Server_2: 
     type: OS::Nova::Server
     properties: 
@@ -105,7 +105,7 @@ resources:
         sed -i "23s/.*/define( 'DB_NAME', 'wordpress' );/g" /var/www/html/wordpress/wp-config.php
         sed -i "26s/.*/define( 'DB_USER', 'student' );/g" /var/www/html/wordpress/wp-config.php
         sed -i "29s/.*/define( 'DB_PASSWORD', 'dkagh1.' );/g" /var/www/html/wordpress/wp-config.php
-        sed -i "32s/.*/define( 'DB_HOST', 'localhost' );/g" /var/www/html/wordpress/wp-config.php
+        sed -i "32s/.*/define( 'DB_HOST', 'Floating IP' );/g" /var/www/html/wordpress/wp-config.php
   FloatingIP_1: 
     type: OS::Neutron::FloatingIP
     properties: 

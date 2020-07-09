@@ -79,10 +79,10 @@
   
   + 볼륨 스냅샷 : 특성 시간대에 디스크 상태를 저장하는 단계
   
-  + backup은 object storage에 저장
-  
   <img src="https://github.com/hyunseungbin9408/CCCR_experience/blob/master/png/openstack_backup_snapshot_storage.png" alt="drawing" width="600"/>
   
+  + backup은 object storage에 저장
+
   + 스냅샷은 같은 스토리지에 저장되는것이라 백업이랑은 다른 형식
   
   + **LVM, Red Hat Ceph, Red Hat GlusterFS, EMC, NetApp, IBM GPFS, HP storeVirtual, Nexnta 등 스토리지 지원**
@@ -160,14 +160,35 @@
   + 호스트의 특징을 가지고있다
   
   + 타입2형태의 하이퍼바이저
+  
+  ***
  
- #### 네트워크 노드
+ ### 네트워크 노드
   + 네트워크 통신을 할때 반드시 네트워크 노드를 거쳐야 함
   
   + 외부브릿지를 통해서 밖으로 통신가능하고 ip a s br -ex 확인 할 수 있다.
   
   + ip a s br -ex 는 반드시 네트워크 노드에만 있어야 한다.
+  
+ #### 프로바이더 네트워크
+  + 가상 네트워크와 물리 네트워클 연결
+  + 관리자 역할을 사용해야함
+  + flat
+  + vlan
+  + vxlan
+  + gre (터널링)
+  
+ #### 프로젝트 네트워크
+  + 프로젝트 내에서 인스턴스가 사용하는 가상의 네트워크
+  + 일반 사용자 역할을 사용하여 생성 가능
+  + vlan
+  + vxlan
+  + gre (터널링)
  
+ #### neutron 플러그인
+  + ML2 사용하여 다수의 네트워킹 기술을 사용 가능
+  + 
+ ***
  #### 스토리지 노드
   + swift보다 좋은 기능이 많아져서 사용을 안함
   

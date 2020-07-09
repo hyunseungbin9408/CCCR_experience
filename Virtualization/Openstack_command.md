@@ -330,10 +330,17 @@ sudo apt  install python3-openstackclient
 
 <img src="https://github.com/hyunseungbin9408/CCCR_experience/blob/master/png/Openstack_command_server_diskerror.png" alt="drawing" width="700"/>
 
+<img src="https://github.com/hyunseungbin9408/CCCR_experience/blob/master/png/Openstack_command_server_create_overdisk_show.png" alt="drawing" width="700"/>
+
 ```
 
 이미지파일을 만들려고 설정할때에 기본적인 디스크 여유공간을 미리정해주지않으면 실행은 되어지지만 
+
 부팅과정에서 디스크공간이 부족하다는것을 알게되고 커맨드 환경에서는 openstack server list에서 확인할 수 있다.
+
+하지만 list로는 간단한 실행여부만 확인할 수 있기 때문에
+
+openstack server show 서버이름으로 확인하면 어떠한 이유로 에러가 발생했는지 확인 할 수 있다.
 
 ```
  

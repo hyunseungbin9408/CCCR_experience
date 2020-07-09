@@ -3,14 +3,17 @@
 <img src="https://github.com/hyunseungbin9408/CCCR_experience/blob/master/png/openstack_on_ubuntu.png" alt="drawing" width="700"/>
 
 ```
+
 sudo apt -y install python-pip
 
 sudo apt  install python3-openstackclient
 
 ```
+
 <img src="https://github.com/hyunseungbin9408/CCCR_experience/blob/master/png/openstack_python3_command.png" alt="drawing" width="700"/>
 
 ```
+
  예전버전에서는 Nova, cinder, neutron, swift처럼 각각 관리해야했지만
  
  지금은 openstack커맨드로 통합되어짐
@@ -352,3 +355,37 @@ openstack server show 서버이름으로 확인하면 어떠한 이유로 에러
 
 ```
  
+### 볼륨그룹 만들고 서버에 장착 후 복사해보기
+
+```
+
+ 먼저 서버에 있는 vol2(size1G) 를 기존에 있던 서버(virt2)에 연결해서 파일시스템을 만들고 마운트 후에
+ 마운트가 되는것을 확인하고 다시 마운트를 해제하고 분리를 한다.
+ 
+```
+
+<img src="https://github.com/hyunseungbin9408/CCCR_experience/blob/master/png/openstack_command_volume_server_create.png" alt="drawing" width="700"/>
+
+<img src="https://github.com/hyunseungbin9408/CCCR_experience/blob/master/png/openstack_command_volume_source_vol3.png" alt="drawing" width="700"/>
+
+<img src="https://github.com/hyunseungbin9408/CCCR_experience/blob/master/png/openstack_command_volume_add_server.png" alt="drawing" width="500"/>
+
+```
+
+새로운 서버를 만들고 vol2를 그대로 복사(--source)해서 vol3를 사이즈를 변경해서(size2G) 만들고 연결한 상태에서
+ 파일시스템이 저장되어있는지 확인해본다.
+ 
+```
+
+<img src="https://github.com/hyunseungbin9408/CCCR_experience/blob/master/png/openstack_command_snapshot_create_vol.png" alt="drawing" width="700"/>
+
+<img src="https://github.com/hyunseungbin9408/CCCR_experience/blob/master/png/openstack_command_volume_snapshot.png" alt="drawing" width="700"/>
+
+```
+
+ 그 다음으로 해본 방법은 vol2를 스냅샷을 만들어서 볼륨을 생성해봤다.
+ 스냅샷이랑 소스가 다른점은 스냅샷은 어떠한 시간대에 계속 머물고 있는것이고
+ 그래서 초기상태에 볼륨을 기본적으로 세팅후에 스냅샷을 따로 만드는 것이다.
+ 소스로 복사한 볼륨은 볼륨을 그대로 복사하는 것
+ 
+```

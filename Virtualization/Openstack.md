@@ -170,7 +170,7 @@
   
   + ip a s br -ex 는 반드시 네트워크 노드에만 있어야 한다.
   
- #### 프로바이더 네트워크
+ #### 프로바이더 네트워크 = 외부 네트워크 = 외부망
   + 가상 네트워크와 물리 네트워클 연결
   + 관리자 역할을 사용해야함
   + flat
@@ -178,7 +178,7 @@
   + vxlan
   + gre (터널링)
   
- #### 프로젝트 네트워크
+ #### 프로젝트 네트워크 = self-tenancy network = 테넌트 네트워크 = 내부 네트워크 = 프라이빗 네트워크
   + 프로젝트 내에서 인스턴스가 사용하는 가상의 네트워크
   + 일반 사용자 역할을 사용하여 생성 가능
   + vlan
@@ -187,7 +187,27 @@
  
  #### neutron 플러그인
   + ML2 사용하여 다수의 네트워킹 기술을 사용 가능
-  + 
+  + Linux Bridge
+  + OVS (Open vSwitch) -> OVN (Open Virtual Network)
+  + SRIOV
+  + MacVTap
+  + L2 population
+  + OpenDaylight / OpenContrail (OpenSource)
+  
+ #### OVS 브릿지
+  + br-int
+  + br-ex 
+    + 외부와 통신 할 때 반드시 거쳐야하는 브릿지
+  + br-tun
+  
+ #### SNAT (Source Network Address Translation)
+  + 통신할수 있도록 시작 네트워크를 바꿔주는 것
+  + 라우터에 도착했을때 변환시키는 과정 (source : 192.168.3.14 destination: 0.0.0.0/0 to: 10.0.0.115)
+  
+ 
+ #### DNAT (Destination Network Address Translation)
+ 
+  
  ***
  #### 스토리지 노드
   + swift보다 좋은 기능이 많아져서 사용을 안함
@@ -197,6 +217,13 @@
   + Cinder는 중개자 역할이고 오픈스택 스토리지 역할은 하지않음
   
   + cinder -> Backend storage (Lvm은 복구시스템이 없어서 안정성이 떨어짐 / ceph와 glusterfs는 복구 시스템이 있음 cinder는 ceph와 gluster를 노드와 연결하는 중개자)
+  
+  + 영구적인 스토리지 (Persistent Storage)
+    + Cinder => Block Storage
+    + Swift => Object Storage
+  
+  + 일시적인 스토리지 (Ephemeral Storage)
+    + /var/lib/nova/instances/VMID/disk => Block Storage
 *** 
 
 ### Orchestation

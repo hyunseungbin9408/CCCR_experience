@@ -379,7 +379,29 @@
     + /var/lib/nova/instances/VMID/disk => Block Storage
 *** 
 
-###
+### LoadBalancer 
+
+ + 로드밸런서를 사용하려면 auto scaling은 필수다.
+#### auto scaling
+ + scale out
+  + 수평적으로 확장하는것 (추가)
+  
+ + scale in
+  + 일정 부하이하로 내려가면 축소하는것 (제거)
+ 
+ + scale up
+  + 성능을 향상시키는것
+ 
+ + scale down
+  + 성능을 줄이는 것
+  
+ + **필요한 리소스타입**
+   + heat/autoScalingGroup
+   + heat/ScalingPolicy (scale out)
+   + heat/ScalingPolicy (scale in)
+   + Heat/GnocchiAggregationByResourcesAlarm (scale out)
+   + Heat/GnocchiAggregationByResourcesAlarm (scale in)
+   
 ### Orchestation
  + Heat => Orchestration
  + Stack => 템플릿파일이 필요함 (image)

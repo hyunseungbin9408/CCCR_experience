@@ -196,6 +196,46 @@
   
   + 다양한 네트워크 벤더나 기술들에 적용가능한 플러그인 아키텍처를 제공
   
+  + 공식문서 네트워크 확인 https://docs.openstack.org/liberty/networking-guide/scenario-classic-ovs.html
+  
+ #### 프로바이더 네트워크 = 외부 네트워크 = 외부망
+  + 가상 네트워크와 물리 네트워클 연결
+  + 관리자 역할을 사용해야함
+  + flat
+  + vlan
+  + vxlan
+  + gre (터널링)
+  
+ #### 프로젝트 네트워크 = self-tenancy network = 테넌트 네트워크 = 내부 네트워크 = 프라이빗 네트워크
+  + 프로젝트 내에서 인스턴스가 사용하는 가상의 네트워크
+  + 일반 사용자 역할을 사용하여 생성 가능
+  + vlan
+  + vxlan
+  + gre (터널링)
+ 
+ #### neutron 플러그인
+  + ML2 사용하여 다수의 네트워킹 기술을 사용 가능
+  + Linux Bridge
+  + OVS (Open vSwitch) -> OVN (Open Virtual Network)
+  + SRIOV
+  + MacVTap
+  + L2 population
+  + OpenDaylight / OpenContrail (OpenSource)
+  
+ #### OVS 브릿지
+  + br-int
+  + br-ex 
+    + 외부와 통신 할 때 반드시 거쳐야하는 브릿지
+  + br-tun
+  
+ #### SNAT (Source Network Address Translation)
+  + 통신할수 있도록 시작 네트워크를 바꿔주는 것
+  + 라우터에 도착했을때 변환시키는 과정 (source : 192.168.3.14 destination: 0.0.0.0/0 to: 10.0.0.115)
+  
+ 
+ #### DNAT (Destination Network Address Translation)
+ 
+  
  ### 9) Dashboard (프로젝트: horizon)
   + 오픈스택 환경을 운영 및 관리 할 수 있는 웹 기반의 셀프 서비스 포탈 인터페이스를 제공
   
@@ -270,44 +310,6 @@
   
   + ip a s br -ex 는 반드시 네트워크 노드에만 있어야 한다.
   
-  + 공식문서 네트워크 확인 https://docs.openstack.org/liberty/networking-guide/scenario-classic-ovs.html
-  
- #### 프로바이더 네트워크 = 외부 네트워크 = 외부망
-  + 가상 네트워크와 물리 네트워클 연결
-  + 관리자 역할을 사용해야함
-  + flat
-  + vlan
-  + vxlan
-  + gre (터널링)
-  
- #### 프로젝트 네트워크 = self-tenancy network = 테넌트 네트워크 = 내부 네트워크 = 프라이빗 네트워크
-  + 프로젝트 내에서 인스턴스가 사용하는 가상의 네트워크
-  + 일반 사용자 역할을 사용하여 생성 가능
-  + vlan
-  + vxlan
-  + gre (터널링)
- 
- #### neutron 플러그인
-  + ML2 사용하여 다수의 네트워킹 기술을 사용 가능
-  + Linux Bridge
-  + OVS (Open vSwitch) -> OVN (Open Virtual Network)
-  + SRIOV
-  + MacVTap
-  + L2 population
-  + OpenDaylight / OpenContrail (OpenSource)
-  
- #### OVS 브릿지
-  + br-int
-  + br-ex 
-    + 외부와 통신 할 때 반드시 거쳐야하는 브릿지
-  + br-tun
-  
- #### SNAT (Source Network Address Translation)
-  + 통신할수 있도록 시작 네트워크를 바꿔주는 것
-  + 라우터에 도착했을때 변환시키는 과정 (source : 192.168.3.14 destination: 0.0.0.0/0 to: 10.0.0.115)
-  
- 
- #### DNAT (Destination Network Address Translation)
  
   
  ***

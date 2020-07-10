@@ -139,6 +139,10 @@
   + OpenStack 서비스들과 관련한 측정 데이터를 효율적으로 수집
   
   + 스택을 만들고 템플릿으로 간편하게 장치들을 구성 할 수 있음
+  
+  + Heat 서비스
+    + openstack-heat-api
+    + openstack-heat-api-cfn
  
  ### 6) Telemetry (프로젝트: Ceilometer)
   + 오픈스택 전체 환경을 에이전트 기반으로 데이터 수집

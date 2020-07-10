@@ -120,8 +120,8 @@
     + zone
      + 오브젝트가 저장되는 위치
      + 같은 zone에 같은 오브젝트가 배치되면 안됨 (서로다른 zone에 서로다른 오브젝트가 복제본이 있어야함)
-     + zone은 5개
-     + zone은 오브젝트스토리지를 포함한다
+     + 복사본이 3개가 되면 zone은 5개이상 되어야한다.
+     + zone은 오브젝트스토리지를 포함한다.
      
     + Device
      + /src/node/swiftloopback 을 디바이스라고 함
@@ -148,6 +148,21 @@
   + 서비스들로부터 발송된 notification을 모니터링하여 이벤트와 측정 데이터를 수집
   
   + 데이터 저장소와 메시지 큐를 포함한 다양한 목적지에 수집한 데이터를 발행
+  
+  + Ceilometer가 데이터를 수집
+
+    + gnocchi에게 전달
+
+    + measure Storage에 저장
+
+    + Metricd 가 가공하여 metric storage에 저장
+
+    + gnocchi-api 가 metric storage에 접근하여 데이터 반환
+
+  + alarm은 metric storage의 데이터를 조회하여 조건판단
+  
+    + aoah -> gnocchi-api에게 데이터 요청
+    + gnocchi-api가 metric storage에서 데이터조회하여 반환
   
  ### 7) Block storage (프로젝트: Cinder)
   + 인스턴스의 영구 저장장치인 블록장치를 제공

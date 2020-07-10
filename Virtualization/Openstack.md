@@ -194,6 +194,10 @@
   
     + aoah -> gnocchi-api에게 데이터 요청
     + gnocchi-api가 metric storage에서 데이터조회하여 반환
+    
+  + alarm state
+    + insufficient data
+    + 
   
  ### 7) Block storage (프로젝트: Cinder)
   + 인스턴스의 영구 저장장치인 블록장치를 제공

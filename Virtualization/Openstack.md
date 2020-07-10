@@ -71,6 +71,7 @@
     + storage usage => 80%
     + fat32(5G) => NTFS
     + ext4(ubuntu) / xfs = EXABYTE급으로 용량 제한(500TB)이 없음 (centos)
+    
   + 블록 스토리지(isCSI)
     + 가장 성능이 좋은 스토리지
     + 직접 접근해서 사용 할 수 없음
@@ -83,8 +84,54 @@
     <img src="https://github.com/hyunseungbin9408/CCCR_experience/blob/master/png/hash%20function_comman_hashfunction.png" alt="drawing" width="500"/>
     
     + 수평적 구조
+    
     + 발렛파킹같은 구조
+    
     + 오브젝트로 형태로 저장 (이진데이터+메타데이터)
+    
+  + proxy node
+    + api로 요청을 받고 각 스토리지에 전달함
+    
+    + HA(가용성)로 구성해야함
+    
+    + 웹서비스 형태로 되어있음 (8080,8443)
+    
+    + restful API로 리소스 제어 (제품을 만들때 사용할 수 있음)
+    
+    + storage 노드
+     + Account service -> 어떤 사용자가 어떤 컨테이너를 가지고 있는지
+     - Container service -> 어떤 컨테이너가 어떤 오브젝트를 가지고 있는지
+     - Object service -> 오브젝트가 어디에 있는지
+     
+    + Ring file
+     + zone / device 주소값 알고있음
+     - Account ring file   ( /etc/swift/account.builder )  
+     - Container ring file ( /etc/swift/container.builder )
+     - Object ring file    ( /etc/swift/object.builder )
+     
+    + Replica
+     + 오브젝트의 복제본 수(3개 권장)
+     
+    + Region
+     + 데이터센터
+     + 스위프트가 설치되어있는 영역
+     
+    + zone
+     + 오브젝트가 저장되는 위치
+     + 같은 zone에 같은 오브젝트가 배치되면 안됨 (서로다른 zone에 서로다른 오브젝트가 복제본이 있어야함)
+     + zone은 5개
+     + zone은 오브젝트스토리지를 포함한다
+     
+    + Device
+     + /src/node/swiftloopback 을 디바이스라고 함
+     + 파일시스템이 포맷과 마운트가 완료가 되어진 장치 
+    
+    + Partition
+     + Device 아래의 숫자로 되어 있는 디렉토리
+     + 인덱싱 용도로 사용되며, 처음 구성시 설정함
+     + 적게 파티션되면 안정성이 부족 해짐
+     + 많으면 인덱스가 많아져서 속도가 느려짐
+     
  ### 5) Orchestration (프로젝트: Heat)
   + 탬플릿 기반으로 다양한 클라우드 어플리케이션을 배치 및 관리 할 수 있는 오케스트레이션 기능제공
   

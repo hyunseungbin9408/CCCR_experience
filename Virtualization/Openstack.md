@@ -111,14 +111,14 @@
     
     + restful API로 리소스 제어 (제품을 만들때 사용할 수 있음)
     
-    + storage 노드
+  + storage 노드
      + Account service -> 어떤 사용자가 어떤 컨테이너를 가지고 있는지
      
      - Container service -> 어떤 컨테이너가 어떤 오브젝트를 가지고 있는지
      
      - Object service -> 오브젝트가 어디에 있는지
      
-    + Ring file
+  + Ring file
      + zone / device 주소값 알고있음
      
      - Account ring file   ( /etc/swift/account.builder )  
@@ -127,17 +127,17 @@
      
      - Object ring file    ( /etc/swift/object.builder )
      
-    + Replica
+  + Replica
      + 오브젝트의 복제본 수(3개 권장)
      
      + 한개가 손상되더라도 3개를 계속 유지함 (존이 복구가 되어서 많아져도 3개로 유지됨)
      
-    + Region
+  + Region
      + 데이터센터
      
      + 스위프트가 설치되어있는 영역
      
-    + zone
+  + zone
      + 오브젝트가 저장되는 위치
      
      + 같은 zone에 같은 오브젝트가 배치되면 안됨 (서로다른 zone에 서로다른 오브젝트가 복제본이 있어야함)
@@ -146,12 +146,12 @@
      
      + zone은 오브젝트스토리지를 포함한다.
      
-    + Device
+  + Device
      + /src/node/swiftloopback 을 디바이스라고 함
      
      + 파일시스템이 포맷과 마운트가 완료가 되어진 장치 
     
-    + Partition
+  + Partition
      + Device 아래의 숫자로 되어 있는 디렉토리
      
      + 인덱싱 용도로 사용되며, 처음 구성시 설정함

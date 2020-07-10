@@ -40,6 +40,7 @@
   + OpenStack 오브젝트 스토리지를 포함한 다양한 스토리지 타입에서 디스크나 서버 이미지 저장을 지원
  
  ### 4) Object Storage (프로젝트: Swift)
+  + 레드햇 오브젝트스토리지 설명 : https://www.redhat.com/ko/topics/data-storage/file-block-object-storage
   + 사용자가 사용 할 수 있는 클라우드 스토리지
   
   + Http 기반의 RESTful API를 제공
@@ -48,6 +49,41 @@
   
   + 복사본을 구성하여 안전한 대용량 스토리지
   
+  + swift 서비스
+    + swift-proxy
+    + swift-account
+    + swift-container
+    + swift-object
+    
+  + swift 구조
+
+  + ceph 스토리지 소개
+  
+  + 파일시스템 스토리지 (NFS/SMB/Glusterfs)
+    + inode (권한,소유권,파일의 위치=섹터정보)
+    + 계층적 구조
+    + 파일을 어떻게 찾아갈지 정해주는 시스템
+    + 사용하기가 편해진다.
+    + 단점
+    + 파일이 많으면 느려진다(오래되면 느려진다).
+    + 사이즈의 제약이있다.
+    + load average -> 0.8 이상이면 위험
+    + storage usage => 80%
+    + fat32(5G) => NTFS
+    + ext4(ubuntu) / xfs = EXABYTE급으로 용량 제한(500TB)이 없음 (centos)
+  + 블록 스토리지(isCSI)
+    + 가장 성능이 좋은 스토리지
+    + 직접 접근해서 사용 할 수 없음
+    + 파일 시스템포맷 필요
+    
+  + 오브젝트 스토리지(Swift/Ceph)
+    + 고유값 사용 (해시값 = 확인하는 명령어 md5sum )
+    
+    <img src="https://github.com/hyunseungbin9408/CCCR_experience/blob/master/png/hash%20function_comman_hashfunction.png" alt="drawing" width="500"/>
+    
+    + 수평적 구조
+    + 발렛파킹같은 구조
+    + 오브젝트로 형태로 저장 (이진데이터+메타데이터)
  ### 5) Orchestration (프로젝트: Heat)
   + 탬플릿 기반으로 다양한 클라우드 어플리케이션을 배치 및 관리 할 수 있는 오케스트레이션 기능제공
   
@@ -226,6 +262,7 @@
     + /var/lib/nova/instances/VMID/disk => Block Storage
 *** 
 
+###
 ### Orchestation
  + Heat => Orchestration
  + Stack => 템플릿파일이 필요함 (image)

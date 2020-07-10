@@ -337,7 +337,6 @@
     
  프로젝트 = Component(구성요소) = 서비스
  
-###
  #### 컨트롤러 노드
   + 노드들 중에서 가장 중요한 노드이다.
   
@@ -382,18 +381,18 @@
 ### LoadBalancer 
 
  + 로드밸런서를 사용하려면 auto scaling은 필수다.
-#### auto scaling
- + scale out
-  + 수평적으로 확장하는것 (추가)
+ #### auto scaling
+  + scale out
+   + 수평적으로 확장하는것 (추가)
   
- + scale in
-  + 일정 부하이하로 내려가면 축소하는것 (제거)
+  + scale in
+   + 일정 부하이하로 내려가면 축소하는것 (제거)
  
- + scale up
-  + 성능을 향상시키는것
+  + scale up
+   + 성능을 향상시키는것
  
- + scale down
-  + 성능을 줄이는 것
+  + scale down
+   + 성능을 줄이는 것
   
  + **필요한 리소스타입**
    + heat/autoScalingGroup

@@ -61,21 +61,34 @@
   
   + 파일시스템 스토리지 (NFS/SMB/Glusterfs)
     + inode (권한,소유권,파일의 위치=섹터정보)
+    
     + 계층적 구조
+    
     + 파일을 어떻게 찾아갈지 정해주는 시스템
+    
     + 사용하기가 편해진다.
+    
     + 단점
+    
     + 파일이 많으면 느려진다(오래되면 느려진다).
+    
     + 사이즈의 제약이있다.
+    
     + load average -> 0.8 이상이면 위험
+    
     + storage usage => 80%
+    
     + fat32(5G) => NTFS
+    
     + ext4(ubuntu) / xfs = EXABYTE급으로 용량 제한(500TB)이 없음 (centos)
     
   + 블록 스토리지(isCSI)
     + 가장 성능이 좋은 스토리지
+    
     + 직접 접근해서 사용 할 수 없음
+    
     + 파일 시스템포맷 필요
+    
     + 이미지파일들은 블록스토리지에 저장 (빠르기때문에)
     
   + 오브젝트 스토리지(Swift/Ceph)
@@ -100,37 +113,51 @@
     
     + storage 노드
      + Account service -> 어떤 사용자가 어떤 컨테이너를 가지고 있는지
+     
      - Container service -> 어떤 컨테이너가 어떤 오브젝트를 가지고 있는지
+     
      - Object service -> 오브젝트가 어디에 있는지
      
     + Ring file
      + zone / device 주소값 알고있음
+     
      - Account ring file   ( /etc/swift/account.builder )  
+     
      - Container ring file ( /etc/swift/container.builder )
+     
      - Object ring file    ( /etc/swift/object.builder )
      
     + Replica
      + 오브젝트의 복제본 수(3개 권장)
+     
      + 한개가 손상되더라도 3개를 계속 유지함 (존이 복구가 되어서 많아져도 3개로 유지됨)
      
     + Region
      + 데이터센터
+     
      + 스위프트가 설치되어있는 영역
      
     + zone
      + 오브젝트가 저장되는 위치
+     
      + 같은 zone에 같은 오브젝트가 배치되면 안됨 (서로다른 zone에 서로다른 오브젝트가 복제본이 있어야함)
+     
      + 복사본이 3개가 되면 zone은 5개이상 되어야한다.
+     
      + zone은 오브젝트스토리지를 포함한다.
      
     + Device
      + /src/node/swiftloopback 을 디바이스라고 함
+     
      + 파일시스템이 포맷과 마운트가 완료가 되어진 장치 
     
     + Partition
      + Device 아래의 숫자로 되어 있는 디렉토리
+     
      + 인덱싱 용도로 사용되며, 처음 구성시 설정함
+     
      + 적게 파티션되면 안정성이 부족 해짐
+     
      + 많으면 인덱스가 많아져서 속도가 느려짐
      
  ### 5) Orchestration (프로젝트: Heat)
@@ -204,36 +231,54 @@
   
  #### 프로바이더 네트워크 = 외부 네트워크 = 외부망
   + 가상 네트워크와 물리 네트워클 연결
+  
   + 관리자 역할을 사용해야함
+  
   + flat
+  
   + vlan
+  
   + vxlan
+  
   + gre (터널링)
   
  #### 프로젝트 네트워크 = self-tenancy network = 테넌트 네트워크 = 내부 네트워크 = 프라이빗 네트워크
   + 프로젝트 내에서 인스턴스가 사용하는 가상의 네트워크
+  
   + 일반 사용자 역할을 사용하여 생성 가능
+  
   + vlan
+  
   + vxlan
+  
   + gre (터널링)
  
  #### neutron 플러그인
   + ML2 사용하여 다수의 네트워킹 기술을 사용 가능
+  
   + Linux Bridge
+  
   + OVS (Open vSwitch) -> OVN (Open Virtual Network)
+  
   + SRIOV
+  
   + MacVTap
+  
   + L2 population
+  
   + OpenDaylight / OpenContrail (OpenSource)
   
  #### OVS 브릿지
   + br-int
+  
   + br-ex 
     + 외부와 통신 할 때 반드시 거쳐야하는 브릿지
+    
   + br-tun
   
  #### SNAT (Source Network Address Translation)
   + 통신할수 있도록 시작 네트워크를 바꿔주는 것
+  
   + 라우터에 도착했을때 변환시키는 과정 (source : 192.168.3.14 destination: 0.0.0.0/0 to: 10.0.0.115)
   
  

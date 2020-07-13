@@ -194,19 +194,18 @@
  
  <img src="https://github.com/hyunseungbin9408/CCCR_experience/blob/master/png/Linux_Container_docker_container-ps.png" alt="drawing" width="500"/>
  
- + **Docker container run -it ubuntu bash : 이미지 파일로 bash를 실행**
+ + **Docker container run -it ubuntu bash : 이미지 파일을 터미널에서 bash로 실행**
    + bash를 굳이 쓸필요가 없고 기본적으로 실행되는 명령어와 다른 명령어를 실행할때 사용함 
    + 이런식으로 배포판으로 운영체제 이미지파일은 그자체로 사용하는것이 아님
    + 운영체제이미지파일들은 그 운영체제만의 고유한 라이브러리를 가지고있어서 계층적파일시스템을 이용해서 사용함
    ##### Attach 모드: -i -t
+   + 실행중인 컨테이너에 접근하여 확인 할 수 있음
    + -i 는 입력을 받으려고 항상 대기하라 하고 명령하는 명령어
    + -t 는 터미널에 bash를 띄우라는 명령어
    + 컨테이너(어플리케이션)에 쉘이 없다면 bash를 실행 할 수 없다.
+   ##### exec 모드 : 
    + docker container exec -it 컨테이너이름 
     + Attach 는 실행하고있는 컨테이너에 추가로 다른 프로세스를 실행하는것
- 
+   ##### Detach: -d
 <img src="https://github.com/hyunseungbin9408/CCCR_experience/blob/master/png/Linux_Container_docker_container-run.png" alt="drawing" width="500"/>
-
- #### 도커 모드
   
-  ##### Detach: -d

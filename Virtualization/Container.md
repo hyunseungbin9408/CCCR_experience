@@ -225,6 +225,7 @@
    + docker container exec -it bash 컨테이너이름 
    + exec로 추가 명령어를 실행할때에는 컨테이너가 실행되어있어야한다.
    + exec로 -it로 접속하여 넣을때에는 반드시 처음에 만들었던 같은 쉘을 넣어야한다.
+   + exec
 
 
  #### Docker run -e "ABC=123" centos

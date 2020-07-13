@@ -41,7 +41,7 @@
   
  ### 가상화와 컨테이너 비교
  
- <img src="https://github.com/hyunseungbin9408/CCCR_experience/blob/master/png/Virtualization_VS_Container.png" alt="drawing" width="350"/>
+ <img src="https://github.com/hyunseungbin9408/CCCR_experience/blob/master/png/Virtualization_VS_Container.png" alt="drawing" width="450"/>
  
  ### 도커 (DocKer)
    #### 도커(DocKer)란?
@@ -146,4 +146,17 @@
   + **이미지파일에 태그가 직접선언 되어지지않고 latest로 되어있으면 함부로 사용해서는 안됌** // 어떠한 버전을 뜻하는지 모르기때문
   
   + 컨테이너는 반드시 이미지가 필요하고 없다면 Docker hub에서 가져옴
+ 
+ ***
+ 
+ #### 도커 명령어
+ 
+  + **Docker images : 현재 docker에 가지고있는 image list**
+  
+ <img src="https://github.com/hyunseungbin9408/CCCR_experience/blob/master/png/Linux_Container_docker_images.png" alt="drawing" width="500"/>
+ 
+  +  **Docker pull : 이미지를 다운받을 때 사용하는 명령어
+  
+ <img src="https://github.com/hyunseungbin9408/CCCR_experience/blob/master/png/Linux_Container_docker_pull.png" alt="drawing" width="500"/>
+
  

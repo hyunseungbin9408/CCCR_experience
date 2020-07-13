@@ -12,6 +12,9 @@
  
   + 어플리케이션을 실행하기 위해서 만듬
   
+  + 어플리케이션 성격을 잘 이해해야한다,
+    + 일시적인어플리케이션  (ls,hello world...)
+    + 계속해서 실행되어야하는 어플리케이션 (httpd,mysql...)
  ## 왜 컨테이너를 사용해야 하는가?
   + 운영체제 수준에서 가상화를 실시하여 다수의 컨테이너를 OS 커널에서 직접 구동한다.
   
@@ -162,7 +165,17 @@
   + 컨테이너는 반드시 이미지가 필요하고 없다면 Docker hub에서 가져옴
  
  ***
+ ```
+  도커 이미지파일을 docker image inspect hello-world를 실행하면
+  
+  이미지정보들이 나온다.
+  
+  config밑에 cmd를 보면 이 이미지를 실행하는 커맨드가 나온다.
+  
+ ```
  
+ <img src="https://github.com/hyunseungbin9408/CCCR_experience/blob/master/png/Linux_Container_docker_helloworld_filecmd.png" alt="drawing" width="500"/>
+  
  #### 도커 명령어
  
   + **도커 명령어에는 2개의 명령어와 3개의 명령어를 사용하는 방식이있다. 하지만 3개의 명령어로 사용하는것이 조금 더 명확하기 때문에 3개의 명령어를 사용하겠다.**
@@ -175,4 +188,7 @@
   
  <img src="https://github.com/hyunseungbin9408/CCCR_experience/blob/master/png/Linux_Container_docker_pull.png" alt="drawing" width="500"/>
 
+ + **Docker container ps - a : 지금까지 실행했던 컨테이너들
+ 
+ <img src="https://github.com/hyunseungbin9408/CCCR_experience/blob/master/png/Linux_Container_docker_container-ps.png" alt="drawing" width="500"/>
  

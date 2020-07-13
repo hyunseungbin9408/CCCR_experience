@@ -23,6 +23,10 @@
   
   + 컨테이너는 폭넓은 구동환경(Linux, Windows, Mac, 가상 머신, 베어메탈, 개발자의 컴퓨터, 데이터 센터, 온프레미스 환경, 퍼블릭 클라우드)을 가지기 때문에 개발 및 배포가 쉬워진다. 
  
+ <img src="https://github.com/hyunseungbin9408/CCCR_experience/blob/master/png/Linux_Container.png" alt="drawing" width="700"/>
+ 
+  + **컨테이너 실행 과정**
+ 
  ### Cgroup
  
  <img src="https://github.com/hyunseungbin9408/CCCR_experience/blob/master/png/Linux_container_Cgourp.png" alt="drawing" width="700"/>

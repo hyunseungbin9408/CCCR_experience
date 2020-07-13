@@ -12,7 +12,7 @@
  
   + 어플리케이션을 실행하기 위해서 만듬
   
-  + 어플리케이션 성격을 잘 이해해야한다,
+  + 어플리케이션 성격을 잘 이해해야한다.
     + 일시적인어플리케이션  (ls,hello world...)
     + 계속해서 실행되어야하는 어플리케이션 (httpd,mysql...)
  ## 왜 컨테이너를 사용해야 하는가?
@@ -184,11 +184,16 @@
   
  <img src="https://github.com/hyunseungbin9408/CCCR_experience/blob/master/png/Linux_Container_docker_images.png" alt="drawing" width="500"/>
  
-  +  **Docker pull : 이미지를 다운받을 때 사용하는 명령어
+  +  **Docker pull : 이미지를 다운받을 때 사용하는 명령어**
   
  <img src="https://github.com/hyunseungbin9408/CCCR_experience/blob/master/png/Linux_Container_docker_pull.png" alt="drawing" width="500"/>
 
- + **Docker container ps - a : 지금까지 실행했던 컨테이너들
+ + **Docker container ps - a : 지금까지 실행했던 컨테이너들**
  
  <img src="https://github.com/hyunseungbin9408/CCCR_experience/blob/master/png/Linux_Container_docker_container-ps.png" alt="drawing" width="500"/>
  
+ + **Docker container run -it ubuntu bash : 이미지 파일로 bash를 실행**
+   + bash를 굳이 쓸필요가 없고 기본적으로 실행되는 명령어와 다른 명령어를 실행할때 사용함 
+ 
+<img src="https://github.com/hyunseungbin9408/CCCR_experience/blob/master/png/Linux_Container_docker_container-run.png" alt="drawing" width="500"/>
+

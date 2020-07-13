@@ -199,6 +199,9 @@
    + 이런식으로 배포판으로 운영체제 이미지파일은 그자체로 사용하는것이 아님
    + 운영체제이미지파일들은 그 운영체제만의 고유한 라이브러리를 가지고있어서 계층적파일시스템을 이용해서 사용함
    ##### Attach 모드: -i -t
+   
+   <img src="https://github.com/hyunseungbin9408/CCCR_experience/blob/master/png/Linux_Container_docker_container-run.png" alt="drawing" width="500"/>
+   
    + 실행중인 컨테이너에 접근하여 확인 할 수 있음
    + -i 는 입력을 받으려고 항상 대기하라 하고 명령하는 명령어
    + -t 는 터미널에 bash를 띄우라는 명령어
@@ -206,6 +209,11 @@
    ##### exec 모드 : 
    + docker container exec -it 컨테이너이름 
     + Attach 는 실행하고있는 컨테이너에 추가로 다른 프로세스를 실행하는것
-   ##### Detach: -d
-<img src="https://github.com/hyunseungbin9408/CCCR_experience/blob/master/png/Linux_Container_docker_container-run.png" alt="drawing" width="500"/>
+
+
+ #### Docker run -e "ABC=123" centos
+  <img src="https://github.com/hyunseungbin9408/CCCR_experience/blob/master/png/Linux_Container_docker_run_env.png" alt="drawing" width="500"/>
+  
+  + 컨테이너를 만들때 컨테이너내에 환경변수를 넣어줄수있다.
+  + mysql처럼 mysql에 접속할때 필요한 패스워드들을 넣어줄 수 있다. 넣지않으면 실행이 안됌 // 데이터베이스를 만들때 패스워드를 일정한 패스워드보다 랜덤으로 넣는게 좋다.
   

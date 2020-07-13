@@ -121,8 +121,6 @@
  
  <img src="https://github.com/hyunseungbin9408/CCCR_experience/blob/master/png/Linux_Container_docker_group.png" alt="drawing" width="700"/>
  
- <img src="https://github.com/hyunseungbin9408/CCCR_experience/blob/master/png/Linux_Container_docker_helloworld.png" alt="drawing" width="700"/>
- 
  ```
  
   hello run hello-world
@@ -136,6 +134,8 @@
   도커가 어떤식으로 컨테이너를 실행 했는지 순서가 출력됌
   
  ```
+ 
+ <img src="https://github.com/hyunseungbin9408/CCCR_experience/blob/master/png/Linux_Container_docker_helloworld.png" alt="drawing" width="700"/>
  
   + **이미지파일을 생성할때 반드시 태그가 존재하고 선언하지 않으면 latest가 기본값으로 들어감**
   

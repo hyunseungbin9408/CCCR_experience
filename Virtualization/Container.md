@@ -68,3 +68,80 @@
    + EE (Enterprise Edition) (3M)
      + 기업대상으로 서포트제공 (비용이 듬)
      
+ ***
+     
+ ### 도커 실습
+  #### 도커 설치
+  + 1) 사전패키지 설치
+  
+ ```
+  
+  sudo yum install -y yum-utils \
+  device-mapper-persistent-data \
+  lvm2
+  
+ ```
+ 
+  + 2) yum 저장소 설정
+  
+```
+
+ sudo yum-config-manager \
+ --add-repo \
+ https://download.docker.com/linux/centos/docker-ce.repo
+ 
+ ```
+ 
+ +  3) docker-ce 설치
+ 
+ ```
+  
+  sudo yum install -y docker-ce docker-ce-cli containerd.io
+  
+  설치가 다되면
+  
+  sudo systemctl start docker
+  sudo systemctl enable docker
+  
+ ``` 
+ 
+ <img src="https://github.com/hyunseungbin9408/CCCR_experience/blob/master/png/Linux_Container_docker_status.png" alt="drawing" width="700"/>
+ 
+ + 4) docker group add 및 도커 버전 확인
+ 
+ ``` 
+  설치 후에 바로 docker 를 쳐보면 권한이 없다고 뜬다.
+  관리자가 아닌이상 권한이 없기때문에
+  
+  sudo usermod -aG docker 사용자
+  
+  Docker그룹에 사용자를 추가해주면 docker명령어를 사용 할 수 있다.
+  
+ ```
+ 
+ <img src="https://github.com/hyunseungbin9408/CCCR_experience/blob/master/png/Linux_Container_docker_group.png" alt="drawing" width="700"/>
+https://github.com/hyunseungbin9408/CCCR_experience/blob/master/png/Linux_Container_docker_helloworld.png 
+ + 5https://github.com/hyunseungbin9408/CCCR_experience/blob/master/png/Linux_Container_docker_helloworld.pnghttps://github.com/hyunseungbin9408/CCCR_experience/blob/master/png/Linux_Container_docker_helloworld.pnghttps://github.com/hyunseungbin9408/CCCR_experience/blob/master/png/Linux_Container_docker_helloworld.pnghttps://github.com/hyunseungbin9408/CCCR_experience/blob/master/png/Linux_Container_docker_helloworld.pnghttps://github.com/hyunseungbin9408/CCCR_experience/blob/master/png/Linux_Container_docker_helloworld.pnghttps://github.com/hyunseungbin9408/CCCR_experience/blob/master/png/Linux_Container_docker_helloworld.pnghttps://github.com/hyunseungbin9408/CCCR_experience/blob/master/png/Linux_Container_docker_helloworld.png) hello-world 실행
+ 
+ <img src="https://github.com/hyunseungbin9408/CCCR_experience/blob/master/png/Linux_Container_docker_helloworld.png" alt="drawing" width="700"/>
+ 
+ ```
+ 
+  hello run hello-world
+  
+  를 선언하면 다음과 같은 출력이 나온다.
+  
+  이미지파일이 없어서 도커허브에서 가져왔다는 말과
+  
+  허브에서 가져와서 실행한 출력문
+  
+  도커가 어떤식으로 컨테이너를 실행 했는지 순서가 출력됌
+  
+ ```
+ 
+  + **이미지파일을 생성할때 반드시 태그가 존재하고 선언하지 않으면 latest가 기본값으로 들어감**
+  
+  + **이미지파일에 태그가 직접선언 되어지지않고 latest로 되어있으면 함부로 사용해서는 안됌** // 어떠한 버전을 뜻하는지 모르기때문
+  
+  + 
+ 

@@ -140,7 +140,23 @@
    #### 볼륨
    + 도커에 의해 관리되는 스토리지
    + docker명령어로 생성 할 수 있음, 사용하지 않은 볼륨도 삭제가능
-   + 
+   + **docker volume prune 으로 사용하지않은 볼륨만 삭제가능**
+   + 컨테이너가 라이프사이클이 짧기때문에 볼륨은 분리하여 사용하는게 효율적이다.
+   + 컨테이너가 생성한 파일들을 저장하는 용도로 사용함
+   
+   <img src="https://github.com/hyunseungbin9408/CCCR_experience/blob/master/png/Linux_volume_create_run.png" alt="drawing" width="500"/>
+   
+   <img src="https://github.com/hyunseungbin9408/CCCR_experience/blob/master/png/Linux_volume_mysql.png" alt="drawing" width="500"/>
+   
+  ``` 
+  
+   원래는 vol1이라는것을 생성하지않았고 vol2만 생성한 상태에서 데이터베이스 컨테이너를 만들때 vol1을 선언해봤더니 vol1이 생성되었다.
+   vol2로 새로운 데이터베이스 컨테이너를 생성했고 mysql를 만들때 필요한 환경변수를 선언하고 다시 데이터베이스를 삭제한 후에
+   다시 같은 볼륨으로 새로운 데이터베이스를 설치할때에는 환경변수를 선언하지않더라도 설치가 가능하다.
+   vol2에 사용자 정보가 들어가있기 때문이다.
+   이래서 볼륨을 따로 독립적으로 존재하는것이 시간과 정보둘다 보존 할 수 있는 좋은 방법
+ 
+ ```
  ***
      
  ### 도커 실습

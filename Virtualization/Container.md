@@ -133,6 +133,7 @@
  <img src="https://github.com/hyunseungbin9408/CCCR_experience/blob/master/png/Linux_volume_bindmount_run.png" alt="drawing" width="500"/>
  
  <img src="https://github.com/hyunseungbin9408/CCCR_experience/blob/master/png/Linux_volume_bindmount_inspect.png" alt="drawing" width="500"/>
+ 
    + 컨테이너에 설정파일전용으로 많이 사용
    + /test:ro 읽기전용으로도 사용가능
    

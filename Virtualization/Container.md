@@ -129,8 +129,16 @@
    + 성능이 뛰어나지만 호스트의 파일 시스템에 대한 의존도가 높음
    + 단점
    + 호스트의 민감한 파일까지 접근 할 수 있음으로 보안 측면에 문제가 발생 할 수 있음
+   + **실습**
+ <img src="https://github.com/hyunseungbin9408/CCCR_experience/blob/master/png/Linux_volume_bindmount_run.png" alt="drawing" width="500"/>
+ 
+ <img src="https://github.com/hyunseungbin9408/CCCR_experience/blob/master/png/Linux_volume_bindmount_inspect.png" alt="drawing" width="500"/>
+   + 컨테이너에 설정파일전용으로 많이 사용
+   + /test:ro 읽기전용으로도 사용가능
    
    #### 볼륨
+   + 도커에 의해 관리되는 스토리지
+   + docker명령어로 생성 할 수 있음, 사용하지 않은 볼륨도 삭제가능
    + 
  ***
      

@@ -165,6 +165,35 @@
   + 네트워크 종류에 따라 다른 역할을 하는 컨테이너를 만들수있다.
     + 내부통신만 할 수 있는 host를 넣고 데이터베이스를 만들거나
     + 통신자체가 안되는 (none)을 사용해서 데이터백업이나 데이터가공 서버를 만든다.
+    
+    
+ ### 도커파일
+  + Entrypoint 는 쉘스크립트나 실행파일들이 들어간다.
+  + CMD는 아규먼트나 command들이 들어간다.
+  
+  <img src="https://github.com/hyunseungbin9408/CCCR_experience/blob/master/png/Linux_file_Entrypoint_cmd.png" alt="drawing" width="500"/>
+
+  + ENTRYPOINT는 항상먼저 실행되고 컨테이너의 실행파일이나 영향이 강한 명령어가 들어감
+  + CMD는 항상 ENTRYPOINT 명령어 뒤에 붙는다.
+  + CMD는 아규먼트나 변수같은 변하는 명령어를 넣는다.
+  
+  ```
+  RUN, CMD, ENTRYPOINT
+  
+  CMD "/usr/sbin/httpd -D FOREGROUND" <-- shell // 파일이 있어야만 실행가능
+  
+  CMD ["httpd", "-D", "FOREGROUND"] <-- exec // 그대로 실행가능 JSON배열 방식 손상없이 입력가능
+  
+  CMD ["sh","-c","httpd","-D","FOREGROUND"] // exec방식으로 쉘 실행
+  
+  ```
+  
+  <img src="https://github.com/hyunseungbin9408/CCCR_experience/blob/master/png/Linux_file_exec_sh.png"
+  alt="drawing" width="500"/>
+  
+  + bash위에서 명령어를 실행하면 기본값으로 bash가 들어가서 그 위에 덮어씌어짐
+  + exec는 bash를 넣지않는다면 bash
+  
  ***
      
  ### 도커 실습

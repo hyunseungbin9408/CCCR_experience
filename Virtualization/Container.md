@@ -73,7 +73,7 @@
   
   
  ### Layered FS (계층형 파일시스템)
-  + 기본으로**AUFS (Another union FS)** 사용했었음
+  + 기본으로 **AUFS (Another union FS)** 사용했었음
   + 겹치는 파일을 계속해서 다운받을 필요없이 필요한 파일을 그때 마다 차이가 있는 파일만 불러오는 계층적 파일시스템
   + 컨테이너는 이러한 파일들을 읽고 쓸수있는 권한을 부여해줌
   + 코드가 안전하지않아서 레드햇에서 거부함으로써 이제는 더이상 포함되지않음 // Debian 에서는 사용함
@@ -82,11 +82,11 @@
   
   <img src="https://github.com/hyunseungbin9408/CCCR_experience/blob/master/png/Linux_Container_LayererdFS.png" alt="drawing" width="500"/>
   
-  <img src="https://github.com/hyunseungbin9408/CCCR_experience/blob/master/png/Linux_Container_docker_overlay2.png" alt="drawing" width="600"/>
+  <img src="https://github.com/hyunseungbin9408/CCCR_experience/blob/master/png/Linux_Container_docker_overlay2.png" alt="drawing" width="500"/>
   
  ### 가상화와 컨테이너 비교
  
- <img src="https://github.com/hyunseungbin9408/CCCR_experience/blob/master/png/Virtualization_VS_Container.png" alt="drawing" width="450"/>
+ <img src="https://github.com/hyunseungbin9408/CCCR_experience/blob/master/png/Virtualization_VS_Container.png" alt="drawing" width="500"/>
  
  ### 도커 (DocKer)
    #### 도커(DocKer)란?

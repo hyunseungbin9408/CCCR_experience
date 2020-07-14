@@ -260,4 +260,14 @@
  
  <img src="https://github.com/hyunseungbin9408/CCCR_experience/blob/master/png/Linux_container_logs.png" alt="drawing" width="500"/>
   + 컨테이너를 삭제하면 로그들도 같이 삭제
-  + 
+  
+ #### Docker cp : 파일을 컨테이너로 복사
+ 
+ <img src="https://github.com/hyunseungbin9408/CCCR_experience/blob/master/png/Linux_Container_copy.png" alt="drawing" width="500"/>
+ 
+ #### Docker diff : 파일의 상태를 출력
+ 
+ <img src="https://github.com/hyunseungbin9408/CCCR_experience/blob/master/png/Linux_Container_diff.png" alt="drawing" width="500"/>
+   + A: 파일이 추가
+   + C: 파일이 변경
+   + D: 파일이 삭제

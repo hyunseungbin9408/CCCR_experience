@@ -194,6 +194,19 @@
   + bash위에서 명령어를 실행하면 기본값으로 bash가 들어가서 그 위에 덮어씌어짐
   + exec는 bash를 넣지않는다면 bash
   
+  <img src="https://github.com/hyunseungbin9408/CCCR_experience/blob/master/png/Linux_dockerfile.png" alt="drawing" width="500"/>
+  
+  <img src="https://github.com/hyunseungbin9408/CCCR_experience/blob/master/png/Linux_dockerfile_build.png" alt="drawing"
+  width="500"/>
+  
+  + docker build -t web:v1 . 을 입력하면 지금 호스트에 있는 파일로 빌드를 할때 적용한다는 뜻
+  + 빌드를 할때 Dokerfile에 의해서 만들어진다.
+  + 이미지에 layer를 담당하는 명령어는 RUN,ADD,COPY이다.
+  + 이미지는 FROM Centos 를 가져온다는 뜻
+  + RUN은 컨테이너에서 실행하는 명령어
+  + ENV는 환경변수 선언
+  + ADD는 호스트파일을 컨테이너에 넣는다는 명령어
+  + VOLUME은 
  ***
      
  ### 도커 실습

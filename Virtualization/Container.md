@@ -206,7 +206,11 @@
   + RUN은 컨테이너에서 실행하는 명령어
   + ENV는 환경변수 선언
   + ADD는 호스트파일을 컨테이너에 넣는다는 명령어
-  + VOLUME은 
+  + VOLUME은 지정한 경로에 볼륨을 생성
+  + expose는 선언
+  + ENTRYPOINT는 실행파일 명령어
+  + CMD는 
+  + */*.bak <- .dockerignore 파일을 dockerfile 과 함께 두고 남아있는 소스파일을 삭제하는 용도로 사용한다.
  ***
      
  ### 도커 실습

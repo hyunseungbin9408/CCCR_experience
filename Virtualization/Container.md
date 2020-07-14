@@ -73,13 +73,14 @@
   
   
  ### Layered FS (계층형 파일시스템)
-  + **AUFS (Another union FS)**
-  + 여러개의 파일을 합친다.
+  + 기본으로**AUFS (Another union FS)** 사용했었음
   + 겹치는 파일을 계속해서 다운받을 필요없이 필요한 파일을 그때 마다 차이가 있는 파일만 불러오는 계층적 파일시스템
   + 컨테이너는 이러한 파일들을 읽고 쓸수있는 권한을 부여해줌
   + 코드가 안전하지않아서 레드햇에서 거부함으로써 이제는 더이상 포함되지않음 // Debian 에서는 사용함
   + 그래서 예전에는 LVM을 사용함 // Redhat 에서 사용
   + 지금은 Overlay2를 사용함 // 계층형 파일시스템
+  
+  <img src="https://github.com/hyunseungbin9408/CCCR_experience/blob/master/png/Linux_Container_LayererdFS.png" alt="drawing" width="500"/>
   
   <img src="https://github.com/hyunseungbin9408/CCCR_experience/blob/master/png/Linux_Container_docker_overlay2.png" alt="drawing" width="600"/>
   
@@ -232,6 +233,7 @@
    + -t 는 터미널에 bash를 띄우라는 명령어
    + 컨테이너(어플리케이션)에 쉘이 없다면 bash를 실행 할 수 없다.
    + Attach는 실행하고있는 프로세스에 접속하는 것
+   + create 
    
    ##### exec 모드 : 
    + docker container exec -it bash 컨테이너이름 
@@ -246,4 +248,16 @@
   + 컨테이너를 만들때 컨테이너내에 환경변수를 넣어줄수있다.
   + mysql처럼 mysql에 접속할때 필요한 패스워드들을 넣어줄 수 있다. 넣지않으면 실행이 안됌 // 데이터베이스를 만들때 패스워드를 일정한 패스워드보다 랜덤으로 넣는게 좋다.
   
+ #### Docker top : Process List
  
+ #### Docker stats: HW Resource usage
+ 
+ #### Docker attach: Exist STDIN,STDOUT
+ 
+ #### Docker exec: Addtional Application(Process)
+ 
+ #### Docker logs: container 로그들이 남음
+ 
+ <img src="https://github.com/hyunseungbin9408/CCCR_experience/blob/master/png/Linux_container_logs.png" alt="drawing" width="500"/>
+  + 컨테이너를 삭제하면 로그들도 같이 삭제
+  + 

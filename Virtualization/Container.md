@@ -144,7 +144,6 @@
    + **docker volume prune 으로 사용하지않은 볼륨만 삭제가능**
    + 컨테이너가 라이프사이클이 짧기때문에 볼륨은 분리하여 사용하는게 효율적이다.
    + 컨테이너가 생성한 파일들을 저장하는 용도로 사용함
-   + 
    
    <img src="https://github.com/hyunseungbin9408/CCCR_experience/blob/master/png/Linux_volume_create_run.png" alt="drawing" width="500"/>
    

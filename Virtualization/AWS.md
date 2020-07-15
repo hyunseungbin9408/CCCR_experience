@@ -66,14 +66,17 @@
    
   ### Amazon DynamoDB : 관리형 no SQL 데이터베이스
    + 빠르고 일관된 서능
-   + 뛰어난 확장성
+   + 뛰어난 확장성 (Auto scailing)
    + 완전 관리형
-   + 이벤트 주도 프로그래밍
-   + 세분화된 액세스 제어
+   + 이벤트 주도 프로그래밍 (Lamda에서 이벤트가 발생했을때 데이터저장가능)
+   + 세분화된 액세스 제어 (타입별로 세분화시켜서 데이터 저장가능)
    + 유연성
-  
+   + 데이터베이스에서 조금 느린 지연시간
+   
   ### Amazon ElastiCache
    + 탁월한 성능
    + 완전 관리형
    + 확장성
-   
+   + 엔진은 두가지
+     + Redis용 Amazon ElastiCache
+     + Memcached 용 Amazon ElastiCache

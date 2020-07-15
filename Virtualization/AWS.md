@@ -14,6 +14,12 @@
  
  + 사용한 만큼만 과금
  
+### Amazon Lambda : 서버리스 컴퓨팅
+ + 업로드 (Node.js, Java, Python, C##)
+ + 트리거 (S3에 이미지 업로드)
+ + 실행 (해당 이미지 리사이징)
+ + 사용요금 (ms시간 단위 과금)
+ 
  ***
  
  ## Amazon Storage

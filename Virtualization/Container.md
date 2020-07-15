@@ -45,8 +45,7 @@
     + 일시적인어플리케이션  (ls,hello world...)
     + 계속해서 실행되어야하는 어플리케이션 (httpd,mysql...)
   + 컨테이너와 레지스트리는 반드시 연결되어있어야 컨테이너가 이미지파일을 통해서 만들어진다.
-  +
-  
+ 
  ### Cgroup
  
  <img src="https://github.com/hyunseungbin9408/CCCR_experience/blob/master/png/Linux_container_Cgourp.png" alt="drawing" width="700"/>
@@ -173,9 +172,9 @@
   
   <img src="https://github.com/hyunseungbin9408/CCCR_experience/blob/master/png/Linux_file_Entrypoint_cmd.png" alt="drawing" width="500"/>
 
-  + ENTRYPOINT는 항상먼저 실행되고 컨테이너의 실행파일이나 영향이 강한 명령어가 들어감
+  + ENTRYPOINT는 항상먼저 실행되고 컨테이너의 실행파일이나 명령어가 들어감
   + CMD는 항상 ENTRYPOINT 명령어 뒤에 붙는다.
-  + CMD는 아규먼트나 변수같은 변하는 명령어를 넣는다.
+  + CMD는 아규먼트나 subcommand를 넣는다.
   
   ```
   RUN, CMD, ENTRYPOINT

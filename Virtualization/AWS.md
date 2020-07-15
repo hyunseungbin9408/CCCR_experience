@@ -80,3 +80,4 @@
    + 엔진은 두가지
      + Redis용 Amazon ElastiCache
      + Memcached 용 Amazon ElastiCache
+     + **memcache는 로그인세션정보를 가지고 있어서 LoadBalancer 가 서버전환을 하더라도 로그인정보

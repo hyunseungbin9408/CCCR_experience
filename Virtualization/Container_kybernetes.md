@@ -81,4 +81,3 @@
   
   <img src="https://github.com/hyunseungbin9408/CCCR_experience/blob/master/png/Linux_Container_LayererdFS.png" alt="drawing" width="500"/>
   
-  <img src="https://github.com/hyunseungbin9408/CCCR_experience/blob/master/png/Linux_Container_docker_overlay2.png" alt="drawing" width="500"/>

@@ -375,10 +375,12 @@
  + 도커허브에 올릴때는 우리가 가지고 있는 이미지에 태그를 다시 달아주어야한다.
  
  <img src="https://github.com/hyunseungbin9408/CCCR_experience/blob/master/png/Container_docker_push_denied.png" alt="drawing" width="500"/>
+ 
  ```
  docker tag 이미지:태그 도커허브아이디/이미지:태그 로 바꿔주고
  
  docker push 도커허브아이디/이미지:태그(latest)로 올려준다.
+ 
  ```
  
 #### docker registry
@@ -413,6 +415,7 @@
  #### Harbor
  + 먼저 docker-compo sudo cuse를 구성해야한다.
  ```
+ 
  sudo curl -L "https://github.com/docker/compose/releases/download/1.26.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
  
  sudo chmod +x /usr/local/bin/docker-compose

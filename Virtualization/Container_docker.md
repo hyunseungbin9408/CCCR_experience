@@ -511,6 +511,7 @@ harbor홈페이지에서 library에 파일이 올라갔는지
  <img src="https://github.com/hyunseungbin9408/CCCR_experience/blob/master/png/Container_docker_harbor_pull.png" alt="drawing" width="500"/>
 
 ```
+
  올라간 파일을 다시 호스트로 받아보려고한다.
  
  먼저 docker rm 아이피주소/library/파일이름:태그
@@ -523,5 +524,26 @@ harbor홈페이지에서 library에 파일이 올라갔는지
  
 ```
 
+***
+
 #### docker-compose
-+ 
+<img src="https://github.com/hyunseungbin9408/CCCR_experience/blob/master/png/Container_docker_compose_yml.png" alt="drawing" width="500"/>
+
+```
+docker-compose.yml 파일로 컨테이너를 구성할 수 있다.
+
+기본적으로 구성한 다음에
+
+docker-compose up -d 로 docker-compose.yml 파일을 참고해서 컨테이너를 구성하는데 up은 컨테이너 생성 down은 삭제이다.
+
+```
+
+<img src="https://github.com/hyunseungbin9408/CCCR_experience/blob/master/png/Container_docker_compose_yml_web1.png" alt="drawing" width="500"/>
+
+<img src="https://github.com/hyunseungbin9408/CCCR_experience/blob/master/png/Container_docker_compose_inspect_web1.png" alt="drawing" width="500"/>
+
+```
+
+docker-compose.yml 에 정보들로 컨테이너가 구성되었다는걸 확인 할 수 있었다.
+
+```

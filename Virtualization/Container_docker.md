@@ -479,3 +479,49 @@
  <img src="https://github.com/hyunseungbin9408/CCCR_experience/blob/master/png/Container_docker_harbor_ps_list.png" alt="drawing" width="500"/>
  
  <img src="https://github.com/hyunseungbin9408/CCCR_experience/blob/master/png/Container_docker_harbor_web.png" alt="drawing" width="500"/>
+
+```
+ harbor 라이브러리에 push 와 pull이 잘 작동되는지 확인해보려고 한다.
+ 
+```
+
+ <img src="https://github.com/hyunseungbin9408/CCCR_experience/blob/master/png/Container_docker_harbor_push.png" alt="drawing" width="500"/>
+
+```
+docker tag 파일이름 harbor주소/library/파일이름:태그 로 푸쉬할 파일에 태그를 걸어준다.
+
+파일이 생겼는지 확인하고 
+
+docker push harbor주소/library/파일이름:태그
+
+푸쉬해준다.
+
+```
+
+ <img src="https://github.com/hyunseungbin9408/CCCR_experience/blob/master/png/Container_docker_harbor_library.png" alt="drawing" width="500"/>
+
+```
+
+harbor홈페이지에서 library에 파일이 올라갔는지
+
+확인해준다.
+
+```
+
+ <img src="https://github.com/hyunseungbin9408/CCCR_experience/blob/master/png/Container_docker_harbor_pull.png" alt="drawing" width="500"/>
+
+```
+ 올라간 파일을 다시 호스트로 받아보려고한다.
+ 
+ 먼저 docker rm 아이피주소/library/파일이름:태그
+ 
+ 로 푸쉬했던 파일을 지워주고
+ 
+ docker pull 아이피주소/library/파일이름:태그
+ 
+ 로 Harbor에 push했던 파일을 다시 받아온다.
+ 
+```
+
+#### docker-compose
++ 

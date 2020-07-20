@@ -365,4 +365,112 @@
    + D: 파일이 삭제
    
    
+### repositories
+#### docker login
+ + docker login <도커허브아이디>를 통해서 연동시킨다.
+ + 다 쓰고나서 logout을 꼭 해줘야한다.
+ 
+#### docker push
+ + 우리가 가지고있는 이미지파일을 도커허브에 올릴 수 있다.
+ + 도커허브에 올릴때는 우리가 가지고 있는 이미지에 태그를 다시 달아주어야한다.
+ 
+ <img src="https://github.com/hyunseungbin9408/CCCR_experience/blob/master/png/Container_docker_push_denied.png" alt="drawing" width="500"/>
+ ```
+ docker tag 이미지:태그 도커허브아이디/이미지:태그 로 바꿔주고
+ 
+ docker push 도커허브아이디/이미지:태그(latest)로 올려준다.
+ ```
+ 
+#### docker registry
+ + 우리 로컬호스트에 resisty라는 이미지로 푸쉬를 하고 올려놓음 
+ + 저장소를 효율적으로 사용 할 수 있음
+ + registry에 기본 포트포워딩 값은 5000이다.
+ 
+ <img src="https://github.com/hyunseungbin9408/CCCR_experience/blob/master/png/Container_docker_push_ubuntu.png" alt="drawing" width="500"/>
+ 
+ ```
+ 먼저 ubuntu이미지를 pull해준다.
+ 
+ 그리고 태그를 localhost:5000/ubuntu로 다시 달아준다.
+ 
+ 그리고 푸쉬를 하면 localhost에 올라간다.
+ ```
+ 
+ <img src="https://github.com/hyunseungbin9408/CCCR_experience/blob/master/png/Container_docker_push_ubuntu_catalog.png"  alt="drawing" width="500"/>
+ 
+ ```
+ curl -X GET http://localhost:5000/v2/_catalog -v 로 로커호스트에 올라간 파일들을 확인할수 있다.
+ 
+ ```
+ 
+ <img src="https://github.com/hyunseungbin9408/CCCR_experience/blob/master/png/Container_docker_push_hello.png" alt="drawing" width="500"/>
+ 
+ ```
+ hello파일을 새롭게 올려보고 확인도 해봤지만 잘 올라갔다.
+ ```
+***
 
+ #### Harbor
+ + 먼저 docker-compo sudo cuse를 구성해야한다.
+ ```
+ sudo curl -L "https://github.com/docker/compose/releases/download/1.26.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+ 
+ sudo chmod +x /usr/local/bin/docker-compose
+ 
+ docker-compose --version
+
+```
+
+<img src="https://github.com/hyunseungbin9408/CCCR_experience/blob/master/png/Container_docker_harbor_docker_compose.png" alt="drawing" width="500"/>
+
+<img src="https://github.com/hyunseungbin9408/CCCR_experience/blob/master/png/Container_docker_harbor_docker_compose_version.png" alt="drawing" width="500"/>
+
+```
+
+ docker compose는 구성이 다되었고 이제 harbor를 다운받을 차례다.
+ 
+ ```
+ 
+ <img src="https://github.com/hyunseungbin9408/CCCR_experience/blob/master/png/Container_docker_harbor_docker_download.png" alt="drawing" width="500"/>
+ 
+ ```
+  wget 으로 harvor 최신버전 1.10.4를 다운받는다.
+  
+  압축을 풀어주고 폴더안에 harbor.yml파일을 수정해준다.
+  
+  https 명령어들을 주석을 걸어주고 우리가 사용하는 호스트를 넣어준다.
+  
+  sudo vi /etc/docker/daemon.json
+  {
+  "insecure-registries" : ["IP주소"]
+  }
+  
+  접속할 아이피주소를 넣어주면된다.
+ 
+ sudo systemctl restart docker
+ 
+ 도커를 재시작해서 변경사항을 적용시켜준다.
+ 
+ harbor를 인스톨하기전에 docker에 이미지들을 모두 삭제해야 겹치지 않고 잘 설치할 수 있기때문에
+ 
+ docker rm -f $(docker ps -aq)
+ 
+ 으로 다 삭제후에
+ 
+ sudo ./install.sh
+ 
+ 로 인스톨 시작
+
+ docker ps harbor파일들이 실행되었는지 확인한다.
+ 
+ 그 후에 웹에 아이피주소를 쳐서 harbor관리 페이지가 뜨는지 확인하면 된다.
+ 
+ ```
+ 
+ <img src="https://github.com/hyunseungbin9408/CCCR_experience/blob/master/png/Container_docker_harbor_vml.png" alt="drawing" width="500"/>
+ 
+ <img src="https://github.com/hyunseungbin9408/CCCR_experience/blob/master/png/Container_docker_harbor_install.png" alt="drawing" width="500"/>
+ 
+ <img src="https://github.com/hyunseungbin9408/CCCR_experience/blob/master/png/Container_docker_harbor_ps_list.png" alt="drawing" width="500"/>
+ 
+ <img src="https://github.com/hyunseungbin9408/CCCR_experience/blob/master/png/Container_docker_harbor_web.png" alt="drawing" width="500"/>

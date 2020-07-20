@@ -472,6 +472,8 @@
  
  <img src="https://github.com/hyunseungbin9408/CCCR_experience/blob/master/png/Container_docker_harbor_vml.png" alt="drawing" width="500"/>
  
+ <img src="https://github.com/hyunseungbin9408/CCCR_experience/blob/master/png/Container_docker_harbor_daemonjson.png" alt="drawing" width="500"/>
+ 
  <img src="https://github.com/hyunseungbin9408/CCCR_experience/blob/master/png/Container_docker_harbor_install.png" alt="drawing" width="500"/>
  
  <img src="https://github.com/hyunseungbin9408/CCCR_experience/blob/master/png/Container_docker_harbor_ps_list.png" alt="drawing" width="500"/>

@@ -527,7 +527,11 @@ harbor홈페이지에서 library에 파일이 올라갔는지
 ***
 
 #### docker-compose
-<img src="https://github.com/hyunseungbin9408/CCCR_experience/blob/master/png/Container_docker_compose_yml.png" alt="drawing" width="500"/>
++ 도커명령어를 미리적어서 실행하는 파일
++ 하나이상에 컨테이너를 관리하기 위한 도구
++ Kubernetes에서는 전혀 사용되지 않음
+
+<img src="https://github.com/hyunseungbin9408/CCCR_experience/blob/master/png/Container_docker_compose_yml.png" alt="drawing" width="350"/>
 
 ```
 docker-compose.yml 파일로 컨테이너를 구성할 수 있다.
@@ -547,3 +551,4 @@ docker-compose up -d 로 docker-compose.yml 파일을 참고해서 컨테이너�
 docker-compose.yml 에 정보들로 컨테이너가 구성되었다는걸 확인 할 수 있었다.
 
 ```
+<img src="https://github.com/hyunseungbin9408/CCCR_experience/blob/master/png/Container_docker_compose_ps.png" alt="drawing" width="350"/>

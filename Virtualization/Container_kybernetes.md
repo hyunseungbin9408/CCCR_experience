@@ -213,3 +213,15 @@
   + 암호, OAuth 토큰 및 SSH 키와 같은 중요한 정보를 저장하고 관리 할 수 있다.
   + 컨테이너 이미지를 재구성하지않고 스택 구성에 시크릿을 노출하지 않고도 시크릿 및 앱 구성을 배포 및 업데이트 
 
+### 쿠버네티스 실습
+
+<img src="https://github.com/hyunseungbin9408/CCCR_experience/blob/master/png/Container_Kubernetes_status.png" alt="drawing" width="500"/>
+
+```
+쿠버네티스에 기본적인 명령어인 kubectl 인것을 확인
+
+kubectl cluster-info로 쿠버네티스가 클러스터에 api들이 작동하는것을 확인
+
+nodes 들이 3개가 있는것을 확인
+
+```

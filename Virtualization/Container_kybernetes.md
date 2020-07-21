@@ -547,6 +547,8 @@ kubectl diff -R -f configs\
 
 kubectl apply -R -f configs
 
+디렉토리에 구성하는 파일들을 다 넣어놓고 한번에 실행시켜서 구성하는 방법
+
 ```
 ***
  

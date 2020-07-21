@@ -252,13 +252,13 @@
 
 + **kubernetes Controller Manager : 쿠버네티스에 컴포넌트들을 제어 담당**
 
-+ **Cloud-Controller Manager : 클라우드를 제어 담당
++ **Cloud-Controller Manager : 클라우드를 제어 담당**
 
 + **Kube-scheduler : controller,workload에 스케줄을 담당**
 
 + **Nodes**
 
-+ **kubelet : wokerload가 마스터 server api와 통신하기 위한 에이전트
++ **kubelet : wokerload가 마스터 server api와 통신하기 위한 에이전트**
 
 + **CRI (Container Runtime Interface) : kubelet과 container runtime(어떠한 runtime을 사용함에따라 변함)사이에서 Kublet이 변하지않고 통신할수 있도록 해줌**
 

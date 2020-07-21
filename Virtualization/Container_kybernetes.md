@@ -236,7 +236,7 @@
 + WPARS(AIX)
 + rkt
 
-### Hub and spoke
+### 쿠버네티스에 아키텍처 및 Hub and spoke
 
 <img src="https://github.com/hyunseungbin9408/CCCR_experience/blob/master/png/Container_kubernetes_Hubandspoke.png" alt="drawing" width="500"/>
 
@@ -246,6 +246,25 @@
 
 + kubectl 이 이러한 진행도를 보인다.
 
++ controller는 Workload 라고 하고 Workload는 컨테이너이다.
+
++ **etcd : key value storage라고 하고 모든 정보는 이 스토리지에 저장된다.**
+
++ **kubernetes Controller Manager : 쿠버네티스에 컴포넌트들을 제어 담당**
+
++ **Cloud-Controller Manager : 클라우드를 제어 담당
+
++ **Kube-scheduler : controller,workload에 스케줄을 담당**
+
++ **Nodes**
+
++ **kubelet : wokerload가 마스터 server api와 통신하기 위한 에이전트
+
++ **CRI (Container Runtime Interface) : kubelet과 container runtime(어떠한 runtime을 사용함에따라 변함)사이에서 Kublet이 변하지않고 통신할수 있도록 해줌**
+
++ kube-proxy : wokerlaod에 네트워킹 포트포워딩을 하기 위한 필수 요소
+
++ 
 
 ### 쿠버네티스 실습
 

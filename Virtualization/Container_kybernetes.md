@@ -236,6 +236,17 @@
 + WPARS(AIX)
 + rkt
 
+### Hub and spoke
+
+<img src="https://github.com/hyunseungbin9408/CCCR_experience/blob/master/png/Container_kubernetes_Hubandspoke.png" alt="drawing" width="500"/>
+
++ 쿠버네티스는 마스터에 kube-api-server를 통해서 모든게 이루어진다.
+
++ 그런것을 Hub and spoke라고 한다.
+
++ kubectl 이 이러한 진행도를 보인다.
+
+
 ### 쿠버네티스 실습
 
 <img src="https://github.com/hyunseungbin9408/CCCR_experience/blob/master/png/Container_kubernetes_kubectl_help.png" alt="drawing" width="500"/>

@@ -600,6 +600,39 @@ kubectl get pods
 이러한 과정이 생기는 이유는 우리가 컨트롤러에 1개의 pod를 생성하라는 명령을 했기때문에 계속해서 1개를 유지하려고하는것이다.
 
 ```
+
+<img src="https://github.com/hyunseungbin9408/CCCR_experience/blob/master/png/Container_kubernetes_pods_LoadBalancer.png" alt="drawing" width="500"/>
+
+```
+ 쿠버네티스에 로드밸런서를 설치하려면 실제로 로드밸런서가 있어야한다.
+ 
+ 로드밸런서가 없으면 
+ 
+ kubectl expose replicationcontroller myweb-1st-app --type=LoadBalancer --name myweb-svc
+ 
+ 명령어로 로드밸런서를 설치하더라도 외부IP가 찍히지 않는다.
+ 
+```
+
+<img src="https://github.com/hyunseungbin9408/CCCR_experience/blob/master/png/Container_kubernetes_pods_IP_check.png" alt="drawing" width="500"/>
+
+```
+
+curl 192.168.122.200:8080
+로 로드밸런서 IP로 접속해보았고
+
+로드밸런서가 잘 설치가 되었는지 확인했다.
+ 
+```
+
+<img src="https://github.com/hyunseungbin9408/CCCR_experience/blob/master/png/Container_kubernetes_pods_IP_nodes_check.png" alt="drawing" width="500"/>
+
+```
+
+지금 가지고 있는 node서버 3대에서 확인이 가능한데 아직은 어떻게 작동하는지 잘 모르겠다.
+앞으로 배우는 과정에서 제대로 이해해봐야겠다.
+
+```
 ***
  
 ### 쿠버네티스 실습

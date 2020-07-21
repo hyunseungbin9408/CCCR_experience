@@ -258,7 +258,7 @@
 
 + **Nodes**
 
-+ **kubelet : wokerload가 마스터 server api와 통신하기 위한 에이전트**
++ **kubelet : wokerload가 마스터 server api와 통신하기 위한 에이전트 containerD로 runtime
 
 + **CRI (Container Runtime Interface) : kubelet과 container runtime(어떠한 runtime을 사용함에따라 변함)사이에서 Kublet이 변하지않고 통신할수 있도록 해줌**
 

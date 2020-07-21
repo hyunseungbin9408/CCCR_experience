@@ -485,13 +485,13 @@ age: 3 (X)
  
  + kubectl explain 리소스.spec
  
- + kubectl explain 리소tm.spec.containers
+ + kubectl explain 리소스.spec.containers
  
- + kubectl explain 리소tm.spec.containers.name
+ + kubectl explain 리소스.spec.containers.name
  
- + kubectl explain 리소tm.spec.containers.image
+ + kubectl explain 리소스.spec.containers.image
  
- + kubectl explain 리소tm.spec --recursive
+ + kubectl explain 리소스.spec --recursive
  
 ***
  

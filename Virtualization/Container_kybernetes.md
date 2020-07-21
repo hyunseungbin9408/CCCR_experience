@@ -477,6 +477,22 @@ age: 3 (X)
 + spec: 오브젝트의 상태 정의
   + spec 내의 정의할 요소는 정의하고자 하는 오브젝트의 종류에 따라다르다.
  
+ ##### 오브젝트 리소스 문서 확인 명령
+ 
+ + **리소스를 구성할때 yaml파일에 들어가야하는 문법을 어떤식으로 정의하는지 나옴**
+ 
+ + kubectl explain 리소스
+ 
+ + kubectl explain 리소스.spec
+ 
+ + kubectl explain 리소tm.spec.containers
+ 
+ + kubectl explain 리소tm.spec.containers.name
+ 
+ + kubectl explain 리소tm.spec.containers.image
+ 
+ + kubectl explain 리소tm.spec --recursive
+ 
 ***
  
 ### 쿠버네티스 실습

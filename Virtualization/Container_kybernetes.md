@@ -213,6 +213,20 @@
   + 암호, OAuth 토큰 및 SSH 키와 같은 중요한 정보를 저장하고 관리 할 수 있다.
   + 컨테이너 이미지를 재구성하지않고 스택 구성에 시크릿을 노출하지 않고도 시크릿 및 앱 구성을 배포 및 업데이트 
   
++ **Paas의 일부 기능만 제공한다.**
+
++ CI/CD (Continuos Integration/Continuous Delivery) 파이프라인
+  + CI는 컴파일하고 빌드하는 과정
+  + 지속적 통합, 지속적 배포를 제공하지 않음
+  + 소스코드 배포 및 애플리케이션을 비드하지 않음
+
++ 애플리케이션 레벨의 서비스
+  + 미들웨어, 빅 데이터, 데이터베이스, 캐시, 클러스터 스토리지 등 애플리케이션 레벨의 서비스는 제공하지 않음
+ 
++ 로깅, 모니터링, 경고 솔루션
+  + 개념 증명(PoC)을 위한 통합, 메트릭 수집 및 노출 메커니즘은 제공
+  + 그러나 쿠버네티스는 필요한 경우 PaaS로 제공되어야하는 여러 기능을 선택 적으로 쿠버네티스 위에 구성 할 수 있다.
+  
 ### 쿠버네티스를 사용 할 수 있는 환경
 + chroot
 + Docker
@@ -224,10 +238,19 @@
 
 ### 쿠버네티스 실습
 
+<img src="https://github.com/hyunseungbin9408/CCCR_experience/blob/master/png/Container_kubernetes_kubectl_help.png" alt="drawing" width="500"/>
+
+<img src="https://github.com/hyunseungbin9408/CCCR_experience/blob/master/png/Container_kubernetes_kubectl_help2.png" alt="drawing" width="500"/>
+
+```
+
+ 쿠버네티스에 기본 실행명령어는 kubectl이고 --help를 통해서 다양한 명령어를 볼 수 있다.
+ 
+```
+
 <img src="https://github.com/hyunseungbin9408/CCCR_experience/blob/master/png/Container_Kubernetes_status.png" alt="drawing" width="500"/>
 
 ```
-쿠버네티스에 기본적인 명령어인 kubectl 인것을 확인
 
 kubectl cluster-info로 쿠버네티스가 클러스터에 api들이 작동하는것을 확인
 

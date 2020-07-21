@@ -287,6 +287,7 @@
 
 + **클러스터 DNS** 
   + 쿠버네티스 클러스터 내에 여러 오브젝트에 대한 DNS 레코드를 제공하여 주소기반으로 오브젝트를 찾을 수 있다.
+  
   + 클러스터 DNS 애드온은 추가 확장 기능에 포함되어 있지만 다른 애드온과 다르게 거의 필수 기능으로 사용된다.
   
 + **대시보드**
@@ -294,10 +295,15 @@
   
 + **컨테이너 리소스 모니터링**
   + 컨테이너들에 대한 리소스 사용량을 시계열 metric-server(실시간으로만 확인가능)를 사용하여 데이터를 저장하고 열람하기 위한 인터페이스를 제공
+  
   + metric-server에서는 모니터링을 실시간으로만 가능하고 로그는 남지않음
+  
   + 엔터프라이즈에서는 prometheus를 사용하는 것을 권장함
+  
   + 그래서 중앙집권적 로그서버가 필요함
-  + Elastic stack (Elasticsearch) 로 중앙집권적 로그서버를 구성예정
+  
+  + Elastic stack (Elasticsearch) 로 중앙집권적 로그서버를 구성예
+  정
   
 + **클러스터 로깅**
   + 컨테이너 로그를 중앙 로그 저장소에 저장하고 관리하는 기능을 담당
@@ -309,20 +315,32 @@
 
 #### 알파 버전 API
 + 버전 이름에 alpha가 포함된다. (v1alpha1)
+
 + 버그가 있을 수도 있으며, 이 기능을 활성화하면 버그가 노출 될 수 있다.
+
 + 기본적으로 비활성화 되어 있다.
+
 + 기능에 대한 기술 지원이 언제든 공지없이 중단 될 수 있다.
+
 + 다음 릴리즈 시 공지 없이 API의 호환성이 깨지는 방식으로 변경 될 수 있다.
+
 + 버그의 위험이 높고 장기간 지원되지 않으므로 단기간 테스트 용도의 클러스터만 사용
+
 + 개발자들만 사용함
 
 #### 베타 버전 API
 + 버전 이름에 beta가 포함된다.
+
 + 코드가 잘 테스트 되었고, 이 기능을 활성화 해도 안전하다.
+
 + 기본적으로 활성화되어 있다.
+
 + 구체적인 내용이 변경 될 수 있지만, 전반적인 기능에 대한 기술 지원이 중단되지 않는다.
+
 + 오브젝트에 대한 스키마나 문법이 다음 베타 또는 안정화 릴리스에서 호환되지 않는 방식으로 바뀔 수는 있으나, 이전 할 수 있는 가이드를 제공
+
 + API 오브젝트의 삭제, 편집 또는 재생성이 필요 할 수도 있다. 이런 경우 애플리케이션의 다운타임이 필요 할 수 도 있다.
+
 + 다음 릴리즈에서 호환되지 않을 수도 있으므로 중요하지 않은 용도로만 사용하기를 권장한다.
 
 #### 안정화 버전 API
@@ -334,8 +352,11 @@
 <img src="https://github.com/hyunseungbin9408/CCCR_experience/blob/master/png/Container_kubernetes_kubectl_api-resources.png" alt="drawing" width="500"/>
 
 + **제일 마지막 V1이 코어버전이다.**
+
 + api-resources들은 생성할 수 있는 리소스들이다.
+
 + 리소스들을 작업하기 위해서는 API그룹에 항상 속해있어야한다.
+
 + 그래서 이러한 명령어들로 확인해야한다.
 
 <img src="https://github.com/hyunseungbin9408/CCCR_experience/blob/master/png/Container_kubernetes_kubectl_api-resources_grep.png" alt="drawing" width="500"/>
@@ -439,16 +460,20 @@ age: 3 (X)
  
 #### 쿠버네티스 오브젝트
 + 클러스터의 상태를 나타내기 위해 오브젝트 개체를 정의하여 사용함
+
 +
 
 ##### 모든 오브젝트 정의 시 필수적으로 요구되는 필드
 
-<img src="https://github.com/hyunseungbin9408/CCCR_experience/blob/master/png/Container_kubernetes_yaml_file.png" alt="drawing" width="500"/>
+<img src="https://github.com/hyunseungbin9408/CCCR_experience/blob/master/png/Container_kubernetes_yaml_file.png" alt="drawing" width="400"/>
 
 + apiVerion: 오브젝트를 생성하기 위한 API버전 (V는 대문자)
+
 + kind: 오브젝트의 종류
   + 예: pod, services, replcaset, deployment 등
+  
 + metadata: name, UID, namespace 등을 포함하는 기본적인 정보
+
 + spec: 오브젝트의 상태 정의
   + spec 내의 정의할 요소는 정의하고자 하는 오브젝트의 종류에 따라다르다.
  

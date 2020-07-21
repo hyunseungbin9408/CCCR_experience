@@ -498,6 +498,57 @@ age: 3 (X)
  + kubectl explain 리소스.spec --recursive
  
 ***
+
+### 오브젝트 관리
+#### 명령형 명령어
++ kubectl 명령에 인수 또는 옵션을 사용하여 애플리케이션을 관리함
++ 일회성작업
+
++ 개발 환경에서 권장함
+
++ 가장 단순한 방법
+
+```
+
+kubectl run nginx --image nginx
+
+kubectl create deployment nginx --image nginx
+
+```
+
+#### 명령형 오브젝트 구성
++ 오브젝트를 YAML 또는 JSON 형식으로 정의를 함
++ kubectl 명령은 YAML 또는 JSON 파일을 인수로 사용하여 오브젝트를 관리함
++ 오브젝트의 완전한 정의를 포함해야만 함
+
+```
+
+kubectl create -f nginx.yaml
+
+kubectl delete -f nginx.yaml -f redis.yaml
+
+kubectl replace -f nginx.yaml
+
+```
+
+#### 선언형 오브젝트 구성
+
++ 특정 디렉토리에 모든 오브젝트 파일을 배치함
+
++ kubectl 명령은 디렉토리를 인수로 사용하여 오브젝트를 관리함
+
+```
+
+kubectl diff -f configs\
+
+kubectl apply -f configs\
+
+kubectl diff -R -f configs\
+
+kubectl apply -R -f configs
+
+```
+***
  
 ### 쿠버네티스 실습
 

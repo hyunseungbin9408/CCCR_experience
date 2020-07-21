@@ -550,6 +550,23 @@ kubectl apply -R -f configs
 디렉토리에 구성하는 파일들을 다 넣어놓고 한번에 실행시켜서 구성하는 방법
 
 ```
+
+### Node.js 애플리케이션 컨테이너 이미지 만들기
+
+#### Node.js 애플리케이션
+
+<img src="https://github.com/hyunseungbin9408/CCCR_experience/blob/master/png/Container_kubernetes_nodejs_index.png" alt="drawing" width="500"/>
++ 위 Node.js 코드는 8080포트로 애플리케이션에 접속 시 HTTP 응답코드 200을 리턴하며, HTTP 바디에 메세지, 호스트 이름, 플랫폼 종류, 업타임, IP, DNS 서버 주소가 리턴되도록 하는 간단한 애플리케이션이다.
+
+#### 사용자 지정 이미지 생성용 Dockerfile
++ 위에서 작성한 index.js 파일을 포함하는 사용자 지정 이미지를 생성하기 위한 Dockerfile
+
+<img src="https://github.com/hyunseungbin9408/CCCR_experience/blob/master/png/Container_kubernetes_nodejs_Dockerfile.png" alt="drawing" width="500'/>
+                                                                                                                                               
+#### 사용자 지정 이미지 빌드
+
+<img src="https://github.com/hyunseungbin9408/CCCR_experience/blob/master/png/Container_kubernetes_nodejs_build.png" alt="drawing" width="500"/>
+
 ***
  
 ### 쿠버네티스 실습

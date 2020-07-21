@@ -280,8 +280,29 @@
 
 + **CRI (Container Runtime Interface) : kubelet과 container runtime(어떠한 runtime을 사용함에따라 변함)사이에서 Kublet이 변하지않고 통신할수 있도록 해줌**
 
+*** 
 
+### 애드온
++ **쿠버네티스 클러스터에 추가 할 수 있는 확장 기능을 제공한다. 주요 에드온 구성요소는 다음과 같다.**
 
++ **클러스터 DNS** 
+  + 쿠버네티스 클러스터 내에 여러 오브젝트에 대한 DNS 레코드를 제공하여 주소기반으로 오브젝트를 찾을 수 있다.
+  + 클러스터 DNS 애드온은 추가 확장 기능에 포함되어 있지만 다른 애드온과 다르게 거의 필수 기능으로 사용된다.
+  
++ **대시보드**
+  + 쿠버네티스 클러스터를 위한 웹 기반의 인터페이스를 제공한다.
+  
++ **컨테이너 리소스 모니터링**
+  + 컨테이너들에 대한 리소스 사용량을 시계열 metric-server(실시간으로만 확인가능)를 사용하여 데이터를 저장하고 열람하기 위한 인터페이스를 제공
+  + metric-server에서는 모니터링을 실시간으로만 가능하고 로그는 남지않음
+  + 엔터프라이즈에서는 prometheus를 사용하는 것을 권장함
+  + 그래서 중앙집권적 로그서버가 필요함
+  + Elastic stack (Elasticsearch) 로 중앙집권적 로그서버를 구성예정
+  
++ **클러스터 로깅**
+  + 컨테이너 로그를 중앙 로그 저장소에 저장하고 관리하는 기능을 담당
+  
+ 
 ### 쿠버네티스 실습
 
 <img src="https://github.com/hyunseungbin9408/CCCR_experience/blob/master/png/Container_kubernetes_kubectl_help.png" alt="drawing" width="500"/>

@@ -258,11 +258,29 @@
 
 + **Nodes**
 
-+ **kubelet : wokerload가 마스터 server api와 통신하기 위한 에이전트 containerD로 runtime
++ **kubelet**
+  + wokerload가 마스터 server api와 통신하기 위한 에이전트 containerD로 runtime
+  + 각 노드에서 실행되고 마스터로부터 제공받은 파드의 구성 정보를 받아서 컨테이너가 확실하게 동작하는 것을 관리하고 보장한다.
+  
++ **kube-proxy**
+  + wokerlaod에 네트워킹 포트포워딩을 하기 위한 필수 요소
+  + 호스트 레벨의 네트워크 규칙을 구성하고 외부 연결을 파드에 대한 포워딩을 담당
+  + 쿠버네티스의 서비스 추상화가 가능하도록 한다.
+  
++ **Container Runtime : 컨테이너의 동작을 책임지는 구성요소, 지원하는 컨테이너 런타임은 다음과 같다
+  + Docker
+  
+  + Containerd 
+  
+  + Cri-o
+  
+  + rktlet
+  
+  + Kubernetes CRI를 구현한 모든 런타임
 
 + **CRI (Container Runtime Interface) : kubelet과 container runtime(어떠한 runtime을 사용함에따라 변함)사이에서 Kublet이 변하지않고 통신할수 있도록 해줌**
 
-+ kube-proxy : wokerlaod에 네트워킹 포트포워딩을 하기 위한 필수 요소
+
 
 ### 쿠버네티스 실습
 

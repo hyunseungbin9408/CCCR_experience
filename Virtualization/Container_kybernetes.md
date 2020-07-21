@@ -567,7 +567,7 @@ kubectl apply -R -f configs
 
 <img src="https://github.com/hyunseungbin9408/CCCR_experience/blob/master/png/Container_kubernetes_nodejs_build.png" alt="drawing" width="500"/>
 
-<img src="https://github.com/hyunseungbin9408/CCCR_experience/blob/master/png/Container_kubernetes_nodejs_images.png" drawing" width="500"/>
+<img src="https://github.com/hyunseungbin9408/CCCR_experience/blob/master/png/Container_kubernetes_nodejs_images.png" alt="drawing" width="500"/>
                                                                                                                                           
 ```
 Docker파일에 있는 정보처럼 이미지가 잘 만들어졌다.

@@ -351,6 +351,72 @@
 + **코어이외의 그룹**
   + YAML: apiVersion: [GROUP]/[VERSION]
   + HTTP REST
+  
+***
+
+### YAML 및 오브젝트 기본
+
+#### YAML이란?
+
+<img src="https://github.com/hyunseungbin9408/CCCR_experience/blob/master/png/Container_kubernetes_yaml_config.png" alt="drawing" width="500"/>
+
++ yaml,yml 파일을 만들때 기본적으로 적용할수있는 yaml에 필요한 들여쓰기등을 vi편집기에 적용시켰다.
+
+#### YAML 요소
++ **스칼라/스트링**
+```
+
+banana
+I am a boy
+'I am a girl'
+```
++ 스칼라와 스트링은 하나의 문자열로 처리되지만 순서는 정해지지않는다.
+
+
++ **리스트/어레이**
+
+```
+
+- seoul
+- Busan
+- Incheon
+-jeju(X)
+
+대쉬 하나당 하나의 리스트라고 인식한다.
+
+```
+
++ **해시/딕셔너리**
+```
+
+name: John Smith
+age: 33
+콜론을 이용하여 키: 값 형태로 한 줄에 하나의 요소를 표헌한다.
+
+```
+
++ **해시의 리스트**
+
+```
+
+- name: John Smith
+  age: 33
+- name: Mary Smith
+  age: 2
+  
+ ```
+ 
+ + **리스트의 해시**
+ 
+ ```
+ 
+ man:
+   - John Smith
+   - bill Jones
+ women:
+   - Mary Smith
+   - Susan Williams
+   
 ***
  
 ### 쿠버네티스 실습

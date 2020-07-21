@@ -436,6 +436,22 @@ age: 3 (X)
  
  + YAML 파일의 확장자는 yml 또는 yaml을 일반적으로 사용한다.
  
+ 
+#### 쿠버네티스 오브젝트
++ 클러스터의 상태를 나타내기 위해 오브젝트 개체를 정의하여 사용함
++
+
+##### 모든 오브젝트 정의 시 필수적으로 요구되는 필드
+
+<img src="https://github.com/hyunseungbin9408/CCCR_experience/blob/master/png/Container_kubernetes_yaml_file.png" alt="drawing" width="500"/>
+
++ apiVerion: 오브젝트를 생성하기 위한 API버전 (V는 대문자)
++ kind: 오브젝트의 종류
+  + 예: pod, services, replcaset, deployment 등
++ metadata: name, UID, namespace 등을 포함하는 기본적인 정보
++ spec: 오브젝트의 상태 정의
+  + spec 내의 정의할 요소는 정의하고자 하는 오브젝트의 종류에 따라다르다.
+ 
 ***
  
 ### 쿠버네티스 실습

@@ -574,6 +574,32 @@ Docker파일에 있는 정보처럼 이미지가 잘 만들어졌다.
 
 ```
 
+### 명령형 명령어를 사용한 애플리케이션 실행
+
+
+<img src="https://github.com/hyunseungbin9408/CCCR_experience/blob/master/png/Container_kubernetes_pods_create.png" alt="drawing" width="500"/>
+
+```
+
+kubectl run myweb-1st-app --image=c1t1d0s7(사용자)/myweb(이미지) --port=8080 --generator=run/v1
+
+도커허브에 올라간 이미지로 pod를 만드는 과정이다.
+
+kubectl get pods
+
+```
+
+<img src="https://github.com/hyunseungbin9408/CCCR_experience/blob/master/png/Container_kubernetes_pods_delete.png" alt="drawing" width="500"/>
+
+```
+
+이처럼 pod는 삭제명령어를 통해서 삭제한것처럼 보이지만
+
+사실은 삭제되지않고 다시 새로운 파일로 생성된다.
+
+이러한 과정이 생기는 이유는 우리가 컨트롤러에 1개의 pod를 생성하라는 명령을 했기때문에 계속해서 1개를 유지하려고하는것이다.
+
+```
 ***
  
 ### 쿠버네티스 실습

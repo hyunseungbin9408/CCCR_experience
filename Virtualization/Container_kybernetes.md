@@ -634,6 +634,16 @@ curl 192.168.122.200:8080
 앞으로 배우는 과정에서 제대로 이해해봐야겠다.
 
 ```
+
+<img src="https://github.com/hyunseungbin9408/CCCR_experience/blob/master/png/Container_kubernetes_pods_yaml.png" alt="drawing" width="500"/>
+
+<img src="https://github.com/hyunseungbin9408/CCCR_experience/blob/master/png/Container_kubernetes_rc_LoadBalancer_yaml.png" alt="drawing" width="500"/>
+
+```
+
+쿠버네티스에 구성되는 장치들은 이렇게 yaml파일으로 구성되어있다.
+
+```
 ***
  
 ### 쿠버네티스 실습

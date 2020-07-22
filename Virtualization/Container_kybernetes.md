@@ -246,7 +246,7 @@
 
 + kubectl 이 이러한 진행도를 보인다.
 
-+ controller는 Workload 라고 하고 Workload는 컨테이너이다.
++ controller는 Workload를 관리하고 Workload는 pod이다.
 
 + **etcd : key value storage라고 하고 모든 정보는 이 스토리지에 저장된다.**
 

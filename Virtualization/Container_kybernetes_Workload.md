@@ -198,8 +198,13 @@ kubectl label pods 파드이름 라벨값-
  <img src="https://github.com/hyunseungbin9408/CCCR_experience/blob/master/png/Container_Kubernetes_namespace_kubesystem.png" alt="drawing" width="500"/>
  
  + 쿠버네티스에 필수적인 컴포넌트들을 ```kubectl get pods -n kubesystem```으로 검색 할 수 있다.
+ + 쿠버네티스를 pod를 만들때는 네임스페이스는 default값을 기본적으로 사용한다.
+ + 네임스페이스가 다른 pod들은 pod이름이 같아도 만들수있다. 
+   + 하나는 default값과 하나는 생성된 네임스페이스에 따로따로 num1이름으로 생성이가능
+   + 삭제할때에는 네임스페이스가 중요
  
-***
+ 
+ ***
 
 ## 볼륨
 + 컨테이너 내의 디스크에 있는 파일은 임시적이다.

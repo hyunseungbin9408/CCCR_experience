@@ -34,6 +34,8 @@
 
 + 파드가 원하는 수보다 많을 경우 원하는 파드수로 줄여준다(가장최근에 생성된 파드)
 
++ 셀랙터에 app과 템플릿 app은 반드시 같아야한다.
+
 + **원하는 수의 복제본 보다 더 많은 복제본이 많아 질수 있는 경우**
   + 수동으로 동일한 형식으로 파드를 생성
   
@@ -56,3 +58,13 @@
   + 수동이나 자동으로 파드를 수평 스케일링 할 수 있다.
  
 ### 레플리케이션 컨트롤러 생성
+
+<img src="https://github.com/hyunseungbin9408/CCCR_experience/blob/master/png/Container_kubernetes_kubectl_replication_create.png" alt="drawing" width="500"/>
+
++ `kubectl create -f yaml파일명` 으로 replication도 생성할수있다
++ 기본적인 `replicas(유지할 pod수)` 는 3개로 정해서 3개가 생성되는것을 볼 수 있다.
++ `selector app` 과 `template app`이 같아야만 replication controller가 확인하고 유지할 수 있다.
+
+<img src="https://github.com/hyunseungbin9408/CCCR_experience/blob/master/png/Container_kubernetes_kubectl_replication_replace.png" alt="drawing" width="500"/>
+
++ replicas의 수를 yaml파일을 수정하고 실제 사용중인 쿠버네티스 rc를 수정하려면 `kubectl replace -f yaml파일명` 

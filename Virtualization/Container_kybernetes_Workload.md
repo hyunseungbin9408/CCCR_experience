@@ -94,6 +94,19 @@ kubectl port-forward mynapp-pod 8080:8080
 docker exec 로 컨테이너안에서 명령어를 실행 시킬수 있다.
 
 ```
+
+<img src="https://github.com/hyunseungbin9408/CCCR_experience/blob/master/png/Container_kubernetes_pods_create2.png" alt="drwaing" width="500"/>
+
+<img src="https://github.com/hyunseungbin9408/CCCR_experience/blob/master/png/Container_kubernetes_pods_curl2.png" alt="drawing" width="500"/>
+
+```
+
+새로운 yaml 파일을 만들어서 새롭게 pods를 만들고 
+
+포트포워딩을 해서 접속까지 해보았다.
+
+```
+
 ***
 
 ## 참고 쿠버네티스 블로그

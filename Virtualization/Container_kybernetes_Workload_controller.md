@@ -17,3 +17,10 @@
   + 컨테이너 내부의 바이너리를 실행하고 종료 코드확인
 
 ### 라이브니스 프로브 생성
+
+<img src="https://github.com/hyunseungbin9408/CCCR_experience/blob/master/png/Container_Kubernetes_liveness.png" alt="drawing" width="500"/>
+
+<img src="https://github.com/hyunseungbin9408/CCCR_experience/blob/master/png/Container_Kubernetes_liveness_httpd.png" alt="drawing" width="500"/>
+
++ ```livenessProbe```에서 HTTP GET프로브를 사용해서 체크하는 pod를 생성했다.
++ ```kubectl get pods --watch```로 생성된 pod를 체크할 수 있는지 확인해본다.

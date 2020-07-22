@@ -63,6 +63,10 @@
 <img src="https://github.com/hyunseungbin9408/CCCR_experience/blob/master/png/Container_Kubernetes_pods_describe.png" alt="drawing" width="500"/>
 
 + 파드에 대한 설명을 확인
++ **desribe 에서 제일 중요한 점은 events를 확인 할수 있다.**
++ events는 리소스들의 로그를 확인 할 수 있다.
++ events는 위에서 아래로 진행된다.
+
 
 <img src="https://github.com/hyunseungbin9408/CCCR_experience/blob/master/png/Container_Kubernetes_pods_logs.png" alt="drawing" width="500"/>
 
@@ -70,11 +74,24 @@
 
 <img src="https://github.com/hyunseungbin9408/CCCR_experience/blob/master/png/Container_Kubernetes_pods_port_forwarding.png" alt="drawing" width="500"/>
 
+<img src="https://github.com/hyunseungbin9408/CCCR_experience/blob/master/png/Container_kubernetes_pods_curl.png" alt="drawing" width="500"/>
+
 ```
 
 kubectl port-forward mynapp-pod 8080:8080
 
 호스트 포트를 컨테이너의 포트로 포워딩을 해주었다.
+
+새로운 터미널에서 curl로 접근하면 접속할 수 있다.
+
+```
+
+<img src="https://github.com/hyunseungbin9408/CCCR_experience/blob/master/png/Container_kubernetes_pods_exec.png" alt="drawing" width="500"/>
+
+```
+도커에서 컨테이너에 접근할때 했던것처럼
+
+docker exec 로 컨테이너안에서 명령어를 실행 시킬수 있다.
 
 ```
 ***

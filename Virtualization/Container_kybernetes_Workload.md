@@ -46,5 +46,38 @@
 
 ***
 
+### 파드 생성
+
+<img src="https://github.com/hyunseungbin9408/CCCR_experience/blob/master/png/Container_Kubernetes_pods_yaml.png" alt="drawing" width="500"/>
+
++ 먼저 파드를 생성할수있는 Yaml파일을 기본적인 정보만 넣어서 만들었다.
+
+<img src="https://github.com/hyunseungbin9408/CCCR_experience/blob/master/png/Container_Kubernetes_pods_create.png" alt="drawing" width="500"/>
+
++ 파드를 생성하고 실행되는지 확인
+
+<img src="https://github.com/hyunseungbin9408/CCCR_experience/blob/master/png/Container_Kubernetes_pods_yaml_check.png" alt="drawing" width="500"/>
+
++ 파드 정보를 Yaml 파일로 확인
+
+<img src="https://github.com/hyunseungbin9408/CCCR_experience/blob/master/png/Container_Kubernetes_pods_describe.png" alt="drawing" width="500"/>
+
++ 파드에 대한 설명을 확인
+
+<img src="https://github.com/hyunseungbin9408/CCCR_experience/blob/master/png/Container_Kubernetes_pods_logs.png" alt="drawing" width="500"/>
+
++ 파드에 로그를 확인
+
+<img src="https://github.com/hyunseungbin9408/CCCR_experience/blob/master/png/Container_Kubernetes_pods_port_forwarding.png" alt="drawing" width="500"/>
+
+```
+
+kubectl port-forward mynapp-pod 8080:8080
+
+호스트 포트를 컨테이너의 포트로 포워딩을 해주었다.
+
+```
+***
+
 ## 참고 쿠버네티스 블로그
 + https://kubernetes.io/blog/2015/06/the-distributed-system-toolkit-patterns/

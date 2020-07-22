@@ -199,12 +199,39 @@ kubectl label pods 파드이름 라벨값-
  
  + 쿠버네티스에 필수적인 컴포넌트들을 ```kubectl get pods -n kubesystem```으로 검색 할 수 있다.
  + 쿠버네티스를 pod를 만들때는 네임스페이스는 default값을 기본적으로 사용한다.
- + 네임스페이스가 다른 pod들은 pod이름이 같아도 만들수있다. 
-   + 하나는 default값과 하나는 생성된 네임스페이스에 따로따로 num1이름으로 생성이가능
-   + 삭제할때에는 네임스페이스가 중요
  
  
- ***
+ <img src="https://github.com/hyunseungbin9408/CCCR_experience/blob/master/png/Container_Kubernetes_namespace_create.png" alt="drawing" width="500"/>
+ 
+ <img src="https://github.com/hyunseungbin9408/CCCR_experience/blob/master/png/Container_Kubernetes_namespace_yaml_create.png" alt="drawing" width="500"/>
+
++ 이처럼 명령어로 네임스페이스를 생성할 수 있고 따로 yaml파일을 만들어서 생성도 가능하다.
+
+<img src="https://github.com/hyunseungbin9408/CCCR_experience/blob/master/png/Container_Kubernetes_namespace_yaml_add.png" alt="drawing" width="500"/>
+
++ yaml 파일로 pod를 만들때 
++ 네임스페이스가 다른 pod들은 pod이름이 같아도 만들수있다. 
+  + 하나는 default값과 하나는 생성된 네임스페이스에 따로따로 num1이름으로 생성이가능
+  + 삭제할때에는 네임스페이스가 중요
+
+<img src="https://github.com/hyunseungbin9408/CCCR_experience/blob/master/png/Container_Kubernetes_namespace_yaml_namespace.png" alt="drawing" width="500"/>
+
++ yaml파일에 네임스페이스를 정해서 만들수 있다.
+
+<img src="https://github.com/hyunseungbin9408/CCCR_experience/blob/master/png/Container_Kubernetes_namespace_delete.png" alt="drawing" width="500"/>
+
++ ```kubectl delete 파드명```으로는 기본적으로 default값에있는 파드를 향하기때문에 네임스페이스를 꼭 정해줘야한다.
++ -n 네임스페이스명을 추가해주면 해당 네임스페이스에 pod를 지울 수 있다.
+
+<img src="https://github.com/hyunseungbin9408/CCCR_experience/blob/master/png/Container_Kubernetes_namespace_yaml_delete.png" alt="drawing" width="500"/>
+
++ yaml파일에 정보들로 만들어진 pod를 ```kubectl delete -f yaml파일명``` 지울 수 있다.
+
+<img src="https://github.com/hyunseungbin9408/CCCR_experience/blob/master/png/Container_Kubernetes_namespace_delete2.png" alt="drawing" width="500"/>
+
++ 네임스페이스도 명령어와 yaml파일로 제거 할 수 있다.
+
+***
 
 ## 볼륨
 + 컨테이너 내의 디스크에 있는 파일은 임시적이다.
@@ -229,6 +256,7 @@ kubectl label pods 파드이름 라벨값-
 + 파드 내 컨테이너에서 접근 할 수 있다.
 + 디렉터리 생성방식, 이를 지원하는 매체와 내용은 사용된 특정볼륨의 유형에 따라 결정된다.
 + 볼륨을 사용하기 위해 파드는 파드에 제공할 볼륨과 컨테이너에 마운트할 위치를 지정한다.
+
 ***
 
 ## 참고

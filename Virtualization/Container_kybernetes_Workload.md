@@ -17,6 +17,21 @@
 + 파드 내부의 컨테이너는 자동으로 동일한 물리적 또는 가상의 머신의 클러스터에 함께 배치되고 스케쥴된다.
 + 파드는 같은 파드안에 속한 컨테이너에게 두 가지 공유 리소스인 네트워킹과 저장소를 제공한다.
 
+### 멀티 컨테이너 파드 종류
+#### Sidecar container는 주 목적의 컨테이너를 보조하기위한 보조 컨테이너들이 딸려오는것 (web)
++ 사이드카는 기능의 확장형태
+
+<img src="https://github.com/hyunseungbin9408/CCCR_experience/blob/master/png/Container_Kubernetes_sidecar.png" alt="drawing" width="500"/>
+
+#### Ambassador containers
++ 네트워크 프록시 연결
+
+<img src="https://github.com/hyunseungbin9408/CCCR_experience/blob/master/png/Container_Kubernetes_ambassador.png" alt="drawing" width="500"/>
+
+#### Adapter containers
+
+<img src="https://github.com/hyunseungbin9408/CCCR_experience/blob/master/png/Container_Kubernetes_adapter.png" alt="drawing" width="500"/>
+
 #### 네트워킹
 + 각각의 파드는 각 주소 패밀리의 고유한 IP주소를 할당 받는다.
 + 한 파드 내부의 모든 컨테이너는 네트워크 네임스페이스와 IP주소 및 네트워크 포트를 공유한다.
@@ -28,6 +43,8 @@
 + 파드 내부의 모든 컨테이너는 공유 볼륨에 접근 할수 있음
 + 컨테이너끼리 데이터를 공유하는것을 허용
 + 볼륨은 컨테이너가 재시작되어야 하는 상황에도 파드안의 데이터가 영구적으로 유지 될 수 있게한다.
+
+***
 
 ## 참고 쿠버네티스 블로그
 + https://kubernetes.io/blog/2015/06/the-distributed-system-toolkit-patterns/

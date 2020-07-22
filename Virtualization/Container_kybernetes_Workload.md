@@ -154,6 +154,51 @@ docker exec 로 컨테이너안에서 명령어를 실행 시킬수 있다.
  로 찾는 레이블이 있는 pod만 찾을수 있고 !로 없는것만 찾을 수도 있다.
  
 ```
+
+<img src="https://github.com/hyunseungbin9408/CCCR_experience/blob/master/png/Container_Kubernetes_pods_label_dash.png" alt="drawing" width="500"/>
+
+```
+라벨을 삭제하는 방법은
+
+kubectl label pods 파드이름 라벨값-
+
+라벨값 다음에 - 로 뺄수있다.
+
+```
+
+### 어노테이션
+
+#### 어노테이션 소개
++ 쿠버네티스 어노테이션을 사용하여 임의의 비-식별 메타데이터를 오브젝트에 첨부 할 수 있다.
++ 도구 및 라이브러리와 같은 클라이언트는 이 메타데이터를 검색 할 수 있다.
+
+<img src="https://github.com/hyunseungbin9408/CCCR_experience/blob/master/png/Container_Kubernetes_pods_annotate_none.png" alt="drawing" width="500"/>
+
+<img src="https://github.com/hyunseungbin9408/CCCR_experience/blob/master/png/Container_Kubernetes_pods_annotate_add.png" alt="drawing" width="500"/>
+
+```
+ 기본적으로 어노테이션은 없는상태이고
+ 
+ kubectl annotate po mynapp-pod 추가할 내용 
+ 
+ 로 내용을 추가할 수 있다.
+ 
+ ```
+ 
+ ### 네임스페이스
+ 
+ #### 네임스페이스 소개
+ + 네임스페이스로 쿼터모드를 정할수 있다.
+ + 파드를 분류시키는 용도이다.
+ 
+ <img src="https://github.com/hyunseungbin9408/CCCR_experience/blob/master/png/Container_Kubernetes_namespace.png" alt="drawing" width="500"/>
+ 
+ + 쿠버네티스에 리소스들에 네임스페이스 필요유무를 알 수 있다.
+ 
+ <img src="https://github.com/hyunseungbin9408/CCCR_experience/blob/master/png/Container_Kubernetes_namespace_kubesystem.png" alt="drawing" width="500"/>
+ 
+ + 쿠버네티스에 필수적인 pod들을 ```kubectl get pods -n kubesystem```으로 검색 할 수 있다.
+ 
 ***
 
 ## 볼륨

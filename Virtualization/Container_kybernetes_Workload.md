@@ -197,7 +197,7 @@ kubectl label pods 파드이름 라벨값-
  
  <img src="https://github.com/hyunseungbin9408/CCCR_experience/blob/master/png/Container_Kubernetes_namespace_kubesystem.png" alt="drawing" width="500"/>
  
- + 쿠버네티스에 필수적인 pod들을 ```kubectl get pods -n kubesystem```으로 검색 할 수 있다.
+ + 쿠버네티스에 필수적인 컴포넌트들을 ```kubectl get pods -n kubesystem```으로 검색 할 수 있다.
  
 ***
 

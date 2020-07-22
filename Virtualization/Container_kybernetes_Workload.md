@@ -123,7 +123,7 @@ docker exec 로 컨테이너안에서 명령어를 실행 시킬수 있다.
   + track: daily / weekly
   + app: webapp / middleware
  
-#### 레이블 적용
+#### 레이블 및 셀렉터 적용
 
 <img src="https://github.com/hyunseungbin9408/CCCR_experience/blob/master/png/Container_Kubernetes_pods_label.png" alt="drawing" width="500"/>
 
@@ -145,6 +145,15 @@ docker exec 로 컨테이너안에서 명령어를 실행 시킬수 있다.
  레이블이 들어가있는것을 확인 할 수 있다.
  
  ```
+ 
+ <img src="https://github.com/hyunseungbin9408/CCCR_experience/blob/master/png/Container_Kubernetes_pods_label_selecter.png" alt="drawing" width="500"/>
+ 
+ ```
+ kubectl label po --show-labels -l '레이블값'
+ 
+ 로 찾는 레이블이 있는 pod만 찾을수 있고 !로 없는것만 찾을 수도 있다.
+ 
+```
 ***
 
 ## 볼륨

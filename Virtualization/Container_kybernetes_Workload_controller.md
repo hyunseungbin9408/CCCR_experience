@@ -105,3 +105,28 @@
 
 + 이런식으로 잘 작동한다.
 
+
+## 데몬셋
+### 데몬셋 소개
++ 노드 레이블과 매칭이 되는 모든 노드 또는 노드 레이블리 없다면 모든 노드에 하나씩의 파드를 동작시키는 컨트롤러이다.
++ 노드가 추가되면 자동으로 컨트롤러는 하나의 파드를 배치하게됨
++ 복제본 컨트롤러가 아니기 때문에, 노드가 제거되면 삭제된 파드를 다른 노드에 배치하지않음
+
+<img src="https://github.com/hyunseungbin9408/CCCR_experience/blob/master/png/Container_kubernetes_ds_yaml.png" alt="drawing" width="500"/>
+
+<img src="https://github.com/hyunseungbin9408/CCCR_experience/blob/master/png/Container_kubernetes_ds_labels.png" alt="drawing" width="500"/>
+
++ 데몬셋을 yaml파일로 설치를 해도 파드는 생성되지않는상태이다.
++ 왜냐하면 노드에 `label`이 없기때문이다.
+
+<img src="https://github.com/hyunseungbin9408/CCCR_experience/blob/master/png/Container_kubernetes_ds_add_labels.png" alt="drawing" width="500"/>
+
++ `kubectl label nodes 노드이름 데몬셋에 추가한 레이블` 명령어로 노드에 레이블을 추가한다.
++ `kubectl get nodes --show-labels` 명령어로 노드들에 레이블이 추가되었는지 확인한다.
++ `kubectl get daemonsets.app` 로 데몬셋으로 생성된 파드가 있는지 확인한다.
+
+<img src="https://github.com/hyunseungbin9408/CCCR_experience/blob/master/png/Container_kubernetes_ds_delete_labels.png" alt="drawing" width="500"/>
+
++ `kubectl label nodes kube-node3 node-` 명령어로 노드에 레이블을 삭제한다.
++ `kubectl get daemonsets.app` 로 데몬셋에 파드가 있는지 확인한다.
++ 

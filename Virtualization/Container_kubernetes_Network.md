@@ -31,7 +31,26 @@
 + 기본 서비스에 값음 마스터노드IP와 API포트(6443)이 열려져있다.
 + 지금은 만든 서비스가 향하는 `pod`가 없어서 `none`이 되어있다.
 
+### 파드 생성 및 엔드포인트 연결
+
 <img src="https://github.com/hyunseungbin9408/CCCR_experience/blob/master/png/Container_Kubernetest_service_epcheck.png" alt="drawing" width="500"/>
 
 + 파드를 생성하고 `label` 를 처음 서비스를 만들때 `selector`에 넣었던 `app`처럼 넣어준다.
 + `kubectl get ep`로 다시 서비스에 `endpoint`를 확인해보면 `endpoint`가 생긴 것을 알 수 있다.
+
+### 서브시 접근 테스트
+
+<img src="https://github.com/hyunseungbin9408/CCCR_experience/blob/master/png/Container_Kubernetest_service_curl.png" alt="drawing" width="500"/>
+
++ 레플리카셋을 파드를 4개로 정해서 만들었고 `app= myapp-rs`로 서비스가 셀렉 할 수 있도록 통일시켜주었다.
+
++ 레플리카셋과 서비스를 생성하고 `endpoint`를 확인해보니 서비스에 컨트롤러로 생성한 파드들이 들어가있는것을 확인했다.
+
++ 그후에 `kubectl run nettool2 -it --image=c1t1d0s7/network-multitool --generator=run-pod/v1 --rm=true bash` 로 curl를 실행할수있는 app을 생성했다.
+
++ app을 생성할때 `--rm=true` 명령어를 넣어주면 `-it bash`로 접속한 후에 `exit`로 접속종료를 하면 종료와 함께 app이 삭제된다.
+
+
+<img src="https://github.com/hyunseungbin9408/CCCR_experience/blob/master/png/Container_Kubernetest_service_curl_check.png" alt="drawing" width="500"/>
+
++ app안에서 서비스에 연결되어있는 파드들에 홈페이지에 접속을 하면 잘 연결되는것을 확인했다.

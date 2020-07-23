@@ -94,3 +94,14 @@
 + 파드가 많아지고 하나의 레이블을 가지고 컨트롤러에 매칭하기가 어려워짐으로써 발전함
 
 <img src="https://github.com/hyunseungbin9408/CCCR_experience/blob/master/png/Container_kubernetes_kubectl_rs.png" alt="drawing" width="500"/>
+
+<img src="https://github.com/hyunseungbin9408/CCCR_experience/blob/master/png/Container_kubernetes_rs_yaml_labels.png" alt="drawing" width="500"/>
+
++ 먼저 yaml파일로 `matchlabels`와 밑에 파드템플릿에 `label`을 같게 하면 rs가 잘 생성이 된다.
++ 하지만 `matchlabels`와 파드템플릿에 `label`을 다르게하면 생성단계에서 막힌다.
++ 이런식으로 해당하는 `label`만 가진 파드만 `matchlabels`에서 확인후에 생성하기 때문에 관리하기가 편할 것 같다.
+
+<img src=https://github.com/hyunseungbin9408/CCCR_experience/blob/master/png/Container_kubernetes_rs_yaml_matchlabels.png" alt="drawing" width="500"/>
+
++ 이런식으로 잘 작동한다.
+

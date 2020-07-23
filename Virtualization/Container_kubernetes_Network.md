@@ -17,3 +17,21 @@
 
 + 쿠버네티스에 기본적으로 설치되어있는 서비스이고 api(443/tcp)로 통신하기 위한 기본서비스이다.
 
+### 서비스 생성
+
+<img src="https://github.com/hyunseungbin9408/CCCR_experience/blob/master/png/Container_Kubernetest_service_create.png" alt="drwaing" width="500"/>
+
++ 서비스 리소스에는 API그룹이 따로없다.
++ 그래서 기본적인 v1으로 버전을 넣어준다
++ spec에 app은 서비스가 향하는 `pod`로 적어준다
++ 포트는 기본적으로 열어줄 포트와 접근할 포트(targetPort)를 적어준다.
+
+<img src="https://github.com/hyunseungbin9408/CCCR_experience/blob/master/png/Container_Kubernetest_service_ep.png" alt="drawing" width="500"/>
+
++ 기본 서비스에 값음 마스터노드IP와 API포트(6443)이 열려져있다.
++ 지금은 만든 서비스가 향하는 `pod`가 없어서 `none`이 되어있다.
+
+<img src="https://github.com/hyunseungbin9408/CCCR_experience/blob/master/png/Container_Kubernetest_service_epcheck.png" alt="drawing" width="500"/>
+
++ 파드를 생성하고 `label` 를 처음 서비스를 만들때 `selector`에 넣었던 `app`처럼 넣어준다.
++ `kubectl get ep`로 다시 서비스에 `endpoint`를 확인해보면 `endpoint`가 생긴 것을 알 수 있다.

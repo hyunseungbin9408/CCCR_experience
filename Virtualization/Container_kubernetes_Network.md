@@ -90,3 +90,19 @@
 <img src="https://github.com/hyunseungbin9408/CCCR_experience/blob/master/png/Container_Kubernetest_ses_aff_service_curl.png" alt="drawing" width="500"/>
 
 + 그리고 접속을 확인하는 파드를생성해서 서비스에 ip로 접속해도 분산시키지 않고 처음 접속했던 ip로 접속하는것을 알 수 있다.
+
+### 포트 이름 참조
+#### 포트이름을 사용한 레플리카셋 및 서비스 생성
+<img src="https://github.com/hyunseungbin9408/CCCR_experience/blob/master/png/Container_Kubernetest_nport_create.png" alt="drawing" width="500"/>
+
++ yaml 파일로 서비스를 생성할때 포트의 이름을 정할 수있다.
++ 포트의 이름을 먼저 정하면 좋은것이 생성하기전에 rs에 포트들을 통합시킬수 있기때문에 편리하다.
+
+<img src="https://github.com/hyunseungbin9408/CCCR_experience/blob/master/png/Container_Kubernetest_nport_edit.png" alt="drawing" width="500"/>
+
++ 실행중인 파드들이 있는 레플리카셋에 파드포트 정보를 바꿀수있다.
++ 변경한 정보들은 실행중인 파드들에게는 적용이 안되고 다음번 생성되는 파드들에 적용이된다.
+
+<img src="https://github.com/hyunseungbin9408/CCCR_experience/blob/master/png/Container_Kubernetest_nport_ep.png" alt="drawing" width="500"/>
+
+## 서비스 탐색

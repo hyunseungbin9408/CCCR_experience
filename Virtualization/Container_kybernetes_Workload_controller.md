@@ -68,3 +68,15 @@
 <img src="https://github.com/hyunseungbin9408/CCCR_experience/blob/master/png/Container_kubernetes_kubectl_replication_replace.png" alt="drawing" width="500"/>
 
 + replicas의 수를 yaml파일을 수정하고 실제 사용중인 쿠버네티스 rc를 수정하려면 `kubectl replace -f yaml파일명` 
+
+## 레플리카셋
+### 레플리카셋 소개
+
+<img src="https://github.com/hyunseungbin9408/CCCR_experience/blob/master/png/Container_kubernetes_kubectl_rs_yaml.png" alt="drawing" width="500"/>
+
++ 레플리케이션과 기본적인 철학과 방법은 같다.
++ 레플리케이션컨트롤러와 다른점은 `matchlabels`인데 이것은 파드의 다중레이블을 지원한다는것이다.
++ 또 하나의 기능은 파드에 설정된 레이블의 키만 선택가능
++ 파드가 많아지고 하나의 레이블을 가지고 컨트롤러에 매칭하기가 어려워짐으로써 발전함
+
+<img src="https://github.com/hyunseungbin9408/CCCR_experience/blob/master/png/Container_kubernetes_kubectl_rs.png" alt="drawing" width="500"/>

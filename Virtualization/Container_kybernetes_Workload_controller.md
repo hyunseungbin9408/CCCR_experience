@@ -129,4 +129,8 @@
 
 + `kubectl label nodes kube-node3 node-` 명령어로 노드에 레이블을 삭제한다.
 + `kubectl get daemonsets.app` 로 데몬셋에 파드가 있는지 확인한다.
-+ 
++ 이처럼 노드에 해당하는 레이블이 없으면 파드도 없어진다.
+
+## 잡
+### 잡 소개
+

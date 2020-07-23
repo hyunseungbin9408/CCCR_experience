@@ -140,3 +140,35 @@
 + 만약 애플리케이션 실행되고 있는 중에 노드가 죽거나 파드의 실행이 완료되지않았다면, 파드를 다시 스케쥴링하여 재실행하게 구성 할 수 있다.
 
 ### 잡 생성
+
+<img src="https://github.com/hyunseungbin9408/CCCR_experience/blob/master/png/Container_kubernetes_job_create_yaml.png" alt="drawing" width="500"/>
+
++ `kubectl apt-resources | grep job` 으로 apigroup을 확인한다.
++ `kubectl apt-versions | grep batch` 로 버전을 확인후에 yaml파일을 생성단계에 job에 apiVersion을 넣어준다.
++ `job`파일은 한번만 실행하는 파일이기때문에 spec에 재시작정책에 OnFailure(실패시 재시작:정상 종료시 재시작안함)를 넣어준다.
++ 이 `job`파일은 sleep상태로 60초동안 있다가 끝나면 완료상태로 변하는 파일이다.
+
+<img src="https://github.com/hyunseungbin9408/CCCR_experience/blob/master/png/Container_kubernetes_job_complete.png" alt="drawing" width="500"/>
+
++ 생성하고 60초를 기다리고 다시 파드 상태를 확인했더니 complete상태로 변했다.
++ 이 `job`파일은 할일은 다하고 종료했다는 뜻이다.
+
+## 크론잡
+
+### 크론잡 소개
++ 잡 컨트롤러는 잡이 한번만 실행되지만 크론잡컨트롤러는 주기적으로 잡을 반복적으로 실행할 필요가 있을때 사용하는 컨트롤러이다.
++ 리눅스에 crontab기능과 같다.
+
+### 크론잡 컨트롤러 생성
+
+<img src="https://github.com/hyunseungbin9408/CCCR_experience/blob/master/png/Container_kubernetes_cronjob_create_yaml.png" alt="drawing" width="500"/>
+
++ 크론잡리소스에 apigroup은 잡과 동일하게 batch이지만 버전이 `vibetav1`이다.
++ 잡이랑 다른것은 `schedule` 인데 리눅스에 crontab처럼 언제 실행할지 정하는 명령어 `분, 시, 일, 월, 요일`
++ 나머지는 job과 동일하다.
+
+<img src="https://github.com/hyunseungbin9408/CCCR_experience/blob/master/png/Container_kubernetes_cronjob_watch.png" alt="drawing" width="500"/>
+
++ `CronJob` 파드의 상태를 확인
++ `cronjobs.batch`로 확인했더니 cronjob은 실패했다고 뜬다.
++ `kubectl get pods --watch` 실시간으로 확인했더니 실패하고 바로바로 다시 생성된다는걸 볼 수 있다.

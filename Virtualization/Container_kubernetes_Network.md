@@ -106,3 +106,63 @@
 <img src="https://github.com/hyunseungbin9408/CCCR_experience/blob/master/png/Container_Kubernetest_nport_ep.png" alt="drawing" width="500"/>
 
 ## 서비스 탐색
+### 환경변수를 이용한 서비스 탐색
+
+<img src="https://github.com/hyunseungbin9408/CCCR_experience/blob/master/png/Container_Kubernetes_dns_rs_dns.png" alt="drawing" width="500"/>
+
++ 환경변수중 많은 부분이 kubernetes 서비스 및 myapp 서비스의 IP, 포트에 관한 변수와 값으로 구성되어 있음
+
++ 대표적으로 다음과 같은 환경 변수를 참조
+
+  + MYNAPP_SVC_SERVICE_HOST=아이피
+  
+  + MYNAPP_SVC_SERVICE_PORT=아이피
+  
+  + MYNAPP_SVC_,KUBERNETES_SVC_ 이름은 실제 서비스의 이름과 매핑
+
+### DNS를 이용한 서비스 탐색
++ 쿠버네티스 클러스터는 클러스터 시스템 내부에서 사용할 수 있는 DNS서버가 작동하고있다.
+
++ 이미 kube-system 네임스페이스에 DNS관련 파드 및 컨트롤러 서비스가 존재
+
+#### DNS
+
+<img src="https://github.com/hyunseungbin9408/CCCR_experience/blob/master/png/Container_Kubernetes_dns_kube_system.png" alt="drawing" width="500"/>
+
++ `kube-system` 네이스페이스에 DNS관련 파드를 확인해보자. DNS 관련 파드는 k8s-app=kube-dns를 확인
+
++ DNS관련 서비스인 `service / coredns` 서비스가 있으며 10.233.0.3 IP로 접근 할 수 있다
+
++ 표준 DNS포트인 53으로 서비스하고 있음
+
+#### 파드 내부 DNS 설정확인
+
+<img src="https://github.com/hyunseungbin9408/CCCR_experience/blob/master/png/Container_Kubernetes_dns_resolveconf.png" alt="drawing" width="500"/>
+
++ 지금 실행되고있는 파드에 `kubectl exec myrep-rs-nport-mlxxl -- cat /etc/resolv.conf` 로 DNS를 확인
+
++ 하지만 coredns 주소인 10.233.0.3가 아니라 169.254.25.10 으로 되어있다.
+
++ 그 이유는 모든 파드들에 DNS요청이 `10.233.0.3` 으로 몰리는것을 방지하기 위해서 노드마다 DNS Cache를 가지고있다.
+
++ 파드들에 요청을 한꺼번에 모아서 중앙 DNS로 가서 Cache를 들고오는 방식
+
+<img src="https://github.com/hyunseungbin9408/CCCR_experience/blob/master/png/Container_Kubernetes_dns_kube_system_ip.png" alt="drawing" width="500"/>
+
++ 이런식으로 데몬셋으로 DNS서버들이 구성되어있다는걸 알 수 있다.
+
++ 현재 우리 노드구성이 마스터 1대, 워커노드 3대 총 4대로 이루어져 있고 그 수에 맞춰서 cache가 생성되어있다.
+
+#### FQDN을 이용한 서비스 탐색
+
+<img src="https://github.com/hyunseungbin9408/CCCR_experience/blob/master/png/Container_Kubernetes_dns_FQDN.png" alt="drawing" width="500"/>
+
++ `kubectl run nettool3 -it --image=c1t1d0s7/network-multitool --generator=run-pod/v1 --rm=true bash` 으로 `curl`접속을 도와줄 파드를 생성했다.
+
++ `curl http://myapp-svc-ses-aff`로 서비스 이름을 그대로 쓰면 DNScache를 거쳐서 접속이 된다.
+
++ 서비스이름뒤에 .`default` 을 입력하는것은 서비스 리소스의 네임스페이스 이름
+
++ .svc : 서비스 그 자체를 의미함
+
++ cluster.local: 쿠버네티스 클러스터 도메인

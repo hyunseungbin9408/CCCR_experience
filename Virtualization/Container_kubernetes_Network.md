@@ -68,3 +68,25 @@
 <img src="https://github.com/hyunseungbin9408/CCCR_experience/blob/master/png/Container_Kubernetest_service_curl_check.png" alt="drawing" width="500"/>
 
 + app안에서 서비스에 연결되어있는 파드들에 홈페이지에 접속을 하면 잘 연결되는것을 확인했다.
+
+<img src="https://github.com/hyunseungbin9408/CCCR_experience/blob/master/png/Container_Kubernetest_service_LoadBalancer.png" alt="drawing" width="500"/>
+
++ 이 서비스가 로드밸런스가 작동되는지도 확인했다.
+
+### 서비스의 세션 어피니티 구성
++ 세션을 계속유지하고 싶지만 로드밸런스때문에 다른 웹으로 가는것을 막기위한 세션 어피니티이다.
++ 클라이언트를 같은 어플리케이션에 항상 접속 할 수 있도록 해주는것
+
+<img src="https://github.com/hyunseungbin9408/CCCR_experience/blob/master/png/Container_Kubernetest_ses_aff_service_create.png" alt="drawing" width="500"/>
+
++ 기본적인 서비스를 만드는것과 다르지않다.
+
++ `sessionAffinity`에 어떠한 ip를 고정시킬것인지 확인하는 곳에 `ClientIP`로 입력해주면 서비스로 ip를 접속했을때 같은 ip로 접속한다.
+
+<img src="https://github.com/hyunseungbin9408/CCCR_experience/blob/master/png/Container_Kubernetest_ses_aff_service_ep.png" alt="drawing" width="500"/>
+
++ 서비스를 만들고 endpoint에 파드들이 들어가있는지 확인했다.
+
+<img src="https://github.com/hyunseungbin9408/CCCR_experience/blob/master/png/Container_Kubernetest_ses_aff_service_curl.png" alt="drawing" width="500"/>
+
++ 그리고 접속을 확인하는 파드를생성해서 서비스에 ip로 접속해도 분산시키지 않고 처음 접속했던 ip로 접속하는것을 알 수 있다.

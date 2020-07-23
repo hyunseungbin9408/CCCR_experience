@@ -60,6 +60,8 @@
 
 + 그후에 `kubectl run nettool2 -it --image=c1t1d0s7/network-multitool --generator=run-pod/v1 --rm=true bash` 로 curl를 실행할수있는 app을 생성했다.
 
++ `--generator=run-pod/v1`는 파드만 생성 할 것이라는 명령어이고 이 `generator`가 없다면 `deployment` 
+
 + app을 생성할때 `--rm=true` 명령어를 넣어주면 `-it bash`로 접속한 후에 `exit`로 접속종료를 하면 종료와 함께 app이 삭제된다.
 
 

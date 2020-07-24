@@ -285,5 +285,36 @@
 
 + **인그레스 컨트롤러는 Nginx HTTP 서버와 리버스 프록시 기능을 통해 제공되며, Ingress 컨트롤러는 노드의 개수만큼 각 노드에 실행함**
 
+<img src="https://github.com/hyunseungbin9408/CCCR_experience/blob/master/png/Container_Kubernetes_ingress_nginx.png" alt="drawing" width="500"/>
+
 ### 인그레스 생성
 
+<img src="https://github.com/hyunseungbin9408/CCCR_experience/blob/master/png/Container_Kubernetes_ingress_create.png" alt="drawing" width="500"/>
+
++ 인그레스 API그룹은 `networking.k8s.io` 이고 버전은 `v1beta1`이다. 오브젝트는 `ingress`로 선언한다.
+
++ `rules`에서 `host`와 `path`는 리스트형태로 여러가지로 선언할수있다.
+
++ `kubectl get ingresses.`에서 `ADDRESS`에 주소가 안나와있는데 워커주소라고 생각하면 된다.
+
++ 
+
+## 레디니스 프로브
+### 레디니스 프로브 소개
++ 
+
+## 헤드리스 서비스
+### 헤드리스 서비스 소개
++ 서비스는 기본적으로 파드 그룹을 서비스의 엔드포인트에 등록하고 부하분산을 한다.
+
++ 항상 부하분산이 필요한것만은 아니라서 클라이언트 측 파드가 서버 측 서비스를 통해 각각 모든 개별 서버 파드로 접근해야할 필요도 있다.
+
++ 서비스 리소스 자체의 IP가 아닌, 각각의 파드의 주소를 확인 하여 개별적으로 접근할 필요가 있다는 의미이다. 이를 **헤드리스서비스**라고 한다.
+
++ 헤드리스서비스는 로드밸런스가 필요하지않은 서비스에 사용하는데 그 대표적인 것이 데이터베이스이다.
+
++ 스테이트풀셋과 같이 사용하면 파드의 주소를 바로바로 전달됨
+
++ 
+
+### 헤드리스 서비스 생성

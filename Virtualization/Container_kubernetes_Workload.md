@@ -189,7 +189,8 @@ kubectl label pods 파드이름 라벨값-
  
  #### 네임스페이스 소개
  + 네임스페이스로 쿼터모드를 정할수 있다.
- + 파드를 분류시키는 용도이다.
+ + 리소스를 분류시키는 용도이다.
+ + 사용자별로 해당 네임스페이스만 사용 할 수 있도록 분류
  
  <img src="https://github.com/hyunseungbin9408/CCCR_experience/blob/master/png/Container_Kubernetes_namespace.png" alt="drawing" width="500"/>
  

@@ -220,3 +220,70 @@
 + `kubectl run nettool -it --image=c1t1d0s7/network-multitool --generator=run-pod/v1 --rm -- bash` 파드를 생성한다.
 
 + 노드들에 Ip와 서비스에 정했던 `NodePort`로 접근하면 통신이 잘 된다는걸 알 수 있다.
+
+### LoadBalancer 생성 및 서비스 확인
+
++ 클라우드 인프라에서 LoadBalancer 서비스를 생성하면 클라우드 인프라의 로드 밸런서를 자동으로 프로비저닝 하게됨
+
++ 이 로드 밸런서를 통해 서비스와 파드를 접근할 수 있음
+
+<img src="https://github.com/hyunseungbin9408/CCCR_experience/blob/master/png/Container_Kubernetes_enp_LoadBalance.png" alt="drawing" width="500"/>
+
++ 서비스와 비슷하지만 `type= LoadBalancer` 로 지정해주면 로드밸런서가 생성된다.
+
++ 로드밸런서는 speaker라는 기능이있는데 로드밸런서가 접속을 하면 speaker가 해당 노드의 포트로 전달해줌
+
++ `kubectl get svc`로 서비스를 확인해보면 잘 생성되어있고 `EXTERNALIP`가 할당되어있다.
+
++ `kubectl get ep`로 엔드포인트를 확인해보면 지정했던 `targetport`에 파드들이 다 들어가있다.
+
+<img src="https://github.com/hyunseungbin9408/CCCR_experience/blob/master/png/Container_Kubernetes_enp_LoadBalance_curl.png" alt="drawing" width="500"/>
+
++ `kubectl get svc`에서 확인했던 외부ip로 curl를 해보면 접속이 잘 되고 굳이 파드를 하나 더 생성할 필요없이 바로확인가능
+
+<img src="https://github.com/hyunseungbin9408/CCCR_experience/blob/master/png/Container_Kubernetes_enp_LoadBalance_web.png" alt="drawing" width="300"/>
+
++ 이처럼 로드밸런서 ip로 웹에서도 접근이 가능하다.
+
+### EXTERNALNAME 서비스 생성
+
++ `EXTERNALNAME` 서비스 `NodePort` 및 `LoadBalancer`과 다르게 외부에서 접근하기 위한 서비스 종류가 아닌 내부파트가 외부의 특정 `FQDN`에 쉽게 접근하기위한 서비스다.
+
++ 쿠버네티스 클러스터의 `coredns`서비스가 특정 `FQDN`에 대한 `CNAME`을 제공함에 따라 해당 `CNAME`을 이용하여 쉽게 통신 할 수 있다.
+
++ 심지어 접속하기 위한 `FQDN` 주소가 바뀌더라도, `CNAME`은 그대로 유지 할 수 있어서 애플리케이션을 다시 작성하거나 빌드 하지않아도된다.
+
+<img src="https://github.com/hyunseungbin9408/CCCR_experience/blob/master/png/Container_Kubernetes_extname_create.png" alt="drawing" width="500"/>
+
++ `EXTERNALNAME` 서비스에 `spec`에는 포트종류가 따로 들어가지않고 `externalName`만 들어간다.
+
++ `kubectl get svc`로 `EXTERNAL-IP`에는 `yaml`파일에 작성했던 `www.google.com`이 들어가있다.
+
++ 이러한 `EXTERNALNAME`은 파드가 내부에서 외부로 접속할수있게 하는 서비스
+
+<img src="https://github.com/hyunseungbin9408/CCCR_experience/blob/master/png/Container_Kubernetes_extname_ping.png" alt="drawing" width="500"/>
+
++ 파드는 `nslookup` 을 통해서 `mysvc-ext`가 `www.google.com`이라는것을 알 수 있다.
+
++ `ping` 도 잘 작동하는것을 알 수 있다.
+
+## 인그레스
+
++ 앞서 서비스를 외부에 노출시키는 방법인 `NodePort`와 LoadBalancer`서비스타입에 대해 살펴보았다.
+
++ 마지막으로 서비스를 외부로 노출 시키는 방법은 `Ingress`컨트롤러이다.
+
++ 쿠버네티스 외부에 노출 시켜야할 서비스가 많을 경우, `NodePort`는 각 서비스마다 전용의 노드의 포트를 할당해야함
+
++ `LoadBalancer`의 경우 외부 로드밸런서가 각 서비스마다 프로비저닝 되어야 한다.
+
++ `Ingress`는 Http 요청의 주소부분을 구분해 하나의 인그레스 컨트롤러를 이용해 각 서비스에 연결 할 수 있다.
+
++ `NodePort` 및 `LoadBalancer`서비스는 OSI레이어 4(전송계층)에서 작동하지만, 인그레스 컨트롤러는 OSI레이어 7(HTTP/HTTPS)에서 작동한다.
+
++ 세션 쿠키 기반의 세션 친화성을 가지고 있다.
+
++ **인그레스 컨트롤러는 Nginx HTTP 서버와 리버스 프록시 기능을 통해 제공되며, Ingress 컨트롤러는 노드의 개수만큼 각 노드에 실행함**
+
+### 인그레스 생성
+

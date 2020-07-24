@@ -166,3 +166,57 @@
 + .svc : 서비스 그 자체를 의미함
 
 + cluster.local: 쿠버네티스 클러스터 도메인
+
+## 클러스터 외부 서비스
++ 쿠버네티스의 클러스터에서 웹의 프론트엔드 서비스를 실해하는 파드의 경우 쿠버네티스 클러스터의 외부로 노출시켜 접근 가능하도록 구성해야한다.
+
++ 서비스의 종류가 `ClusterIP`이다. 클러스터 내부 IP만 할당되어있고 클러스터 외부 Ip는 할당되어있지않다.
+
++ **서비스의 종류**
+
++ ClusterIP
+  + 클러스터 내부용 서비스
+  
++ NodePort
+  + 쿠버네티스 모든노드에 외부 접근용 포트를 할당함
+  
+  + 노드의 포트를 사용하여 외부에서 접근가능
+  
+  + 노드의 포트로 접근하면 서비스에 의해 파드로 리다이렉션 함
+  
+  + 파드를 실행하고 있지 않는 노드에도 포트가 할당되고 접근 가능함
+  
++ LoadBalancer
+  + NodePort의 확장판
+  
+  + 클러스터 외부의 로드 밸런서를 사용하여 외부에서 접근 가능
+  
+  + 외부 로드 밸런서로 접근하면 서비스를 통해 파드로 리다이렉션 함
+  
+  + 클라우드 공급업체에서 지원하는 기능
+  
++ ExternalName
+
+  + 외부에서 접근하기 위한 종류가 아님
+  
+  + 외부의 특정 FQDN에 대한 CNAME 매핑을 제공
+  
+  + 파드가 CNAME을 이용해 특정 FQDN과 통신하기 위함
+  
+### 외부 서비스용 레플리카셋 생성 및 확인
+
+<img src="https://github.com/hyunseungbin9408/CCCR_experience/blob/master/png/Container_Kubernetes_enp_create.png" alt="drawing" width="500"/>
+
++ `type= NodePort`로 설정하고 노드에 포트번호는 30000~32767까지라 그사이로 설정해준다.
+
++ 다른 것은 서비스와 동일하다.
+
++ `kubectl get ep` 서비스에 파드들이 잘 적용되었는지 확인
+
++ 노드로 접근할 것이기때문에 `kubectl get nodes -o wide`로 노드들에 IP를 확인한다.
+
+<img src="https://github.com/hyunseungbin9408/CCCR_experience/blob/master/png/Container_Kubernetes_enp_curl.png" alt="drawing" width="500"/>
+
++ `kubectl run nettool -it --image=c1t1d0s7/network-multitool --generator=run-pod/v1 --rm -- bash` 파드를 생성한다.
+
++ 노드들에 Ip와 서비스에 정했던 `NodePort`로 접근하면 통신이 잘 된다는걸 알 수 있다.

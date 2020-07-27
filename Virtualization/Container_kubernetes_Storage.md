@@ -46,3 +46,14 @@
   
 + 특수유형 볼륨
   + configMap, secret
+
+### EmptyDir 볼륨
+#### emptyDir 볼륨 소개
+
+<img src="https://github.com/hyunseungbin9408/CCCR_experience/blob/master/png/Container_Kubernetes_volume_emptyDir_sh_do.png" alt="drawing" width="500"/>
+
++ 쉘스크립트와 도커파일을 만들고 필드하는 과정
+
+<img src="https://github.com/hyunseungbin9408/CCCR_experience/blob/master/png/Container_Kubernetes_volume_emptyDir_cat.png" alt="drawing" width="500"/>
+
+<img src="https://github.com/hyunseungbin9408/CCCR_experience/blob/master/png/Container_Kubernetes_volume_emptyDir_curl.png" alt="drawing" width="500"/>

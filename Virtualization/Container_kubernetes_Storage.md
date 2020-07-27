@@ -74,7 +74,7 @@
 
 - `initContainers:` 를 사용해서 처음 컨테이너를 구성하는 스크립트를 사용하고 사라지는 컨테이너
 
-<img src=https://github.com/hyunseungbin9408/CCCR_experience/blob/master/png/Container_Kubernetes_volume_emptyDir_init.png" alt="drawing" width="500"/>
+<img src="https://github.com/hyunseungbin9408/CCCR_experience/blob/master/png/Container_Kubernetes_volume_emptyDir_init.png" alt="drawing" width="500"/>
 
 + 초기구성 단계가 지나고나서 본격 컨테이너가 작동한다.
 

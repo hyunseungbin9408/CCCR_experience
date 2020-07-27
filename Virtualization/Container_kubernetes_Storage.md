@@ -108,3 +108,44 @@
 
 + 파드가 삭제될때 이 스토리지에 데이터는 외부용 스토리지라서 영향을 끼치지않는다.
 
+### PV 및 PVC 볼륨
+#### PV 및 PVC 소개
+
+
+### 정적 볼륨 프로비저닝
+<img src="https://github.com/hyunseungbin9408/CCCR_experience/blob/master/png/Container_Kubernetes_volume_pv%2Cpvc_create.png" alt="drawing" width="500"/>
+
++ PV에 `spec`부분에서 `capacity`은 스토리지에 공간을 얼마나 할당 받을지를 정하는것
+
++ `accessModes` 공유받는 폴더에 어떤 권한을줄지 정하는데 tp가지가 있다.
+  + `ReadWriteOnce` : 하나의 파드만 읽기/쓰기 가능
+  + `ReadWritemany` : 여러 파드 읽기/쓰기 가능
+  + `ReadOnlumany`: 여러파드 읽기만 가능
+
++ `RECLAIM POLICY`는 회수에 3가지 방법를 말하는것
+  + 유지(Retain) : PV리소스를 그대로 유지한다. PV리소스를 삭제하더라도 외부 스토리지를 사용하고 있다면 외부 스토리지의 데이터는 그대로 남아있다. 그러나 다른 PVC리소스가 사용 할 수 있는 것은 아니다. 관리자가 수동으로 볼륨을 회수
+  
+  + 삭제(Delete) : PVC 리소스가 삭제되면 PV 리소스도 같이 삭제되고, 연결되어 있는 외부 스토리지의 데이터를 삭제 할 수도 있다. 동적프로비저닝, AWS, GCP, Azure의 기본 정책이다.
+  
+  + 재활용(Recycle) : 스토리지의 데이터를 삭제하고 다른 PVC가 PV리소스를 사용가능 하도록 만들어준다. 현재 NFS 및 hostPath 볼륨만 지원한다.
+  
+<img src="https://github.com/hyunseungbin9408/CCCR_experience/blob/master/png/Container_Kubernetes_volume_rs_pvc.png" alt="drawing" width="500"/>
+
++ 레플리카셋에 `PVC`를 볼륨을 추가해서 만들었다. 만들어진 `PVC` 이름을 넣어주면 된다.
+
++ 
+  
+<img src="https://github.com/hyunseungbin9408/CCCR_experience/blob/master/png/Container_Kubernetes_volume_delete_curl.png" alt="drawing" width="500"/>
+
+### 동적 볼륨 프로비저닝
+#### ceph
+ + 설치 하는법 출처: https://rook.io/docs/rook/v1.3/ceph-quickstart.html
+ 
+<img src="https://github.com/hyunseungbin9408/CCCR_experience/blob/master/png/Container_Kubernetes_ceph_create.png" alt="drawing" width="500"/>
+
+<img src="https://github.com/hyunseungbin9408/CCCR_experience/blob/master/png/Container_Kubernetes_ceph.png" alt="drawing" width="500"/>
+
+<img src="https://github.com/hyunseungbin9408/CCCR_experience/blob/master/png/Container_Kubernetes_ceph_tools.png" alt="drawing" width="500"/>
+
++ 
+<img src="

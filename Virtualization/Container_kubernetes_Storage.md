@@ -54,6 +54,57 @@
 
 + 쉘스크립트와 도커파일을 만들고 필드하는 과정
 
+<img src="https://github.com/hyunseungbin9408/CCCR_experience/blob/master/png/Container_Kubernetes_volume_emptyDir_yaml.png" alt="drawing" width="500"/>
+
++ 기본 컨트롤러는 레플리카셋으로 구성하고 `volumeMounts` 와 `mountPath` 우리가 생성했던 포춘 스크립트 주소를 넣어주었다.
+
++ 밑에 볼륨이름과 컨테이너 볼륨이름을 똑같게해야 적용이된다.
+
 <img src="https://github.com/hyunseungbin9408/CCCR_experience/blob/master/png/Container_Kubernetes_volume_emptyDir_cat.png" alt="drawing" width="500"/>
 
++ 만들어진 파드를 cat으로 작동이 되는지 확인
+
 <img src="https://github.com/hyunseungbin9408/CCCR_experience/blob/master/png/Container_Kubernetes_volume_emptyDir_curl.png" alt="drawing" width="500"/>
+
++ 네트워크 파드를 생성해서 IP주소로도 나오는지 확인
+
+### 초기화 컨테이너
+
+<img src="https://github.com/hyunseungbin9408/CCCR_experience/blob/master/png/Container_Kubernetes_volume_emptyDir_init.png" alt="drawing" width="500"/>
+
+- `initContainers:` 를 사용해서 처음 컨테이너를 구성하는 스크립트를 사용하고 사라지는 컨테이너
+
+<img src=https://github.com/hyunseungbin9408/CCCR_experience/blob/master/png/Container_Kubernetes_volume_emptyDir_init.png" alt="drawing" width="500"/>
+
++ 초기구성 단계가 지나고나서 본격 컨테이너가 작동한다.
+
+### hostpath 볼륨
+
+<img src="https://github.com/hyunseungbin9408/CCCR_experience/blob/master/png/Container_Kubernetes_volume_emptyDir_hp_yaml.png" alt="drawing" width="500"/>
+
++ `web_content`라는 디렉토리를 node1서버에 만들고 그 디렉토리를 볼륨으로 `yaml`파일을 작성
+
+<img src="https://github.com/hyunseungbin9408/CCCR_experience/blob/master/png/Container_Kubernetes_volume_emptyDir_hp_create_error.png" alt="drawing" width="500"/>
+
++ 하나의 파드만 실행되고있는 상황이고 `kubectl describe`로 오류상황을 봤다
+
+<img src="https://github.com/hyunseungbin9408/CCCR_experience/blob/master/png/Container_Kubernetes_volume_emptyDir_hp_create_error_describe.png" alt="drawing" width="500"/>
+
++ `describe`로 확인해보면 생성하는 노드에 해당 디렉토리가 없어서 생성이 안되고있다고한다.
+
++ 우리는 `node1`에 디렉토리를 생성했고 나머지 두개의 노드에는 생성하지않았다.
+
++ 파드를 생성할때 노드를 번갈아가면서 생성하기이다.
+
+<img src="https://github.com/hyunseungbin9408/CCCR_experience/blob/master/png/Container_Kubernetes_volume_emptyDir_hp_yaml_node.png" alt="drawing" width="500"/>
+
++ `yaml`파일에 `spec`명령어에 `node`라는 명령어를 추가하고 그곳에 `node1`을 추가해준다.
+
+<img src="https://github.com/hyunseungbin9408/CCCR_experience/blob/master/png/Container_Kubernetes_volume_emptyDir_hp_create.png" alt="drawing" width="500"/>
+
++ 정상적으로 두개의 파드가 실행되고있는것을 볼 수 있다.
+
++ **이처럼 `HostPath`는 네트워크 기반이 아니라 물리적인 스토리지라서 해당하는 노드스토리지 위치를 정확히 넣어주어야 오류없이 사용가능하다.**
+
++ 파드가 삭제될때 이 스토리지에 데이터는 외부용 스토리지라서 영향을 끼치지않는다.
+

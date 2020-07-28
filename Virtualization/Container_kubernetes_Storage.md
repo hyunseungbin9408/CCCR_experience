@@ -139,11 +139,31 @@
 
 ### 동적 볼륨 프로비저닝
 #### ceph
++ 통합형 스토리지이고 모든 형태에 데이터를 제공
+  + Block
+  + Object
+  + file
++ Ceph는 기본적으으로 
+
+ + c
  + 설치 하는법 출처: https://rook.io/docs/rook/v1.3/ceph-quickstart.html
  
 <img src="https://github.com/hyunseungbin9408/CCCR_experience/blob/master/png/Container_Kubernetes_ceph_create.png" alt="drawing" width="500"/>
 
++ `Cluster.yaml` 파일이 빈디스크를 찾아서 하나로 올리고 스토리지로 사용
+
++ `Cluster.yaml` 이 클러스터를 관리할 수 있는 `MON`을 구성함
+
+<img src="https://github.com/hyunseungbin9408/CCCR_experience/blob/master/png/Container_Kubernetes_ceph_RBD_storageclass.png" alt="drawing" width="500"/>
+
++ `Storageclass.yaml`으로 Ceph 블록스토리지를 구성함
+
+
 <img src="https://github.com/hyunseungbin9408/CCCR_experience/blob/master/png/Container_Kubernetes_ceph.png" alt="drawing" width="500"/>
+
++ `mds` 는 `filesysyem.yaml`으로 구성 할 수있다.
+
++ `MON` 은 `Cluster.yaml`으로 구성하는것
 
 <img src="https://github.com/hyunseungbin9408/CCCR_experience/blob/master/png/Container_Kubernetes_ceph_tools.png" alt="drawing" width="500"/>
 

@@ -86,8 +86,12 @@
 
 + 다른 컨트롤러와 비슷하지만 다른점은 `serviceName:`을 필수적으로 지정해야 한다는 것이다. 서비스를 지정할 수 있다.
 
-+ 스테이트풀셋은 헤드리스 서비스와 
++ 스테이트풀셋은 헤드리스 서비스와 같이 활성화시켜서 파드하나에 서비스를 접목시켜서 고정시킬 수 있다.
+
+<img src="https://github.com/hyunseungbin9408/CCCR_experience/blob/master/png/Container_Kubernetes_Statefulset_volume.png" alt="drawing" width="500"/>
 
 + 스테이트풀셋은 `volumeClaimTemplates`으로 파드마다 각각 저장소를 정할 수 있고 생성된 파드를 삭제해도 저장소는 삭제되지않고 그대로 사용가능하다.
 
-+ 
+<img src="https://github.com/hyunseungbin9408/CCCR_experience/blob/master/png/Container_Kubernetes_Statefulset_get.png" alt="drawing" width="500"/>
+
++ 볼륨 서비스 파드가 하나처럼 묶여있다.

@@ -47,3 +47,13 @@
 + 이러한 히스토리가 있어야만 `undo` 명령어로 이전 버전으로 돌아갈 수 있고 그만큼에 `ReplicaSet`을 가지고 있는것이다.
 
 <img src="https://github.com/hyunseungbin9408/CCCR_experience/blob/master/png/Container_Kubernetes_Deployment_rollout.png" alt="drawing" width="700"/>
+
++ 디플로이먼트를 업데이트 하는방법은 `kubectl set image deployment 컨테이너이름 컨테이너이름=새로운이미지명` 으로 명령어를 입력한다.
+
++ `watch -n1 -d curl`로 실시간 응답이 오는지 확인하면 버전이 중간중간 바뀌는것을 알 수 있다.
+
++ 레플리카셋은 살펴보면 그전버전 컨트롤러가 아직 삭제되지 않은것을 알 수 있는데 이것은 `rollback`하는것을 위해서이다.
+
+<img src="https://github.com/hyunseungbin9408/CCCR_experience/blob/master/png/Container_Kubernetes_Deployment_update_record.png" alt="drawing" width="700"/>
+
++ 업데이트하는 과정에서 `--record` 명령어를 추가로 입력하면 `history`에서 어떠한 명령어로 업데이트를 했는지 알 수 있다.

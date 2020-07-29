@@ -22,3 +22,17 @@
 <img src="https://github.com/hyunseungbin9408/CCCR_experience/blob/master/png/Container_Kubernetes_Autoscaling_request.png" alt="drawing" width="500"/>
 
 + `request`를 지정하지않고 `limits`만 주는경우에는 파드에 `request`는 `limits`과 똑같이 된다.
+
+### LimitRange
+
+<img src="https://github.com/hyunseungbin9408/CCCR_experience/blob/master/png/Container_Kubernetes_Autoscaling_LR_yaml.png" alt="drawing" width="500"/>
+
++ `kind:LimitRange` 는 타입을 정해서 최소한의 리소스와 최대한을 정할 수 있다.
+
+<img src="https://github.com/hyunseungbin9408/CCCR_experience/blob/master/png/Container_Kubernetes_Autoscaling_LR_describe.png" alt="drawing" width="500"/>
+
++ `kubectl decribe limits 이름`으로 지금 쿠버네티스에 리소스 제한범위을 볼수가 있다.
+
+### Cpu 및 메모리 쿼터
++ 네임스페이스에 오브젝트 생성에 제한을 두는 것
+

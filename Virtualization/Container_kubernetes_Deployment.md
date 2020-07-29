@@ -24,3 +24,26 @@
 
 ## 디플로이먼트
 ### 디플로이먼트 정의
+
+
+### 디플로이먼트 생성
+
+<img src="https://github.com/hyunseungbin9408/CCCR_experience/blob/master/png/Container_Kubernetes_Deployment_yaml.png" alt="drawing" width="500"/>
+
++ 디플로이먼트는 레플리카셋을 관리하는 컨트롤러이고 `rollingUpdate`가 필수적으로 들어간다.
+
++ `maxUnavailable`은 `Deployment`가 업데이트를 진행할때 최대 몇개를 한번에 삭제 할것인가 결정한다.
+
++ `maxSurge`는 업데이트를 진행할때 새로운 버전에 파드를 몇개 생성할지 결정한다.
+
++ `minReadySeconds` 업데이트를 할때 컨테이너가 다음 상황을 얼마나 대기할지 결정한다.
+
+<img src="https://github.com/hyunseungbin9408/CCCR_experience/blob/master/png/Container_Kubernetes_Deployment_history.png" alt="drawing" width="500"/>
+
++ `kubectl rollout history deployment`로 디플로이먼트가 버전기록을 볼 수가있다.
+
++ 이것도 우리가 디플로이먼트를 구성할때 `spec` 밑에 `revisionHistoryLimit` 로 몇개까지의 히스토리를 저장하고있을지 결정 할 수 있다.
+
++ 이러한 히스토리가 있어야만 `undo` 명령어로 이전 버전으로 돌아갈 수 있고 그만큼에 `ReplicaSet`을 가지고 있는것이다.
+
+<img src="https://github.com/hyunseungbin9408/CCCR_experience/blob/master/png/Container_Kubernetes_Deployment_rollout.png" alt="drawing" width="700"/>

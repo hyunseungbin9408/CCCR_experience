@@ -57,8 +57,6 @@
 
 ### kubeconfig 파일 생성 및 관리
 
-<img src="https://github.com/hyunseungbin9408/CCCR_experience/blob/master/png/Container_Kubernetes_Anthentication_current_config_view.png" alt="drawing" width="500"/>
-
 + `mkidr config-practice` 연습용 디렉토리를 만든다.
 
 + `kubectl config --kubeconfig=config-test set-cluster production --server=https://1.2.3.4` 로 production 클러스터 생성
@@ -72,3 +70,8 @@
 + `kubectl config --kubeconfig=config-test set-context prod-admin --cluster=production --namespace=default --user admin` 명령어로 production 클러스터, admin사용자, default 네임스페이스 정보를 묶어서 콘텍스트를 생성
 
 + `kubectl config --kubeconfig=config-test set-context prod-admin --cluster=development --namespace=devel --user user` 명령어로 development 클러스터, user사용자, devel 네임스페이스 정보를 묶어서 콘텍스트를 생성
+
++ `kubectl config --kubeconfig=config-test view` 로 config내용을 볼 수 있다
+
+<img src="https://github.com/hyunseungbin9408/CCCR_experience/blob/master/png/Container_Kubernetes_Anthentication_current_config_view.png" alt="drawing" width="500"/>
+

@@ -1,0 +1,43 @@
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: sts
+spec:
+  selector:
+    matchLabels:
+      app: sts
+  serviceName: mynapp-sts-svc
+  replicas: 2
+  template:
+    metadata:
+      labels:
+        app: sts
+    spec:
+      containers:
+      - name: app
+        image: tmdqls6625/myweb:v1
+        ports:
+        - containerPort: 8080
+  volumeClaimTemplates:
+  - metadata: 
+      name: mynapp-data
+    spec:
+      accessModes: ["ReadWriteOnce"]
+      resources:
+        requests:
+          storage: 1Gi
+      storageClassName: rook-ceph-block
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: mynapp-sts-svc
+  labels:
+    app: mynapp-sts-svc
+spec:
+  selector:
+    app: sts
+  ports:
+  - port: 8080
+    name: http
+  clusterIP: None

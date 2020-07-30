@@ -1,0 +1,38 @@
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata:
+  name: rs-affr
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: rs-affr
+      tier: frontend
+  template:
+    metadata:
+      labels:
+        app: rs-affr
+        tier: frontend
+    spec:
+      affinity:
+        podAntiAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+          - labelSelector:
+              matchExpressions:
+              - key: tier
+                operator: In
+                values:
+                - frontend
+            topologyKey: "kubernetes.io/hostname"
+        podAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+          - labelSelector:
+              matchExpressions:
+              - key: tier
+                operator: In
+                values:
+                - cache
+            topologyKey: "kubernetes.io/hostname"
+      containers:
+      - name: mynapp
+        image: tmdqls6625/myweb:v1

@@ -1,0 +1,66 @@
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata:
+  name: wordpress
+  labels:
+    app: wordpress
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: wordpress
+  template:
+    metadata:
+      labels:
+        app: wordpress
+    spec:
+      nodeName: kube-node1
+      containers:
+        - image: wordpress
+          name: wordpress
+          env:
+          - name: WORDPRESS_DB_HOST
+            value: mysql:3306
+          - name: WORDPRESS_DB_NAME
+            value: wordpress
+          - name: WORDPRESS_DB_USER
+            value: student
+          - name: WORDPRESS_DB_PASSWORD
+            value: dkagh1.
+          ports:
+          - containerPort: 80
+            protocol: TCP
+          - containerPort: 443
+            protocol: TCP
+          volumeMounts:
+            - name: wordpress-persistent-storage
+              mountPath: /var/www/html
+            - name: nginx-tls-config
+              mountPath: /etc/nginx/conf.d
+            - name: https-cert
+              mountPath: /etc/nginx/ssl
+              readOnly: true
+      volumes:
+        - name: wordpress-persistent-storage
+          persistentVolumeClaim:
+            claimName: mynapp-pvc-dynamic
+        - name: nginx-tls-config
+          configMap:
+            name: nginx-tls-config
+        - name: https-cert
+          secret:
+            secretName: nginx-tls-secret
+---
+apiVersion: v1
+kind: Service
+metadata:
+    name: svc-np
+spec:
+  type: NodePort
+  ports:
+  - port: 80
+    nodePort: 31111
+    port: 433
+    nodePort: 31112
+  selector:
+    app: wordpress

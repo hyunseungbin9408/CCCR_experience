@@ -75,3 +75,10 @@
 
 <img src="https://github.com/hyunseungbin9408/CCCR_experience/blob/master/png/Container_Kubernetes_Anthentication_current_config_view.png" alt="drawing" width="500"/>
 
+### 클라이언트에서 작업하기
+
++ curl -LO https://storage.googleapis.com/kubernetes-release/release/v1.16.11/bin/linux/amd64/kubectl 로 버전에 맞는 `kubectl`를 다운받는다.
+
++ `chmod +x kubectl` 로 실행권한을 준다.
+
++ `sudo mv kubectl /usr/local/bin`로 명령어를 실행 할 수있게 `/usr/bin/ 이나 /usr/local/bin/`에 넣어준다.

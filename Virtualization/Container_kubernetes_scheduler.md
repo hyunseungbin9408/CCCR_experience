@@ -158,6 +158,7 @@
 + 드레인을 설정하면 모든 파드를 이전하기 전 커든이 먼저 적용된다.
 
 ### 커든
+
 + **커든 명령**
 
 + `kubectl cordon 노드명` 으로 해당 노드를 커든시킬 수 있다.
@@ -167,7 +168,7 @@
 ### 드레인
 + ** 드레인 명령**
 
-<img src=https://github.com/hyunseungbin9408/CCCR_experience/blob/master/png/Container_Kubernetes_Scheduler_Drain_Warning.png" alt="drawing" width="500"/>
+<img src="https://github.com/hyunseungbin9408/CCCR_experience/blob/master/png/Container_Kubernetes_Scheduler_Drain_Warning.png" alt="drawing" width="500"/>
 
 + 지금 해당하는 파드들때문에 `Drain`이 작동하지 않는다는 문구다.
 

@@ -22,10 +22,53 @@
 
 ### 인증 방법
 + **클라이언트 인증서**
+
   + X.509 기반의 TLS인증서
   
   + 클라이언트가 인증서와 키를 이용한 인증
   
   + 지금까지 모든 kubectl 명령에 사용했던 방식
 
-+ 
++ **베어러 토큰**
+
+  + HTTP 요청 헤어에 `Authorization: Bearer [TOKEN]` 토큰을 전송
+  
+  + 서비스 계정 토큰
+  
+  + `OAuth2 Bearer` 토큰
+
++ **인증 프록시**
+
+  + HTTP 요청 헤어에 `X-Remote-User`등의 인증 정보 전송
+  
++ 기본 HTTP 인증 (실무에서 절대 사용금지)
+  
+  + HTTP 요청 헤더에 `Authorization: Basic BASE64ENCODED(USER:PASSWORD) 인증 정보 전송
+  
+  + 간편한 인증으로 편의를 위해 만들어 놓음 (보안에 좋지못함)
+  
+  + 패스워드를 변경하기 위해 API 서버가 재시작 되어야 함
+  
+### kubeconfig 파일
+
+<img src="https://github.com/hyunseungbin9408/CCCR_experience/blob/master/png/Container_Kubernetes_Anthentication_current_config.png" alt="drawing" width="500"/>
+
++ 지금 현재 쿠버네티스에서 사용하고있는 계정들이 정리되어있는 `config` 파일이다
+
+### kubeconfig 파일 생성 및 관리
+
+<img src="https://github.com/hyunseungbin9408/CCCR_experience/blob/master/png/Container_Kubernetes_Anthentication_current_config_view.png" alt="drawing" width="500"/>
+
++ `mkidr config-practice` 연습용 디렉토리를 만든다.
+
++ `kubectl config --kubeconfig=config-test set-cluster production --server=https://1.2.3.4` 로 production 클러스터 생성
+
++ `kubectl config --kubeconfig=config-test set-cluster development --server=https://5.6.7.8` 같은 방법으로 development 클러스터 생성
+
++ `kubectl config --kubeconfig=config-test set-credentials admin --token=abc` admin사용자를 지정하고, admin사용자의 토큰을 지정
+
++ `kubectl config --kubeconfig=config-test set-credentials user --token=xyz` user사용자를 지정, user사용자의 토큰을 지정
+
++ `kubectl config --kubeconfig=config-test set-context prod-admin --cluster=production --namespace=default --user admin` 명령어로 production 클러스터, admin사용자, default 네임스페이스 정보를 묶어서 콘텍스트를 생성
+
++ `kubectl config --kubeconfig=config-test set-context prod-admin --cluster=development --namespace=devel --user user` 명령어로 development 클러스터, user사용자, devel 네임스페이스 정보를 묶어서 콘텍스트를 생성

@@ -126,3 +126,18 @@
   
 + `Key=Value:Effect`의 의미는 톨러레이션에 의해 허용될 레이블이며, 해당 레이블이 없으면 효과에 의해 스케줄링하지 않는다는 의미
 
++ **테인트 설정**
+
+<img src="https://github.com/hyunseungbin9408/CCCR_experience/blob/master/png/Container_Kubernetes_Scheduler_Taint_get.png" alt="drawing" width="500"/>
+
++ `kubectl taint node kube-node3 env=production:NoSchedule` 로 설정한다.
+
++ `kubectl describe no | grep Taint` 로 설정이 잘되었는지 확인
+
+#### 톨러레이션이 없는 레플리카셋
+<img src="https://github.com/hyunseungbin9408/CCCR_experience/blob/master/png/Container_Kubernetes_Scheduler_notoleration_yaml.png" alt="drawing" width="500"/>
+
+#### 톨러레이션을 사용한 리소스
+
+<img src="https://github.com/hyunseungbin9408/CCCR_experience/blob/master/png/Container_Kubernetes_Scheduler_toleration_yaml.png" alt="drawing" width="500"/>
+

@@ -1,7 +1,7 @@
 # 쿠버네티스 인증
 ## 인증 및 kubeconfig
 
-<img src="https://github.com/hyunseungbin9408/CCCR_experience/blob/master/png/Container_Kubernetes_Anthentication.png" alt="drawing' width="600"/>
+<img src="https://github.com/hyunseungbin9408/CCCR_experience/blob/master/png/Container_Kubernetes_Anthentication.png" alt="drawing" width="600"/>
 
 + 모든 쿠버네티스 클러스터를 사용하는 사용자는 `kubectl`클라이언트나 `HTTP REST` 요청을 통해 API 서버에 접근한다.
 

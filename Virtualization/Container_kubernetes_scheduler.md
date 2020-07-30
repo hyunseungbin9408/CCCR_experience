@@ -142,3 +142,41 @@
 
 <img src="https://github.com/hyunseungbin9408/CCCR_experience/blob/master/png/Container_Kubernetes_Scheduler_toleration_yaml.png" alt="drawing" width="500"/>
 
+
+## 커든 및 드레인
+
++ 커든은 특정 노드에 파드가 스케줄링되지 않도록 하는 기능이다.
+
++ 테인트는 특정 노드를 특정 역할로 사용하기 위해 톨러레이션과 함께 사용하지만, 커든은 모든 파드의 스케줄링이 되지 않도록 한다.
+
++ 현재 배치되어 동작중인 파드에는 영향을 미치지 않는다. 새로 스케줄링되지 않도록만 하는것
+
++ **드레인**
+
++ 드레인은 관리적인 여러 이유, 유지보수의 목적으로 해당노드에 파드가 없어져야하는 경우, 모든 파드를 퇴고되고 다른노드로 이전한다.
+
++ 드레인을 설정하면 모든 파드를 이전하기 전 커든이 먼저 적용된다.
+
+### 커든
++ **커든 명령**
+
++ `kubectl cordon 노드명` 으로 해당 노드를 커든시킬 수 있다.
+
++ `kubectl uncordon 노드명` 으로 커든이 적용되어있는 노드를 해제 할 수 있다.
+
+### 드레인
++ ** 드레인 명령**
+
+<img src=https://github.com/hyunseungbin9408/CCCR_experience/blob/master/png/Container_Kubernetes_Scheduler_Drain_Warning.png" alt="drawing" width="500"/>
+
++ 지금 해당하는 파드들때문에 `Drain`이 작동하지 않는다는 문구다.
+
++ `kubectl drain kube-node1 --delete-local-data --ignore-daemonsets` 으로 강제실행 할 수 있다.
+
+<img src="https://github.com/hyunseungbin9408/CCCR_experience/blob/master/png/Container_Kubernetes_Scheduler_Drain.png" alt="drawing" width="500"/>
+
++ `Drain`을 강제실행 한 상태이고 `evirt`는 실행되고있는 파드들을 내보내고있다는 뜻
+
++ `Drain`이 완료되고 `kubectl get no`를 하게되면 해당노드는 `cordon`이 적용되어있다.
+
++ `Drain`에는 `cordon`이 포함되어있어서 드레인이 끝난후에는 커든이 되어있으니 `kubectl uncordon 노드명`으로 해제해줘야 정상적으로 스케줄링이 가능하다.

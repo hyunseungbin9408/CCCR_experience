@@ -1,3 +1,5 @@
 openssl genrsa --out ingress-tls.key 2048
 
 openssl req -new -x509 -key ingress-tls.key -out ingress-tls.crt -days 3650 -subj /CN=mynapp.example.com
+
+kubectl create secret tls ingress-tls-secret --key=ingress-tls.key --cert=ingress-tls.crt

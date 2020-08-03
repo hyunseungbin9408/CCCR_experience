@@ -38,17 +38,17 @@
 
 ## Helm 차트 설치 및 관리
 
-<img src="https://github.com/hyunseungbin9408/CCCR_experience/blob/master/png/Container_Kubernetes_Helm_install.png" alt="drawing" width="500"/>
+<img src="https://github.com/hyunseungbin9408/CCCR_experience/blob/master/png/Container_Kubernetes_Helm_install.png" alt="drawing" width="700"/>
 
 + `Helm install [NAME] [CHART] [FLAGS]`
   + `NAME` : 릴리즈 이름
   + `CHART`: 차트 이름
   + `FLAGS`: 옵션
   
-<img src="https://github.com/hyunseungbin9408/CCCR_experience/blob/master/png/Container_Kubernetes_Helm_list.png" alt="drawing" width="500"/>
+<img src="https://github.com/hyunseungbin9408/CCCR_experience/blob/master/png/Container_Kubernetes_Helm_list.png" alt="drawing" width="700"/>
 
 + 다운받은 패키지 목록을 확인하는 `helm list` 명령어
 
-<img src="https://github.com/hyunseungbin9408/CCCR_experience/blob/master/png/Container_Kubernetes_Helm_uninstall.png" alt="drawing" width="500"/>
+<img src="https://github.com/hyunseungbin9408/CCCR_experience/blob/master/png/Container_Kubernetes_Helm_uninstall.png" alt="drawing" width="700"/>
 
 + 다운받은 패키지를 삭제하는 `uninstall` 명령어

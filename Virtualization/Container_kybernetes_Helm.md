@@ -52,3 +52,8 @@
 <img src="https://github.com/hyunseungbin9408/CCCR_experience/blob/master/png/Container_Kubernetes_Helm_uninstall.png" alt="drawing" width="700"/>
 
 + 다운받은 패키지를 삭제하는 `uninstall` 명령어
+
+## Prometheus 모니터링
+### 쿠버네티스 기본 모니터링 개요
++ 
+

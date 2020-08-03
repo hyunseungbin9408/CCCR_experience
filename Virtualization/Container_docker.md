@@ -413,7 +413,8 @@
 ***
 
  #### Harbor
- + 먼저 docker-compo sudo cuse를 구성해야한다.
+ + 먼저 docker-compose를 구성해야한다.
+ 
  ```
  
  sudo curl -L "https://github.com/docker/compose/releases/download/1.26.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose

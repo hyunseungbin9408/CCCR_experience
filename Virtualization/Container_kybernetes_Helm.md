@@ -10,6 +10,10 @@
 
 + `wget https://get.helm.sh/helm-v3.1.2-linux-amd64.tar.gz` helm 바이너리를 다운
 
++ `tar xf helm-v3.1.2-linux-amd64.tar.gz`
+
++ `helm version`으로 helm버전 확인
+
 + macOs 에서 설치 `brew install helm`
 
 + Ubuntu `sudo snap install helm --classic`
@@ -20,3 +24,24 @@
 + `저장소(Repository) = Helm 차트가 저장된 저장소
 
 + `릴리즈(Release) = 파트가 클러스에 배포된 기본 단위
+
+## Helm 차트 구조
+
++ Helm 차트는 쿠버네티스 리소스를 모아놓은 패키지, TAR Gzip으로 아카이브 및 압축
+
++ 
+```
+  mychart/
+    chart.yaml
+    value.yaml
+    template/
+```
++ helm 차트구조이다.
+
+## Helm 차트 설치 및 관리
+
++ `Helm install [NAME] [CHART] [FLAGS]`
+  + `NAME` : 릴리즈 이름
+  + `CHART`: 차트 이름
+  + `FLAGS`: 옵션
+  

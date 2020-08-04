@@ -12,6 +12,8 @@
 
 + `tar xf helm-v3.1.2-linux-amd64.tar.gz`
 
++ `sudo cp linux-amd64/helm /usr/bin or /usr/local/bin` helm 실행파일 적용
+
 + `helm version`으로 helm버전 확인
 
 + macOs 에서 설치 `brew install helm`

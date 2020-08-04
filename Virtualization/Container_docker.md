@@ -440,6 +440,8 @@
  ```
   wget 으로 harvor 최신버전 1.10.4를 다운받는다.
   
+  wget https://github.com/goharbor/harbor/releases/download/v1.10.4/harbor-offline-installer-v1.10.4.tgz
+  
   압축을 풀어주고 폴더안에 harbor.yml파일을 수정해준다.
   
   https 명령어들을 주석을 걸어주고 우리가 사용하는 호스트를 넣어준다.

@@ -29,7 +29,15 @@
 
 <img src="https://github.com/hyunseungbin9408/CCCR_experience/blob/master/png/harbor_logo.png" alt="drawing" width="600"/>
 
-## 실습 목차
+`Harbor`는 컨텐츠를 저장, 서명 및 스캔하는 오픈소스이고 클라우드 기본 레지스트리 프로젝트이다.0
+
+`Harbor`는 보안, ID 및 관리와 같은 사용자가 일반적으로 필요로 하는 기능을 추가함
+
+`Harbor`는 `CNCF(Cloud Native Computing Foundation)`에서 호스팅하고 있다.
+
+### Harbor에 주요 기능
+
+클라우드 네이티*ㅂ55555## 실습 목차
 1. Add Harbor Chart Repository
 
 2. Make values.yaml
@@ -55,4 +63,7 @@ https://docs.docker.com/registry/insecure/
 
 9. Create secret for Authentication of Harbor Registry 
 
-출처: https://github.com/goharbor/harbor-helm
+출처: https://github.com/goharㅑ7
+ㅐㅑㅐ 
+ㅑㅐㅐㅐㅐㅐㅐㅐㅐㅐㅐㅐㅐㅐㅐㅗr/harbor-helm
+

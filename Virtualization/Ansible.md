@@ -61,3 +61,41 @@ DSL(Domain Specific Language)을 통해 로직을 수행한다. DSL은 학습할
 ## Ansible architecture
 
 <img src="https://github.com/hyunseungbin9408/CCCR_experience/blob/master/png/Ansible_architecture.png" alt="drawing" width="700"/>
+
+
+## Ansible 기본
+
+1. 원격접속
+
+SSH 키를 사용해서 호스트에 핑을 보내려면 controller에서 ssh로 노드들에 먼저 접속을해서 인증키를 가지고 있어야한다.
+
+<img src="https://github.com/hyunseungbin9408/CCCR_experience/blob/master/png/Ansible_hosts.png" alt="drawing" width="500"/>
+
+인증키를 만든후에 `/etc/ansible/hosts` 에 ip주소와 도메인 정보를 넣어주어야 핑이 간다.
+
+2. 키 인증 접속
+
+<img src="https://github.com/hyunseungbin9408/CCCR_experience/blob/master/png/Ansible_key.png" alt="drawing" width="500"/>
+
+공개키를 만들고 host마다 `ssh-copy-id ip주소`로 공개키를 복사한다.
+
+<img src="https://github.com/hyunseungbin9408/CCCR_experience/blob/master/png/Ansible_ping.png" alt="drawing" width="500"/>
+
+복사하고서 `ansible all -m ping`으로 핑이 잘 작동하는지 확인한다.
+
+3. 인벤토리 관리
+
+Ansible은 인벤토리 파일에 나열된 시스템을 기준으로 작업을 수행한다.
+
+파일은 기본적으로 `/etc/ansible/hosts` 이고 명령줄에 `-i` 로 직접 파일을 지정 할 수 있다.
+
+<img src="https://github.com/hyunseungbin9408/CCCR_experience/blob/master/png/Ansible_inventory_list.png" alt="drawing" width="500"/>
+
+<img src="https://github.com/hyunseungbin9408/CCCR_experience/blob/master/png/Ansible_graph.png" alt="drawing" width="500"/>
+
+기본 리스트 파일형식에는 `그룹`으로 분류가 되는데 그룹을 따로 선언하지 않은 상태에서 작성한다면 `ungrouped`로 그룹이 없는상태로 분류된다.
+
+`ansible-inventory -i 파일명 --list --yaml` 으로 지정된 파일에 형식을 볼 수 있는데
+
+기본적으로는 `JSON`형식으로 보여주고 `yaml`파일 과 `graph`형식으로도 볼수 있다. 그래프형식에서는 그룹은 `@`으로 분류되어진다.
+

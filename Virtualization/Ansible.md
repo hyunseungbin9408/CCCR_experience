@@ -114,3 +114,12 @@ Ad-Hoc 명령의 사용 예 `ansible webservers -m service -a "name=httpd state=
 위에 출처에서 `ansible` 모듈명령어를 볼 수 있다. 밑에 cli 환경에서도 `ansible-doc 명령어` 명령어를 볼 수 있다.
 
 <img src="https://github.com/hyunseungbin9408/CCCR_experience/blob/master/png/Ansible_doc.png" alt="drawing" width="500"/>
+
+<img src="https://github.com/hyunseungbin9408/CCCR_experience/blob/master/png/Ansible_copy.png" alt="drawing" width="500"/>
+
+`copy` 라는 명령어로 컨트롤러노드에서 노드1로 파일을 복사할수 있다. 경로는 절대경로로 지정해주어야 한다.
+
+<img src="https://github.com/hyunseungbin9408/CCCR_experience/blob/master/png/Ansible_file.png" alt="drawing" width="500"/>
+
+`file`이라는 명령어로 노드들에 파일이 존재하는지 확인 할 수 있다. `state=absent`는 지금 파일이 없는 상태여야만 `Success`로 된다.
+

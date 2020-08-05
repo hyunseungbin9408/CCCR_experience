@@ -35,9 +35,9 @@ Ansible은 분산돼있으며 기존 OS 자격 증명을 사용하여 원격 컴
 변수 기능을 사용하여 같은 작업에 대해서 다른 구성으로 쉽게 구성 할 수 있다.
 
 다른 도구보다 훨씬 간소화 된 코드 기반이다.
-
-
-
+ 
+ 
+  
 ### Ansible의 단점
 
 다른 프로그래밍 언어를 기반으로 하는 도구보다 덜 강력합니다.
@@ -47,17 +47,17 @@ DSL(Domain Specific Language)을 통해 로직을 수행한다. DSL은 학습할
 변수 등록은 기본적인 기능조차도 요구되기 때문에 더 쉬운 작업을 더 복잡하게 만들 수 있다.
 
 플레이 내 변수의 값을 확인하기가 어렵다.
-
-
-
+ 
+ 
+ 
 ## Ansible 용어
 
 `Ansible`을 학습하기 위해 기본적으로 알아야하는 용어들
 
 + **컨트롤 머신**
-
-
-
+ 
+ 
+ 
 ## Ansible architecture
 
 <img src="https://github.com/hyunseungbin9408/CCCR_experience/blob/master/png/Ansible_architecture.png" alt="drawing" width="700"/>

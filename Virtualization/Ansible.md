@@ -107,7 +107,7 @@ Ad-Hoc 의 기본형식 `ansible <pattern_goes_here> -m <module_name> -a <argume
 
 Ad-Hoc 명령의 사용 예 `ansible webservers -m service -a "name=httpd state=restarted"`
 
-### Ad-Hoc 명령
+### 5. Ad-Hoc 명령
 
 `ref."https://github.com/hyunseungbin9408/CCCR_experience/blob/master/png/Ansible_doc.png"`
 
@@ -122,4 +122,9 @@ Ad-Hoc 명령의 사용 예 `ansible webservers -m service -a "name=httpd state=
 <img src="https://github.com/hyunseungbin9408/CCCR_experience/blob/master/png/Ansible_file.png" alt="drawing" width="500"/>
 
 `file`이라는 명령어로 노드들에 파일이 존재하는지 확인 할 수 있다. `state=absent`는 지금 파일이 없는 상태여야만 `Success`로 된다.
+
+<img src="https://github.com/hyunseungbin9408/CCCR_experience/blob/master/png/Ansible_user.png" alt="drawing" width="500"/>
+
+`user` 라는 명령어로 노드에 실행을 시키는데 유저를 만들기위해서는 `sudo`권한이 필요한데 권한이 없는 상태이다. 그래서 권한이 상승할 수 있도록 `-become, -b`로 해당 실행하는 유저에 sudo권한을 부여할 수 있고 sudo에 비밀번호를 넣을 수 있도록 도와주는 명령어는 `-K`이다
+`state=present`는 해당 유저가 없다면 생성하는 명령어 반대로 `state=absent`는 있다면 삭제하는 명령어이다.
 

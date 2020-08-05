@@ -65,7 +65,7 @@ DSL(Domain Specific Language)을 통해 로직을 수행한다. DSL은 학습할
 
 ## Ansible 기본
 
-1. 원격접속
+### 1. 원격접속
 
 SSH 키를 사용해서 호스트에 핑을 보내려면 controller에서 ssh로 노드들에 먼저 접속을해서 인증키를 가지고 있어야한다.
 
@@ -73,7 +73,7 @@ SSH 키를 사용해서 호스트에 핑을 보내려면 controller에서 ssh로
 
 인증키를 만든후에 `/etc/ansible/hosts` 에 ip주소와 도메인 정보를 넣어주어야 핑이 간다.
 
-2. 키 인증 접속
+### 2. 키 인증 접속
 
 <img src="https://github.com/hyunseungbin9408/CCCR_experience/blob/master/png/Ansible_key.png" alt="drawing" width="500"/>
 
@@ -83,7 +83,7 @@ SSH 키를 사용해서 호스트에 핑을 보내려면 controller에서 ssh로
 
 복사하고서 `ansible all -m ping`으로 핑이 잘 작동하는지 확인한다.
 
-3. 인벤토리 관리
+### 3. 인벤토리 관리
 
 Ansible은 인벤토리 파일에 나열된 시스템을 기준으로 작업을 수행한다.
 
@@ -99,3 +99,10 @@ Ansible은 인벤토리 파일에 나열된 시스템을 기준으로 작업을 
 
 기본적으로는 `JSON`형식으로 보여주고 `yaml`파일 과 `graph`형식으로도 볼수 있다. 그래프형식에서는 그룹은 `@`으로 분류되어진다.
 
+### 4. 패턴
+
+`Ansible` 의 패턴은 관리 할 호스트를 결정하는 방법이다. 호스트가 통신 할 수 있는 것을 의미 할 수 있지만 플레이북의 관점에서 볼 때 실제로 호스트가 특정 구성이나 IT프로세스를 적용하는것을 의미한다.
+
+Ad-Hoc 의 기본형식 `ansible <pattern_goes_here> -m <module_name> -a <argument>` 
+
+Ad-Hoc 명령의 사용 예 `ansible webservers -m service -a "name=httpd state=restarted"`

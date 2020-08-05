@@ -121,7 +121,10 @@ Ad-Hoc 명령의 사용 예 `ansible webservers -m service -a "name=httpd state=
 
 <img src="https://github.com/hyunseungbin9408/CCCR_experience/blob/master/png/Ansible_copy_result.png" alt="drawing" width="500"/>
 
+
 `copy` 라는 명령어로 컨트롤러노드에서 노드1로 파일을 복사할수 있다. 경로는 절대경로로 지정해주어야 한다.
+`controller 노드` 에 있는 `hosts`에 있는 정보를 노드들에 
+
 
 <img src="https://github.com/hyunseungbin9408/CCCR_experience/blob/master/png/Ansible_file.png" alt="drawing" width="500"/>
 

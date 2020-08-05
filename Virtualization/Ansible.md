@@ -106,3 +106,11 @@ Ansible은 인벤토리 파일에 나열된 시스템을 기준으로 작업을 
 Ad-Hoc 의 기본형식 `ansible <pattern_goes_here> -m <module_name> -a <argument>` 
 
 Ad-Hoc 명령의 사용 예 `ansible webservers -m service -a "name=httpd state=restarted"`
+
+### Ad-Hoc 명령
+
+`ref."https://github.com/hyunseungbin9408/CCCR_experience/blob/master/png/Ansible_doc.png"`
+
+위에 출처에서 `ansible` 모듈명령어를 볼 수 있다. 밑에 cli 환경에서도 `ansible-doc 명령어` 명령어를 볼 수 있다.
+
+<img src="https://github.com/hyunseungbin9408/CCCR_experience/blob/master/png/Ansible_doc.png" alt="drawing" width="500"/>

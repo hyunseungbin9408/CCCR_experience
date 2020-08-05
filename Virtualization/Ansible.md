@@ -135,3 +135,6 @@ Ad-Hoc 명령의 사용 예 `ansible webservers -m service -a "name=httpd state=
 `user` 라는 명령어로 노드에 실행을 시키는데 유저를 만들기위해서는 `sudo`권한이 필요한데 권한이 없는 상태이다. 그래서 권한이 상승할 수 있도록 `-become, -b`로 해당 실행하는 유저에 sudo권한을 부여할 수 있고 sudo에 비밀번호를 넣을 수 있도록 도와주는 명령어는 `-K`이다
 `state=present`는 해당 유저가 없다면 생성하는 명령어 반대로 `state=absent`는 있다면 삭제하는 명령어이다.
 
+<img src="https://github.com/hyunseungbin9408/CCCR_experience/blob/master/png/Ansible_yum_httpd.png" alt="drawing" width="500"/>
+
+`yum`명령어와 `name=설치할패키지` 와 `state=installed` 

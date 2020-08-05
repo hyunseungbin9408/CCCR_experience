@@ -24,7 +24,7 @@ Ansible은 분산돼있으며 기존 OS 자격 증명을 사용하여 원격 컴
 
 
 
-### Ansible의 장점
+#### Ansible의 장점
 
 `SSH` 기반이므로 원격 노드에 에이전트를 설치할 필요가 없다.
 
@@ -38,7 +38,7 @@ Ansible은 분산돼있으며 기존 OS 자격 증명을 사용하여 원격 컴
  
  
   
-### Ansible의 단점
+#### Ansible의 단점
 
 다른 프로그래밍 언어를 기반으로 하는 도구보다 덜 강력합니다.
 
@@ -116,6 +116,10 @@ Ad-Hoc 명령의 사용 예 `ansible webservers -m service -a "name=httpd state=
 <img src="https://github.com/hyunseungbin9408/CCCR_experience/blob/master/png/Ansible_doc.png" alt="drawing" width="500"/>
 
 <img src="https://github.com/hyunseungbin9408/CCCR_experience/blob/master/png/Ansible_copy.png" alt="drawing" width="500"/>
+
+<img src="https://github.com/hyunseungbin9408/CCCR_experience/blob/master/png/Ansible_copy_hosts.png" alt="drawing" width="500"/>
+
+<img src="https://github.com/hyunseungbin9408/CCCR_experience/blob/master/png/Ansible_copy_result.png" alt="drawing" width="500"/>
 
 `copy` 라는 명령어로 컨트롤러노드에서 노드1로 파일을 복사할수 있다. 경로는 절대경로로 지정해주어야 한다.
 

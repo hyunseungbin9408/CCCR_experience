@@ -5,7 +5,6 @@ ansible node1.cccr.com -i inventory -m service -a 'name=httpd state=started' -b
 ansible node1.cccr.com -i inventory -m yum -a "name=https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm state=present" -b
 ansible node1.cccr.com -i inventory -m yum -a "name=https://rpms.remirepo.net/enterprise/remi-release-7.rpm state=present" -b
 ansible node1.cccr.com -i inventory -m yum -a "name=yum-utils state=present" -b
-ansible node1.cccr.com -i inventory -m yum -a "name=* state=latest" -b
 ansible node1.cccr.com -i inventory -m yum -a "enablerepo=remi-php74 name=php state=present" -b
 ansible node1.cccr.com -i inventory -m yum -a "enablerepo=remi-php74 name=php-mysqlnd state=present" -b
 ansible node1.cccr.com -i inventory -m service -a "name=httpd state=restarted" -b

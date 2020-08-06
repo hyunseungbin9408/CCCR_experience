@@ -17,3 +17,5 @@ mariadb
 
 ansible node2.cccr.com -i inventory -m yum_repository -a "description=mariadb10.4 name=MariaDB baseurl=http://yum.mariadb.org/10.4/rhel7-amd64 enabled=1 gpgcheck=1 gpgkey=https://yum.mariadb.org/RPM-GPG-KEY-MariaDB" -b
 ansible node2.cccr.com -i inventory -m yum -a "name=MariaDB state=present" -b
+ansible node2.cccr.com -i inventory -m service -a "name=mariadb state=started" -b
+ansible -i inventory node2.cccr.com -m mysql_user -a "login_user=root login_password='' name=root host=localhost password=dkagh1. check_implicit_admin=yes" -b

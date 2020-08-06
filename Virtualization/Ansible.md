@@ -215,3 +215,31 @@ Ad-Hoc 명령의 사용 예 `ansible webservers -m service -a "name=httpd state=
 `dump`는 설정파일들이 어떠한 상태인지 볼 수 있다. 
 
 ## 플레이북
+
+`Ansible-playbook` 으로 워드프레스 설치해보려고 한다.
+
+<img src="https://github.com/hyunseungbin9408/CCCR_experience/blob/master/png/Ansible_yaml_apache.png" alt="drawing" width="500"/>
+
+`-hosts: apache` 아파치를 설치하고 워드프레스를 구성할 노드에 이름을 넣어준다.
+
+`become: yes`은 설치하면서 `sudo`권한을 사용하는것을 따로 `-b`를 따로 부여하지않아도 허용한다.
+
+`vars`로 변수를 선언 할 수 있다.
+
+`remote_user`는 실행하는 유저에 이름을 넣어준다.
+
+`tasks`는 실행 기본단위다. 한번의 모듈이 실행될때마다 `tasks`가 끝난다.
+
+`yum`은 설치를 할 수 있는 모듈이다. `name`으로 설치할 패키지에 이름을 넣어주면 되고 `state`는 `latest`는 최신버전으로 설치한다.
+
+`seboolean` 로 `selinux enforcing` 상태에서 http에서 데이터베이스를 접속 할 수 있는 권한만 허용해준다.
+
+ 이런식에 리스트형태로 모듈들로 명령어를 실행시킬 수 있다.
+ 
+ <img src="https://github.com/hyunseungbin9408/CCCR_experience/blob/master/png/Ansible_yaml_apache_exec.png" alt="drawing" width="500"/>
+ 
+ 모듈들이 문제없이 잘 작동된다면 ok만 나온다.
+ 
+ 문제가 생기는 `tasks`가 생긴다면 `failed`이 생기면서 문제원인을 알려준다.
+ 
+ <img src="https://github.com/hyunseungbin9408/CCCR_experience/blob/master/png/Ansible_yaml_db.png" alt="

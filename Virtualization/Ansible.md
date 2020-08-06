@@ -164,9 +164,17 @@ Ad-Hoc 명령의 사용 예 `ansible webservers -m service -a "name=httpd state=
 
 `ansible-config` 로 ansible 적용중인 설정파일들을 세가지 옵션으로 볼 수 있다.
 
+<img src="https://github.com/hyunseungbin9408/CCCR_experience/blob/master/png/Ansible_configfile.png" alt="drawing" width="500"/>
+
+새로운 `ansible config` 홈디렉토리에서 적용할 수 있는 설정파일을 생성하였다. `inventory`를 지정해서 `ansible` 명령에서 더이상 따로 지정하지 않아도 적용된다.
+
 <img src="https://github.com/hyunseungbin9408/CCCR_experience/blob/master/png/Ansible_configview.png" alt="drawing" width="500"/>
 
-`view` 는 현재 적용되는 파일들을 설명한다.
+`view` 는 현재 기본적으로 적용되는 파일들을 설명한다.
+
+<img src="https://github.com/hyunseungbin9408/CCCR_experience/blob/master/png/Ansible_configview_new.png" alt="drawing" width="500"/>
+
+`view` 지금 사용하고 있는 설정파일로 보여준다.
 
 <img src="https://github.com/hyunseungbin9408/CCCR_experience/blob/master/png/Ansible_configlist.png" alt="drawing" width="500"/>
 
@@ -174,5 +182,5 @@ Ad-Hoc 명령의 사용 예 `ansible webservers -m service -a "name=httpd state=
 
 <img src="https://github.com/hyunseungbin9408/CCCR_experience/blob/master/png/Ansible_configdump.png" alt="drawing" width="500"/>
 
-`dump`는 설정파일들이 어떠한 상태인지 볼 수 있다.
+`dump`는 설정파일들이 어떠한 상태인지 볼 수 있다. 
 

@@ -77,6 +77,17 @@ DSL(Domain Specific Language)을 통해 로직을 수행한다. DSL은 학습할
 **`Ansible` 코드의 실행 단위**
 각 모듈은 특정 유형의 데이터베이스에서 사용자를 관리하는것부터 특정 유형의 네트워크 장치에서 VLAN 인터페이스 관리까지 특정한 용도로 사용된다. 작업으로 단일 모듈을 호출하거나, 플레이북에서 여러 다른 모듈을 호출 할 수 있다.
  
+### Tasks
+**`Ansible` 의 작업단위**
+
+`ad-hoc` 명령을 사용하여 단일 작업을 한 번 실행가능
+
+### Playbooks
+
+** 반복해서 실행하고자 해당 작업을 실행 순서대로 저장해 놓은 정렬된 작업리스트**
+
+플레이북에는 task 뿐만 아니라 변수도 포함 될 수 있다. 플레이북은 YAML로 작성돼있으며 읽거나 쓰거나 공유하
+
 ## Ansible architecture
 
 <img src="https://github.com/hyunseungbin9408/CCCR_experience/blob/master/png/Ansible_architecture.png" alt="drawing" width="700"/>
@@ -203,3 +214,4 @@ Ad-Hoc 명령의 사용 예 `ansible webservers -m service -a "name=httpd state=
 
 `dump`는 설정파일들이 어떠한 상태인지 볼 수 있다. 
 
+## 플레이북

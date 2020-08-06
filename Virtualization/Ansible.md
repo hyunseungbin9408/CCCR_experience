@@ -145,3 +145,34 @@ Ad-Hoc 명령의 사용 예 `ansible webservers -m service -a "name=httpd state=
 <img src="https://github.com/hyunseungbin9408/CCCR_experience/blob/master/png/Ansible_yum_httpd.png" alt="drawing" width="500"/>
 
 `yum`명령어와 `name=설치할패키지` 와 `state=installed` 
+
+***
+
+### 6. 구성파일
+
+`ansible`의 특정 설정은 구성 파일을 통해 조정 할 수 있다. 변경사항은 다음 순서로 처리되는 구성파일에서 만들어 사용 하고 디렉토리마다 설정파일이 있다면 해당 디렉토리에 config파일로 적용되어 사용된다.
+
++ ANSIBLE_CONFIG
+
++ ansible.cfg (현재 디렉토리)
+
++ .ansible.cfg (홈 디렉토리)
+
++ /etc/ansible/ansible.cfg
+
+<img src="https://github.com/hyunseungbin9408/CCCR_experience/blob/master/png/Ansible-config.png" alt="drawing" width="500"/>
+
+`ansible-config` 로 ansible 적용중인 설정파일들을 세가지 옵션으로 볼 수 있다.
+
+<img src="https://github.com/hyunseungbin9408/CCCR_experience/blob/master/png/Ansible_configview.png" alt="drawing" width="500"/>
+
+`view` 는 현재 적용되는 파일들을 설명한다.
+
+<img src="https://github.com/hyunseungbin9408/CCCR_experience/blob/master/png/Ansible_configlist.png" alt="drawing" width="500"/>
+
+`list`는 설정파일에 적용할때 방법을 설명한다.
+
+<img src="https://github.com/hyunseungbin9408/CCCR_experience/blob/master/png/Ansible_configdump.png" alt="drawing" width="500"/>
+
+`dump`는 설정파일들이 어떠한 상태인지 볼 수 있다.
+

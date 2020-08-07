@@ -39,10 +39,12 @@
   - name:
     yum:
       name: libsemanage-python
+      autoremove: 1
       state: absent
   - name:
     yum:
       name: epel-release
+      autoremove: 1
       state: absent
 - hosts: db
   become: 1

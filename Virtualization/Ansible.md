@@ -242,4 +242,15 @@ Ad-Hoc 명령의 사용 예 `ansible webservers -m service -a "name=httpd state=
  
  문제가 생기는 `tasks`가 생긴다면 `failed`이 생기면서 문제원인을 알려준다.
  
- <img src="https://github.com/hyunseungbin9408/CCCR_experience/blob/master/png/Ansible_yaml_db.png" alt="
+ <img src="https://github.com/hyunseungbin9408/CCCR_experience/blob/master/png/Ansible_yaml_db.png" alt="drawing" width="500"/>
+ 
+ 데이터베이스 설치하는 `Yaml`파일이고 제일 먼저 할일은 `yum_repository`에 데이터베이스 버전에 맞는 `repository`를 등록한다.
+ 
+ 그 후에 등록한 `repository`에 이름으로 인스톨을 시작한다. 설치가 완료되고 `mariadb`라는 시스템을 시작한다.
+ 
+ 이러한 방식으로 데이터베이스 생성과 사용자 생성 및 권한을 부여하며 워드프레스에서 접근하고 정보를 얻을 수 있는 데이터베이스를 설치했다.
+ 
+ <img src="https://github.com/hyunseungbin9408/CCCR_experience/blob/master/png/Ansible_yaml_wordpress.png" alt="darwing" width="500"/>
+ 
+다시 `apache`서버의 ip주소로 접근하면 워드프레스가 잘 작동하고 사이트 제목만 입력하면 원하는 사이트를 구성할 수 있는 워드프레스가 구축되었다.
+

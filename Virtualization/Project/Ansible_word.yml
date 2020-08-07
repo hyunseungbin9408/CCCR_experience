@@ -49,17 +49,20 @@
   - name: wget url
     get_url: 
       url: https://ko.wordpress.org/latest-ko_KR.tar.gz 
-      dest: /var/www/html/latest-ko_KR.tar.gz
-  - name: tar unarchive
+      dest: /tmp/latest-ko_KR.tar.gz
+  - name: tar unarchive 
     unarchive: 
-      src: /var/www/html/latest-ko_KR.tar.gz  
-      dest: /var/www/html/ 
+      src: /tmp/latest-ko_KR.tar.gz  
+      dest: /var/www/html/
       remote_src: yes
+      owner: root
+      group: root
   - name: wp-config
     copy: 
       src: /var/www/html/wordpress/wp-config-sample.php 
       dest: /var/www/html/wordpress/wp-config.php 
-      remote_src: yes
+      remote_src: 1
+      force: no
   - name: modify wp-config
     replace: 
       path: /var/www/html/wordpress/wp-config.php 
@@ -91,65 +94,3 @@
       name: httpd
       state: restarted 
       enabled: true
-      
-    ---
-    - hosts: db
-  vars:
-    mysql_port: 3306
-    max_clients: 200
-  remote_user: student
-  tasks:
-  - name: mariadb repo
-    yum_repository:
-      name: MariaDB 
-      baseurl: http://mirror.yongbok.net/mariadb/yum/10.5/centos7-amd64
-      gpgkey: http://mirror.yongbok.net/mariadb/yum/RPM-GPG-KEY-MariaDB 
-      gpgcheck: 1
-      description: MariaDB
-  - name: install mariadb
-    yum:
-      name: MariaDB
-      state: present
-  - name: start mariadb
-    service:
-      name: mariadb
-      state: started
-      enabled: true
-  - name: 
-    yum:
-      name: MySQL-python
-      state: latest
-  - name:   
-    mysql_db:
-      login_user: root
-      login_password: dkagh1.
-      db: test 
-      state: absent
-  - name:
-    mysql_user:
-      login_user: root
-      login_password: dkagh1.
-      name: ''
-      host_all: yes
-      state: absent
-  - name:
-    mysql_db:
-      login_user: root
-      login_password: dkagh1.
-      name: wordpress_db
-      state: present
-  - name:
-    mysql_user:
-      login_user: root
-      login_password: dkagh1.
-      name: admin
-      password: dkagh1.
-      priv: wordpress_db.*:ALL,GRANT 
-      host: '%'
-      state: present
-  - name:
-    firewalld:
-      service: mysql
-      permanent: yes
-      state: enabled
-      immediate: yes

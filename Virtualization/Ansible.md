@@ -50,9 +50,15 @@ Ansible은 분산돼있으며 기존 OS 자격 증명을 사용하여 원격 컴
  
 ***
  
-## Ansible 용어
+## Ansible architecture
 
-`Ansible`을 학습하기 위해 기본적으로 알아야하는 용어들
+<img src="https://github.com/hyunseungbin9408/CCCR_experience/blob/master/png/Ansible_architecture.png" alt="drawing" width="700"/>
+
+**`Ansible`은 클라우드 프로비저닝, configuration 관리, 어플리케이션 배포, 인프라-서비스 오케스트레이션 및 여러 기타 IT 요구사항을 자동화 하는 IT자동화 엔진**
+
+`Ansible`은 처음부터 Multi-tier 배포를 위해 설계되었으므로 한 번에 하나의 시스템을 관리하는 것이 아니라 모든 시스템이 상호 관련되는 방식을 설명함으로써 IT인프라를 모델링한다.
+에이전트를 사용하지 않고, 추가적인 커스텀 보안 인프라또한 사용하지 않으므로 배포가 매우 쉽다. 가장 중요한 것은 간단한 언어인 `YAML`을 사용해 자동화 작업을 설명 할 수 있다.
+
 
 ### Controll Node
 
@@ -70,13 +76,39 @@ Ansible은 분산돼있으며 기존 OS 자격 증명을 사용하여 원격 컴
 
 **관리되는 노드의 목록**
 
+Ansible은 관리되는 모든 기기를 원하는 그룹으로 묶는파일을 가지고 관리하는 기기를 나타낸다. 새 시스템을 추가하기 위해 추가적인 SSL 서명 서버가 필요하지 않으므로 NTP 또는 DNS문제로 인해 특정 시스템이 연결되지 않는 번거로움이 없다.
+
 인벤토리 파일은 때때로 호스트 파일이라고 한다. 인벤토리는 관리되는 노드에 대한 각각의 IP주소와 같은 정보를 지정 할 수 있다. 또한 인벤토리는 관리 노드를 구성하여 쉽게 확장 가능하도록 그룹을 만들고 중첩 시킬 수 있다.
+
+일반적으로 인벤토리 파일의 구성
+`
+[webservers]
+www.node1.com
+www.node2.com
+
+[dbservers]
+db.node1.com
+db.node2.com
+`
+인벤토리 호스트가 나열되면 변수는 간단한 텍스트 파일로써 이에 할당 될 수 있다. 동적 인벤토리를 사용해 EC2, Rackspace, OpenStack과 같은 데이터소스에서 인벤토리를 가져온다.
 
 ### Modules
 
 **`Ansible` 코드의 실행 단위**
+
+`Ansible`은 노드에 연결하고 `Ansible modules`라는 스크립트를 푸시함으로써 움직인다. 대부분의 모듈은 원하는 시스템의 상태를 설명하는 파라미터를 승인한다. 기본적으로 SSH를 통해 `Ansible`은 이러한 모듈을 실행하고, 완료되면 제거한다. 모듈 라이브러니는 모든 시스템에 상주 할 수 있으며, 서버 daemon, DB가 필요하지 않다.
+
+자신만의 모듈을 작성 할 수 있지만 반드시 그럴 필요가 있는가에 대해 우선 고민해야한다. 일반적으로 자주 사용하는 터미널 프로그램, 텍스트 편집기 및 버전 제어 시스템을 사용해 컨텐츠 변경사항을 추척한다. JSON을 반환할 수 있는 모든 언어(Ruby, Python, bash, etc)로 특수 모듈을 작성해야 할 것이다.
+
 각 모듈은 특정 유형의 데이터베이스에서 사용자를 관리하는것부터 특정 유형의 네트워크 장치에서 VLAN 인터페이스 관리까지 특정한 용도로 사용된다. 작업으로 단일 모듈을 호출하거나, 플레이북에서 여러 다른 모듈을 호출 할 수 있다.
  
+
+### Plugins
+
+`Plugin`은 Ansible의 핵심 기능을 강화한다. 모듈이 대상 시스템에서 별도의 프로세스로 실행되는 반면, 플러그인은 `/usr/bin/ansible/` 프로세스 내의 제어노드에서 실행된다. 플러그인은 데이터 변환, output로깅, 인벤토리 연결 등 Ansible의 핵심기능에 대한 옵션과 확장을 제공한다.
+
+Ansible에서 여러 편리한 플러그인이 포함되어 있으며 쉽게 작성 할 수 있다. 인벤토리 플러그인을 작성하여 JSON을 반환하는 모든 데이터소스에 연결 할 수 있다. 플러그인은 Python으로 작성해야 한다.
+
 ### Tasks
 **`Ansible` 의 작업단위**
 
@@ -90,9 +122,7 @@ Ansible은 분산돼있으며 기존 OS 자격 증명을 사용하여 원격 컴
 
 ***
 
-## Ansible architecture
 
-<img src="https://github.com/hyunseungbin9408/CCCR_experience/blob/master/png/Ansible_architecture.png" alt="drawing" width="700"/>
 
 
 ## Ansible 기본

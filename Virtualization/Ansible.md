@@ -214,6 +214,8 @@ Ad-Hoc 명령의 사용 예 `ansible webservers -m service -a "name=httpd state=
 
 `dump`는 설정파일들이 어떠한 상태인지 볼 수 있다. 
 
+***
+
 ## 플레이북
 
 `Ansible-playbook` 으로 워드프레스 설치해보려고 한다.

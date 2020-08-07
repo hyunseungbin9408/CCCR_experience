@@ -2,47 +2,47 @@
   become: 1
   remote_user: student
   tasks:
-  - name:
+  - name: return seboolean of HttpdNetwork
     seboolean:
       name: httpd_can_network_connect_db
       state: no
       persistent: yes
-  - name:
+  - name: stop service of http
     service:
       name: httpd
       state: stopped
       enabled: 1
-  - name:
+  - name: disable firewalld of http
     firewalld:
       service: http
       permanent: yes
       state: disabled
       immediate: yes
-  - name:
+  - name: delete wordpress
     file:
       path: /var/www/html/wordpress
       state: absent
-  - name:
+  - name: delete archive of wordpress
     file:
       path: /tmp/latest-ko_KR.tar.gz
       state: absent
-  - name:
+  - name: delete package of php
     yum:
       name: php*
       autoremove: 1
       state: absent
-  - name:
+  - name: delete package of wget
     yum:
       name: wget
       autoremove: 1
       state: absent
-  - name:
+  - name: delete package of libsemanage-python
     yum:
       name: libsemanage-python
       autoremove: 1
       state: absent
-  - name:
-    yum:
+  - name: delete epel-release
+    yum: 
       name: epel-release
       autoremove: 1
       state: absent
@@ -50,22 +50,22 @@
   become: 1
   remote_user: student
   tasks:
-  - name:
+  - name: turnoff service of mysql
     firewalld:
       service: mysql
       permanent: yes
       state: disabled
       immediate: yes
-  - name:
+  - name: delete package of MariaDB
     yum:
       autoremove: 1
       name: MariaDB
       state: absent
-  - name:
+  - name: delete package of MariaDB repository
     yum_repository:
       name: MariaDB
       state: absent
-  - name:
+  - name: delete directory of mysql
     file:
       path: /var/lib/mysql
       state: absent

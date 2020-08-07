@@ -1,0 +1,69 @@
+- hosts: apache
+  become: 1
+  remote_user: student
+  tasks:
+  - name:
+    seboolean:
+      name: httpd_can_network_connect_db
+      state: no
+      persistent: yes
+  - name:
+    service:
+      name: httpd
+      state: stopped
+      enabled: 1
+  - name:
+    firewalld:
+      service: http
+      permanent: yes
+      state: disabled
+      immediate: yes
+  - name:
+    file:
+      path: /var/www/html/wordpress
+      state: absent
+  - name:
+    file:
+      path: /tmp/latest-ko_KR.tar.gz
+      state: absent
+  - name:
+    yum:
+      name: php*
+      autoremove: 1
+      state: absent
+  - name:
+    yum:
+      name: wget
+      autoremove: 1
+      state: absent
+  - name:
+    yum:
+      name: libsemanage-python
+      state: absent
+  - name:
+    yum:
+      name: epel-release
+      state: absent
+- hosts: db
+  become: 1
+  remote_user: student
+  tasks:
+  - name:
+    firewalld:
+      service: mysql
+      permanent: yes
+      state: disabled
+      immediate: yes
+  - name:
+    yum:
+      autoremove: 1
+      name: MariaDB
+      state: absent
+  - name:
+    yum_repository:
+      name: MariaDB
+      state: absent
+  - name:
+    file:
+      path: /var/lib/mysql
+      state: absent

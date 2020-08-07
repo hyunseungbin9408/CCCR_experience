@@ -254,3 +254,9 @@ Ad-Hoc 명령의 사용 예 `ansible webservers -m service -a "name=httpd state=
  
 다시 `apache`서버의 ip주소로 접근하면 워드프레스가 잘 작동하고 사이트 제목만 입력하면 원하는 사이트를 구성할 수 있는 워드프레스가 구축되었다.
 
+<img src="https://github.com/hyunseungbin9408/CCCR_experience/blob/master/png/Ansible_delete_apache_yaml.png" alt="drawing" width="500"/>
+
+`wordpress` 를 생성하는 순서에 반대로 삭제하려고한다. 제일먼저 `seboolean`을 처음설정으로 반환하고 `http service`를 중지시킨다.
+그 후에 `httpd` 
+
+<img src="https://github.com/hyunseungbin9408/CCCR_experience/blob/master/png/Ansible_delete_db_yaml.png" alt="drawing" width="500"/>

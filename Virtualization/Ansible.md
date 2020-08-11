@@ -310,6 +310,10 @@ Ad-Hoc 명령의 사용 예 `ansible webservers -m service -a "name=httpd state=
 
 <img src="https://github.com/hyunseungbin9408/CCCR_experience/blob/master/png/Ansible_delete_db_yaml.png" alt="drawing" width="500"/>
 
+### 변수
+
+
+
 ### 포함
 
 `Ref. https://docs.ansible.com/ansible/latest/user_guide/playbooks_reuse.html#playbooks-reuse `
@@ -339,3 +343,13 @@ Ad-Hoc 명령의 사용 예 `ansible webservers -m service -a "name=httpd state=
 <img src="https://github.com/hyunseungbin9408/CCCR_experience/blob/master/png/Ansible_loop_vars.png" alt="drawing" width="500"/>
 
 변수를 전역변수처럼 선언을 하고 각각 tasks 
+
+### 블록
+
+<img src="https://github.com/hyunseungbin9408/CCCR_experience/blob/master/png/Ansible_block.png" alt="drawing" width="500"/>
+
+지시문이 블록자체에 영향을 주는 것이 아니라 블록으로 묶인 작업에 의해 상속된다는 것을 의미한다.
+
+<img src="https://github.com/hyunseungbin9408/CCCR_experience/blob/master/png/Ansible_block_rescue.png" alt="drawing" width="500"/> 
+
+`block 구문`이 오류가 발생하면 `rescue`로 구문이 넘어가서 오류에서 작동이 멈추지않고 `rescue`가 지시하는 구문을 실행한다.

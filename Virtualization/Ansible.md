@@ -309,3 +309,29 @@ Ad-Hoc 명령의 사용 예 `ansible webservers -m service -a "name=httpd state=
 그 후에 `httpd` 
 
 <img src="https://github.com/hyunseungbin9408/CCCR_experience/blob/master/png/Ansible_delete_db_yaml.png" alt="drawing" width="500"/>
+
+### 포함
+
+`Ref. https://docs.ansible.com/ansible/latest/user_guide/playbooks_reuse.html#playbooks-reuse `
+
+<img src="https://github.com/hyunseungbin9408/CCCR_experience/blob/master/png/Ansible_include.png" alt="drawing" width="500"/>
+
+`include`와 `import`에 차이
+
+`include`는 실행하는 도중에 변수를 받아오고 `import`는 미리 정보를 다 받아서 진행하기때문에 `--list-task`로 정보를 봤을때 미리 변수를 알수가 있다. `include`는 미라 알 수가 없다.
+
+### 조건문
+
+#### when 구문
+
+<img src="https://github.com/hyunseungbin9408/CCCR_experience/blob/master/png/Ansible_when.png" alt="drawing" width="500"/>
+
+특정호스트에서 특정 단계를 건너뛰기를 원할 수도 있는데 이것은 운영체제가 특정 버전인 경우에 특정 패키지를 설치하지 않도록 할 수 있다.
+
+### 반복문
+
+많은 사용자를 생성하거나, 많은 패키지를 설치하는 것처럼 특정 결과에 도달 할때까지 폴링 단계를 반복하는 것과 같이 한 가지 작업으로 많은 일을 수행하는 경우가 만핟. 이러할때 반복문을 사용하면 편하게 처리 가능하다.
+
+<img src="https://github.com/hyunseungbin9408/CCCR_experience/blob/master/png/Ansible_loop.png" 
+
+<img src="https://github.com/hyunseungbin9408/CCCR_experience/blob/master/png/Ansible_loop_vars.png" alt="drawing" width="500"/>

@@ -332,6 +332,10 @@ Ad-Hoc 명령의 사용 예 `ansible webservers -m service -a "name=httpd state=
 
 많은 사용자를 생성하거나, 많은 패키지를 설치하는 것처럼 특정 결과에 도달 할때까지 폴링 단계를 반복하는 것과 같이 한 가지 작업으로 많은 일을 수행하는 경우가 만핟. 이러할때 반복문을 사용하면 편하게 처리 가능하다.
 
-<img src="https://github.com/hyunseungbin9408/CCCR_experience/blob/master/png/Ansible_loop.png" 
+<img src="https://github.com/hyunseungbin9408/CCCR_experience/blob/master/png/Ansible_loop.png" alt="drawing" width="500"/>
+
+아이템이라는 변수를 네임에 적용을 하고 `with_items`를 통해서 리스트로 표기하면 유저수만큼 반복해서 처리를 해준다.
 
 <img src="https://github.com/hyunseungbin9408/CCCR_experience/blob/master/png/Ansible_loop_vars.png" alt="drawing" width="500"/>
+
+변수를 전역변수처럼 선언을 하고 각각 tasks 

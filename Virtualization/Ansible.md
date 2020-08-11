@@ -353,3 +353,23 @@ Ad-Hoc 명령의 사용 예 `ansible webservers -m service -a "name=httpd state=
 <img src="https://github.com/hyunseungbin9408/CCCR_experience/blob/master/png/Ansible_block_rescue.png" alt="drawing" width="500"/> 
 
 `block 구문`이 오류가 발생하면 `rescue`로 구문이 넘어가서 오류에서 작동이 멈추지않고 `rescue`가 지시하는 구문을 실행한다.
+
+### 역할
+
+`Ref.  https://galaxy.ansible.com/ 역할을 다운 받고 업로드 할 수 있는 사이트`
+
+역할은 알려진 파일 구조를 기반으로 특정 vars_files, 작업 및 핸들러를 자동으로 로드하는 방법이다. 역할별로 콘텐츠를 그룹화하면 다른 사용자와 쉽게 역할을 공유 할 수 있다.
+
+<img src="https://github.com/hyunseungbin9408/CCCR_experience/blob/master/png/Ansible_roles_tree.png" alt="drawing" width="500"/>
+
+`ansible-galaxy init apache --init-path roles`로 `roles`라는 디렉토리를 만들어주고 안에 사용법 처럼 파일들이 생긴다. `tree roles`로 연관도가 생기는데 `ansible`파일들에 구조를 확인할 수 있다.
+
+`roles`안에 `defaults`안에 `main.yml`는 변수파일이다. `vars/main.yml`보다 우선순위가 낮다. 각 디렉토리안에 `main.yml`는 무조건 이름을 `main.yml`이라고 정해야한다.
+
+`hanlders/main.yml`파일은 구문에 `handlers`가 들어간다.
+
+`meta/main.yml`은 `role(역할)`과 `메타데이터(버전, 작성자, 검색키워드, 의존성...)`이 들어간다.
+
+`tasks/main.yml`은 `tasks: ` template 모듈 src 파일 위치
+
+`test/main.yml`

@@ -373,3 +373,10 @@ Ad-Hoc 명령의 사용 예 `ansible webservers -m service -a "name=httpd state=
 `tasks/main.yml`은 `tasks: ` template 모듈 src 파일 위치
 
 `test/main.yml`
+
+### 비동기화
+
+<img src="https://github.com/hyunseungbin9408/CCCR_experience/blob/master/png/Ansible_async.png" alt="drawing" width="500"/>
+
+하나의 긴 작업이 ssh 유지시간(10분)보다 길어질 경우에 작업 중간중간 작업을 유지할 수 있도록 비동기화를 하는데
+유지해주는 모듈이 `async`이다.

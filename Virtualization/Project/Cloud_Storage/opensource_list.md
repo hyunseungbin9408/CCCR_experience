@@ -139,6 +139,10 @@ GlusterFS는 서버를 스토리지 벽돌로 구축하는 클라이언트-서�
 
 ## StackSync
 
+<img src="https://github.com/hyunseungbin9408/CCCR_experience/blob/master/png/Stacksync_logo.png" alt="drawing" width="500"/>
+
+`Ref. http://cloudlab.urv.cat/web/software/released-software/stacksync`
+
 StackSync는 OpenStack swift에서 실행되는 Dropbox와 같은 툴로서, 한 곳에서 데이터를 동기화하는 조직의 요구사항을 해결하도록 특별히 설계되었다. 그것은 자바 언어로 작성되었고 GNU General Public License v3에 따라 발매되었다.
  
 프레임워크는 동기화 서버, Openstakc swift, 데스크톱, 모바일 클라이언트 등 세 가지 주요 구성요소로 구성되어 있다. 서버가 메타데이터와 논리를 처리하는 동안 Openstack은 메타데이터를 저장하는 데 초점을 맞추고 있으며 데스크톱과 모바일 클라이언트는 사용자가 자신의 데이터를 개인 클라우드에 동기화 할 수 있다.

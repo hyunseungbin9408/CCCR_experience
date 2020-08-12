@@ -51,6 +51,10 @@ PDF viewer와 새로운버전인 PDF.js가 추가되었다.
 
 ## seafile
 
+<img src="https://github.com/hyunseungbin9408/CCCR_experience/blob/master/png/seafile_logo.png" alt="drawing" width="500"/>
+
+`Ref. https://www.seafile.com/en/home/ `
+
 오픈 소스 속성을 활용하여 사용자에게 좋은 클라우드 스토리지 소프트웨어 시스템에서 기대하는 모든 이점을 제공하는 또 다른 파일 호스팅 소프트웨어 시스템으로 C, python으로 2015년 10월 15일 4.4.3버전으로 출시
 
 Seafile은 Windows, Linux, OS X를 위한 데스크탑 클라이언트와 Android, iOS 및 Windows Phone을 위한 모바일 클라이언트를 제공한다. 2012년 오픈한 이후로 주목받기 시작했다. **주요기능은 데이터 안전에 초점을 맞춘 동기화와 공유다.** 온라인 파일 편집, 필요한 대역폭을 최소화하기 위한 차등 동기화, 클라이언트 데이터 보안을 위한 클라이언트 측 암호화 등 많은 대학에서 일반화 됌
@@ -58,6 +62,10 @@ Seafile은 Windows, Linux, OS X를 위한 데스크탑 클라이언트와 Androi
 ***
 
 ## Pydio
+
+<img src="https://github.com/hyunseungbin9408/CCCR_experience/blob/master/png/pydio_logo.png" alt="drawing" width="500"/>
+
+`Ref. https://pydio.com/ `
 
 파일 호스팅, 공유 및 동기화를 제공하는것을 목표로 하는 프리웨어다. 2009년 Charles du Ju에 의해 시작되었고 2010년 이후 LaCie가 공급하는 모든 NAS장비에 탑재
 
@@ -68,6 +76,10 @@ Pydio는 웹 서버에서 실행되며 어떤 브라우저를 통해서도 접�
 ***
 
 ## Ceph
+
+<img src="https://github.com/hyunseungbin9408/CCCR_experience/blob/master/png/Ceph_logo.png" alt="drawing" width="500"/>
+
+`Ref. https://ceph.io/`
 
 Ceph는 처음에 Sage Well에 의해 박사학위 논문으로 시작되었고, 2007년 가을 이 프로젝트를 계속했고 개발팀을 확장했다. 2014년 4월 Red Hat은 자체 개발을 완료했다. 지금까지 8개의 Ceph가 2015년 4월 7일 Hammer로 출시되었다. Ceph는 C++ 및 Perl로 작성된 분산 클러스터로, 확장성이 뛰어나고 자유롭게 사용 가능
 
@@ -83,6 +95,10 @@ Ceph는 처음에 Sage Well에 의해 박사학위 논문으로 시작되었고,
 
 ## Syncany
 
+<img src="https://github.com/hyunseungbin9408/CCCR_experience/blob/master/png/Syncany_logo.png" alt="drawing" width="500"/>
+
+`Ref. https://www.syncany.org/`
+
 2014년 3월에 출시된 Syncany는 가장 가볍고 개방적인 소스 클라우드 스토리지 및 파일 공유 애플리케이션 중 하나이고 현재 필립 C에 의해 활발하게 개발되고 있다. 현재 Heckkel은 지원되는 모든 플랫폼에 대한 명령줄 도구로 사용가능
 
 Syncany의 가장 중요한 특징 중 하나는 툴이며 FTP 또는 SFTP 스토리지, WebDAV 또는 Samba Shares, Amazon S3 버킷 등이 될 수 있는 자체 스토리지를 도입해야 한다.
@@ -92,6 +108,10 @@ Syncany의 가장 중요한 특징 중 하나는 툴이며 FTP 또는 SFTP 스�
 ***
 
 ## Cozy
+
+<img src="https://github.com/hyunseungbin9408/CCCR_experience/blob/master/png/Cozy_logo.png" alt="drawing" width="500"/>
+
+`Ref. https://cozy.io/en/`
 
 파일 공유, 동기화 도구 또는 소프트웨어가 아닌 Cozy는 전체 앱 엔진을 구축하는 데 도움이 되는 기능의 완전한 패키지에 번들로 구성되어 있다.
 
@@ -104,6 +124,10 @@ Cozy 팀은 저렴한 하드웨어에도 가용성을 제공하기 위한 한 �
 ***
 
 ## GlusterFS
+
+<img src="https://github.com/hyunseungbin9408/CCCR_experience/blob/master/png/Gluster_logo.png" alt="drawing" width="500"/>
+
+`Ref. https://www.gluster.org/ `
 
 GlusterFS는 네트워크 연결 파일 스토리지 시스템이다. 처음에 글러스터사가 시작한 이 프로젝트는 현재 Red Hat 사에 속해있다. 2011년 글러스터 사를 인수한 후 Red Hat 통합 Gluster FS와 Red Hat 스토리지 서버의 이름을 Red Hat Gluster Storage로 변경되었다. GPLv3에 따라 일부 라이센스가 부여된 Linux, OS X, NetBSd 및 OpenSolaris를 포함한 플랫폼에서 사용 할 수 있으며, 다른 일부 부품은 GPLv2에 따라 이중 라이센스가 부여된다. 학문적 연구의 토대로 사용되어 왔다.
 

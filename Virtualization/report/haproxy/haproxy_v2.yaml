@@ -1,0 +1,29 @@
+- hosts: ha
+  vars:
+    haproxy:
+      frontend:
+        port: 80
+      backend:
+        name: wp
+        balance_type: roundrobin
+        web1:
+          port: 80
+        web2:
+          port: 80
+  tasks:
+  - set_fact:
+      node1_public_ip: "{{ ansible_eth0.ipv4.address }}"
+  - setup:
+    delegate_to: wp1 # ansible_eth1.ipv4.address
+  - set_fact:
+      node2_ip: "{{ ansible_ens9.ipv4.address }}"
+  - setup:
+    delegate_to: wp2
+  - set_fact:
+      node3_ip: "{{ ansible_ens9.ipv4.address }}"
+  - template:
+      src: haproxy.cfg.j2
+      dest: /tmp/haproxy.cfg
+    when:
+    - ansible_distribution == "Ubuntu"
+    

@@ -311,8 +311,9 @@ Ad-Hoc 명령의 사용 예 `ansible webservers -m service -a "name=httpd state=
 <img src="https://github.com/hyunseungbin9408/CCCR_experience/blob/master/png/Ansible_delete_db_yaml.png" alt="drawing" width="500"/>
 
 ### 변수
+<img src="https://github.com/hyunseungbin9408/CCCR_experience/blob/master/png/Ansible_vars.png" alt="drawing" width="700"/>
 
-
+<img src="https://github.com/hyunseungbin9408/CCCR_experience/blob/master/png/Ansible_vars_cnf_j2.png" alt="drawing" width="500"/>
 
 ### 포함
 

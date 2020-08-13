@@ -1,0 +1,83 @@
+- hosts: wp-ha
+  tasks:
+- name: Deploy to CentOS
+  block:
+  - name: Install haproxy
+    yum:
+      name: haproxy
+      state: latest
+  - name: Open http port
+    firewalld: 
+      port: "{{ haproxy['frontend']['port'] }}/tcp" 
+      permanent: yes 
+      state: enabled 
+      immediate: yes    
+  - name: Active seboolean for httpd  
+    seboolean: 
+      name: haproxy_connect_any
+      state: yes 
+      persistent: yes
+  - name: Set facts for haproxy public ip
+    set_fact:
+      haproxy_public_ip: "{{ ansible_eth0.ipv4.address }}"
+  - name: Delegate collecting facts for wordpress1
+    setup:
+    delegate_to: node2
+  - name: Set facts for wordpress1 private ip
+    set_fact:
+      wordpress1_private_ip: "{{ ansible_eth1.ipv4.address }}"
+  - name: Delegate collecting facts for wordpress2
+    setup:
+    delegate_to: node3
+  - name: Set facts for wordpress2 private ip
+    set_fact:
+      wordpress2_private_ip: "{{ ansible_eth1.ipv4.address }}"
+  - name: Copy haproxy configuration
+    template:
+      src: centos/haproxy.cfg.j2
+      dest: /etc/haproxy/haproxy.cfg
+    notify:
+    - Restart haproxy service
+  when: ansible_distribution == "CentOS"
+
+- name: Deploy to Ubuntu
+  block:
+  - name: Install haproxy
+    apt:
+      name: haproxy
+      state: latest
+      update_cache: yes
+  - name: Set facts for haproxy public ip
+    set_fact:
+      haproxy_public_ip: "{{ ansible_ens3.ipv4.address }}"
+  - name: Delegate collecting facts for wordpress1
+    setup:
+    delegate_to: node2
+  - name: Set facts for wordpress1 private ip
+    set_fact:
+      wordpress1_private_ip: "{{ ansible_eth1.ipv4.address }}"
+  - name: Delegate collecting facts for wordpress2
+    setup:
+    delegate_to: node3
+  - name: Set facts for wordpress2 private ip
+    set_fact:
+      wordpress2_private_ip: "{{ ansible_eth1.ipv4.address }}"
+  - name: Copy haproxy configuration
+    template:
+      src: ubuntu/haproxy.cfg.j2
+      dest: /etc/haproxy/haproxy.cfg
+    notify:
+    - Restart haproxy service  
+  when: ansible_distribution == "Ubuntu" 
+
+- name: Start haproxy service
+  service:
+    name: haproxy
+    enabled: true
+    state: started
+
+handlers:
+- name: Restart haproxy service
+  service:
+    name: haproxy
+    state: restarted

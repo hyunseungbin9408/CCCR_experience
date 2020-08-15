@@ -142,4 +142,22 @@ ZFS 스토리지 풀을 만들기 위한 기본적인 zpool 명령어
 
 + `device`: ZFS 스토리지 풀을 만들기 위한 가상 장치 즉, 디스크를 지정한다.
 
-### 
+#### 1.1 ZFS 스토리지 풀 생성
+
+<img src="https://github.com/hyunseungbin9408/CCCR_experience/blob/master/png/zpool_create.png" alt="drawing" width="500"/>
+
+`zpool create <ZFS pool 이름> <디바이스 이름>`
+
+로 스트라이프 형태인 기본 zpool를 생성한다.
+
+`zpool list`
+
+명령어로 zpool 리스트를 확인한다.
+
+<img src="https://github.com/hyunseungbin9408/CCCR_experience/blob/master/png/zpool_mount.png" alt="drawing" width="500"/>
+
+`df -h`로 마운트정보를 확인하면 자동으로 마운트가 된 것을 알 수 있다.
+
+#### 1.2 미러 스토리지 풀 생성
+
+`

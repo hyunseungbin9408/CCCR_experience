@@ -27,6 +27,8 @@
 트랜잭션을 다시 수행하여 오류를 막는다. 또한 모든 트랜잭션은 기록으로 남아 어디서 무슨 일이 언제 수행되었는지가 기록된다. 이러한 파일 시스템은
 시스템의 오류를 막기 위해 설계되었으며, 느리지만 안전하다고 볼 수 있다.
 
+***
+
 ## ZFS 란?
 
 ZFS(ZettaByte File System) 파일시스템은 제프 본윅(Jeff Bonwick)에 의해 구현되고 디자인 되었다. ZFS는 파일시스템을 관리하는 방법을
@@ -45,4 +47,10 @@ ZFS 파일시스템은 현존하는 유일한 128비트 파일시스템으로 ZF
 그러나 ZFS에서는 물리적인 스토리지를 관리하기 위해서 볼륨을 생성하는 대신에 스토리지 풀이라는 개념을 사용한다. 스토리지 풀을 이용하면 용량을 추가한 직후 
 바로 반영되어 즉시 사용가능하다. 또한 모든 파일시스템이 스토리지풀로 구성된 스토리지에 담겨질 수 있고, 각각의 파일시스템은 실제로 사용한 만큼만 공간을
 차지하기 때문에 스토리지 공간을 효율적으로 사용 할 수 있다.
+
+<img src="https://github.com/hyunseungbin9408/CCCR_experience/blob/master/png/ZFS_Storage.png" alt="drawing" width="700"/>
+
+### 2. ZFS 구조
+
+<img src="https://github.com/hyunseungbin9408/CCCR_experience/blob/master/png/ZFS_architect.png" alt="drawing" width="700"/>
 

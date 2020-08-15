@@ -55,7 +55,7 @@ ZFS 파일시스템은 현존하는 유일한 128비트 파일시스템으로 ZF
 
 ### 2. ZFS 구조
 
-<img src="https://github.com/hyunseungbin9408/CCCR_experience/blob/master/png/ZFS_architect.png" alt="drawing" width="700"/>
+<img src="https://github.com/hyunseungbin9408/CCCR_experience/blob/master/png/ZFS_architect2.png" alt="drawing" width="700"/>
 
 기본적으로 ZFS는 위의 그림과 같은 내부적인 구조를 가지고 있다. SPA(Storage Pool Allocator)는 스토리지 풀을 뜻하며 공간할당, 복제, 체크섬, 압축, 암호화, 리소스 제어, 장애관리 등을 제공한다.
 

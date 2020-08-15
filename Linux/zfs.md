@@ -129,3 +129,13 @@ ZFS에서는 데이터의 중복을 위해 기존 파일시스템의 RAID 개념
 `sudo apt-get update`
 
 `sudo apt-get install zfsutils-linux`
+
+ZFS 스토리지 풀을 만들기 위한 기본적인 zpool 명령어
+
+` zpool create pool [type] device `
+
++ `create`: ZFS 스토리지 풀을 생성한다.
+
++ `pool`: ZFS 스토리지 풀의 이름을 지정한다.
+
++ `[type]: ZFS 스토리지 풀의 유형을 지정한다. 지정하지 않으면 기본 값으로 스트라이프

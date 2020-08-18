@@ -34,3 +34,21 @@ DNS: 8.8.8.8 / 8.8.4.4
 
 다시한번 패키지를 업데이트해준다.
 
+그 후에 오픈스택을 다운받을 수 있는 packstack패키지를 설치한다.
+
+`sudo yum install -y openstack-packstack`
+
+설치하면 packstack 명령어를 사용할 수 있다.
+
+`packstack --gen-answer-file=answer.txt`
+
+설치할때 문답하는 명령어들을 파일로 만들어보았다
+몇백개이상에 문답이 있어서 하나하나 작성하기는 부담스럽다.
+
+기본 호스트 주소와 오픈스택에 각 기능에 디폴트값도 들어가있다.
+
+`CONFIG_CONTROLLER_HOST=192.168.123.180`
+
+이러한 값들이 들어가있다.
+
+`packstack --answer-file=answer.txt`

@@ -52,3 +52,6 @@ DNS: 8.8.8.8 / 8.8.4.4
 이러한 값들이 들어가있다.
 
 `packstack --answer-file=answer.txt`
+
+<img src="https://github.com/hyunseungbin9408/CCCR_experience/blob/master/png/packstack_install.png" alt="drawing" width="700"/>
+

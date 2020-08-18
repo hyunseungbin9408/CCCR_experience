@@ -55,3 +55,7 @@ DNS: 8.8.8.8 / 8.8.4.4
 
 <img src="https://github.com/hyunseungbin9408/CCCR_experience/blob/master/png/packstack_install.png" alt="drawing" width="700"/>
 
+
+## kolla ansible install
+
+`ref. https://github.com/openstack/kolla-ansible`

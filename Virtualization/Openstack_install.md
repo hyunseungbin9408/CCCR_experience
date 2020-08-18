@@ -58,4 +58,33 @@ DNS: 8.8.8.8 / 8.8.4.4
 
 ## kolla ansible install
 
-`ref. https://github.com/openstack/kolla-ansible`
+`ref. https://docs.openstack.org/kolla-ansible/train/user/quickstart.html`
+
+설치 순서는
++ python
+
++ (python virtual Environment)
+
++ ansible2.6~2.9
+
++ kolla-ansible (playbook for deploying openstack)
+
+ansible 
+
+kolla ansible 버전은 train을 설치
+
+kolla ansible 을 다운받기 위해서는 기본적인 환경이 필요하기때문에 
+다음과 같은 패키지를 설치
+
+`sudo yum install python-devel libffi-devel gcc openssl-devel libselinux-python`
+
+파이썬 가상환경을 사용 할 수 있는 패키지 설치
+
+`sudo yum install python-virtualenv`
+
+가상환경명령어에 경로를 정해주고
+소스로 적용시키면 사용 할 수 있다.
+
+`virtualenv /path/to/virtualenv
+source /path/to/virtualenv/bin/activate`
+

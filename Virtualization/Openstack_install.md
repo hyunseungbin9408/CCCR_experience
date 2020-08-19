@@ -88,3 +88,13 @@ kolla ansible 을 다운받기 위해서는 기본적인 환경이 필요하기�
 `virtualenv /path/to/virtualenv
 source /path/to/virtualenv/bin/activate`
 
+ansible 
+eth0 Internal  // 192.168.122.180/24
+eth1 External  // IP를 수동으로 지정하면 안됌
+
+os 
+eth0 Internal // 192.168.122.181/24
+eth1 External // IP를 수동으로 지정하면 안됌
+
+가상환경에서 진행해야되고 root로 실행하면 폴더가 바껴서 진행이 안된다.
+
